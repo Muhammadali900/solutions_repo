@@ -121,16 +121,6 @@ plt.show()
 
 ---
 
-### **6. Deliverables**
-
-- **Markdown Document**: A detailed explanation of the theory and the governing equations, along with the derivation of the formula for the range as a function of launch angle.
-- **Python Script/Notebook**: Code for simulating projectile motion and visualizing the range as a function of launch angle, with variations for different initial conditions.
-- **Graphical Representations**: The plot of **range vs. angle** for various initial conditions, such as varying initial velocity or gravitational acceleration.
-- **Discussion**: A brief explanation of the limitations of the idealized model, including the absence of air resistance and assumptions about constant gravity. Suggestions for extending the model to account for drag, wind, and uneven terrain are also provided.
-
----
-
-This completes **Problem 1**! The next steps would involve running the Python code, interpreting the results, and considering extensions to the idealized model to account for more realistic factors.
 
  
 

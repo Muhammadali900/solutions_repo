@@ -46,8 +46,8 @@ $$
 $$
 
 Where:
-- $\(\theta_0\)$ is the initial amplitude.
-- $\(\phi\)$ is the phase constant determined by initial conditions.
+- \(\theta_0\) is the initial amplitude.
+- \(\phi\) is the phase constant determined by initial conditions.
 
 ### **4. Solution for the Damped, Unforced Case (Damped Pendulum)**
 
@@ -59,9 +59,9 @@ $$
 
 The solution to this equation depends on the value of the damping coefficient \(\gamma\). It can be categorized as:
 
-- **Underdamped $(\(\gamma^2 < 4 \omega_0^2\))$**: The pendulum oscillates with exponentially decaying amplitude.
-- **Critically damped $(\(\gamma^2 = 4 \omega_0^2\))$**: The pendulum returns to equilibrium as quickly as possible without oscillating.
-- **Overdamped $(\(\gamma^2 > 4 \omega_0^2\))$**: The pendulum returns to equilibrium without oscillating, but slower than in the critically damped case.
+- **Underdamped (\(\gamma^2 < 4 \omega_0^2\))**: The pendulum oscillates with exponentially decaying amplitude.
+- **Critically damped (\(\gamma^2 = 4 \omega_0^2\))**: The pendulum returns to equilibrium as quickly as possible without oscillating.
+- **Overdamped (\(\gamma^2 > 4 \omega_0^2\))**: The pendulum returns to equilibrium without oscillating, but slower than in the critically damped case.
 
 The solution for the underdamped case is:
 
@@ -70,9 +70,9 @@ $$
 $$
 
 Where:
-- $\(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\gamma}{2}\right)^2}\)$ is the damped frequency.
-- $\(\theta_0\) and \(\phi\)$ are determined by initial conditions.
-- The exponential term $\(e^{-\gamma t / 2}\)$ represents the decaying amplitude.
+- \(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\gamma}{2}\right)^2}\) is the damped frequency.
+- \(\theta_0\) and \(\phi\) are determined by initial conditions.
+- The exponential term \(e^{-\gamma t / 2}\) represents the decaying amplitude.
 
 ### **5. Forced, Undamped Case (Driven Pendulum)**
 
@@ -89,10 +89,10 @@ $$
 $$
 
 Where:
-- $\(\delta = \tan^{-1}\left(\frac{\gamma \omega}{\omega_0^2 - \omega^2}\right)\)$ is the phase shift.
-- $\(A\)$ is the driving amplitude.
-- $\(\omega\)$ is the driving frequency.
-- $\(\omega_0\)$ is the natural frequency of the pendulum.
+- \(\delta = \tan^{-1}\left(\frac{\gamma \omega}{\omega_0^2 - \omega^2}\right)\) is the phase shift.
+- \(A\) is the driving amplitude.
+- \(\omega\) is the driving frequency.
+- \(\omega_0\) is the natural frequency of the pendulum.
 
 ### **6. Forced and Damped Case (Complete System)**
 
@@ -122,16 +122,16 @@ E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
 $$
 
 Where:
-- $\(m\)$ is the mass of the pendulum.
-- $\(l\)$ is the length of the pendulum.
-- $\(\theta'(t)\)$ is the angular velocity.
-- $\(\theta(t)\)$ is the angular displacement.
+- \(m\) is the mass of the pendulum.
+- \(l\) is the length of the pendulum.
+- \(\theta'(t)\) is the angular velocity.
+- \(\theta(t)\) is the angular displacement.
 
-For the forced damped pendulum, the energy fluctuates due to the energy supplied by the external driving force and the energy dissipated by damping. At resonance $(\(\omega = \omega_0\))$, the energy absorption is maximized.
+For the forced damped pendulum, the energy fluctuates due to the energy supplied by the external driving force and the energy dissipated by damping. At resonance (\(\omega = \omega_0\)), the energy absorption is maximized.
 
 ### **8. Resonance and Frequency Response**
 
-In resonance, the system oscillates with maximum amplitude. The resonance condition occurs when the driving frequency $\(\omega\)$ equals the natural frequency $\(\omega_0\)$. In this case, the amplitude of the oscillations grows, which can be expressed as:
+In resonance, the system oscillates with maximum amplitude. The resonance condition occurs when the driving frequency \(\omega\) equals the natural frequency \(\omega_0\). In this case, the amplitude of the oscillations grows, which can be expressed as:
 
 $$
 \theta_{\text{max}} = \frac{A}{\gamma \omega_0}

@@ -4,9 +4,9 @@
 
 The general form of the equation of motion for a forced damped pendulum is:
 
-\[
+$$
 \theta''(t) + \gamma \theta'(t) + \omega_0^2 \sin(\theta(t)) = A \cos(\omega t)
-\]
+$$
 
 Where:
 - \(\theta(t)\) is the angular displacement of the pendulum as a function of time.
@@ -19,15 +19,15 @@ Where:
 
 For small oscillations where \(\theta(t)\) is small (usually in radians), we can make the approximation:
 
-\[
+$$
 \sin(\theta(t)) \approx \theta(t)
-\]
+$$
 
 This leads to the simplified linear equation:
 
-\[
+$$
 \theta''(t) + \gamma \theta'(t) + \omega_0^2 \theta(t) = A \cos(\omega t)
-\]
+$$
 
 This is a second-order linear ordinary differential equation with constant coefficients, which is much easier to solve.
 
@@ -35,15 +35,15 @@ This is a second-order linear ordinary differential equation with constant coeff
 
 For the case when there is no damping (\(\gamma = 0\)) and no external driving force (\(A = 0\)), the equation simplifies to:
 
-\[
+$$
 \theta''(t) + \omega_0^2 \theta(t) = 0
-\]
+$$
 
 This is a simple harmonic oscillator, and its solution is:
 
-\[
+$$
 \theta(t) = \theta_0 \cos(\omega_0 t + \phi)
-\]
+$$
 
 Where:
 - \(\theta_0\) is the initial amplitude.
@@ -53,9 +53,9 @@ Where:
 
 When we add damping but no external forcing (i.e., \(A = 0\)), the equation becomes:
 
-\[
+$$
 \theta''(t) + \gamma \theta'(t) + \omega_0^2 \theta(t) = 0
-\]
+$$
 
 The solution to this equation depends on the value of the damping coefficient \(\gamma\). It can be categorized as:
 
@@ -65,9 +65,9 @@ The solution to this equation depends on the value of the damping coefficient \(
 
 The solution for the underdamped case is:
 
-\[
+$$
 \theta(t) = \theta_0 e^{-\gamma t / 2} \cos(\omega_d t + \phi)
-\]
+$$
 
 Where:
 - \(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\gamma}{2}\right)^2}\) is the damped frequency.
@@ -78,15 +78,15 @@ Where:
 
 When there is no damping (\(\gamma = 0\)), but there is an external driving force, the equation becomes:
 
-\[
+$$
 \theta''(t) + \omega_0^2 \theta(t) = A \cos(\omega t)
-\]
+$$
 
 The solution to this equation is:
 
-\[
+$$
 \theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
-\]
+$$
 
 Where:
 - \(\delta = \tan^{-1}\left(\frac{\gamma \omega}{\omega_0^2 - \omega^2}\right)\) is the phase shift.
@@ -98,18 +98,18 @@ Where:
 
 For the complete system with both damping and external driving force, the general solution is given by the combination of the transient and steady-state solutions:
 
-\[
+$$
 \theta(t) = \theta_{\text{transient}}(t) + \theta_{\text{steady}}(t)
-\]
+$$
 
 - The **transient** part of the solution represents the initial conditions and will decay over time due to damping.
 - The **steady-state** part of the solution represents the long-term behavior of the system, which oscillates with a constant amplitude at the driving frequency.
 
 For steady-state oscillations, the solution is:
 
-\[
+$$
 \theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
-\]
+$$
 
 This shows how the system responds to the periodic driving force in the long run.
 
@@ -117,9 +117,9 @@ This shows how the system responds to the periodic driving force in the long run
 
 The total mechanical energy \(E(t)\) of the system is the sum of the kinetic energy and the potential energy:
 
-\[
+$$
 E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
-\]
+$$
 
 Where:
 - \(m\) is the mass of the pendulum.
@@ -133,40 +133,40 @@ For the forced damped pendulum, the energy fluctuates due to the energy supplied
 
 In resonance, the system oscillates with maximum amplitude. The resonance condition occurs when the driving frequency \(\omega\) equals the natural frequency \(\omega_0\). In this case, the amplitude of the oscillations grows, which can be expressed as:
 
-\[
+$$
 \theta_{\text{max}} = \frac{A}{\gamma \omega_0}
-\]
+$$
 
 This shows that resonance can lead to large oscillations, especially if the damping is small. If the damping is large, the resonance effect is reduced.
 
 ### **Summary of Key Formulas**
 
 - **Undamped, Free Pendulum (Simple Harmonic Motion)**:  
-  \[
+  $$
   \theta(t) = \theta_0 \cos(\omega_0 t + \phi)
-  \]
+  $$
   
 - **Damped, Free Pendulum**:  
-  \[
+  $$
   \theta(t) = \theta_0 e^{-\gamma t / 2} \cos(\omega_d t + \phi)
-  \]
+  $$
 
 - **Forced, Damped Pendulum**:  
-  \[
+  $$
   \theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
-  \]
+  $$
 
 - **Energy**:  
-  \[
+  $$
   E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
-  \]
+  $$
 
 - **Maximum Amplitude at Resonance**:  
-  \[
+  $$
   \theta_{\text{max}} = \frac{A}{\gamma \omega_0}
-  \]
+  $$
 
-Certainly! Here's a Python script to simulate the behavior of the forced damped pendulum, including the solutions for the damped and driven system, and visualize the results.
+
 
 We'll use numerical methods to solve the differential equation for the forced damped pendulum. The script will use the `solve_ivp` function from SciPy to solve the system, and visualize the results with Matplotlib.
 
@@ -254,9 +254,9 @@ plt.show()
 
 2. **Forced Damped Pendulum Differential Equation**:
    The function `forced_damped_pendulum(t, y)` represents the system of ordinary differential equations:
-   \[
+   $$
    \theta''(t) + \gamma \theta'(t) + \omega_0^2 \sin(\theta(t)) = A \cos(\omega t)
-   \]
+   $$
    We return the derivatives of \(\theta(t)\) and \(\theta'(t)\) in this function for numerical integration.
 
 3. **Numerical Solution**:

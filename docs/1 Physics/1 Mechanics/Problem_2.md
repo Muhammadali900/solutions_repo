@@ -277,15 +277,5 @@ plt.show()
 
 - **Adjusting the driving amplitude (\(A\))**: This will affect the maximum amplitude of oscillation.
 
-### **Running the Script**:
 
-1. **Dependencies**: The script requires Python with the following libraries:
-   - `numpy`: For numerical computations.
-   - `matplotlib`: For plotting graphs.
-   - `scipy`: For solving the differential equation using `solve_ivp`.
-
-2. **Simulations**: By changing the `gamma`, `omega`, or other parameters, you can observe different behaviors:
-   - Regular oscillations.
-   - Transition to chaotic behavior (if you explore beyond linear approximations and use higher-order methods).
-   - Resonance phenomena when the driving frequency is close to the natural frequency.
 

@@ -272,36 +272,35 @@ E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
 <ul>
 <li>
 <p><strong>Undamped, Free Pendulum (Simple Harmonic Motion)</strong>:<br/>
-  [
+  $$
   \theta(t) = \theta_0 \cos(\omega_0 t + \phi)
-  ]</p>
+  $$</p>
 </li>
 <li>
 <p><strong>Damped, Free Pendulum</strong>:<br/>
-  [
+  $$
   \theta(t) = \theta_0 e^{-\gamma t / 2} \cos(\omega_d t + \phi)
-  ]</p>
+  $$</p>
 </li>
 <li>
 <p><strong>Forced, Damped Pendulum</strong>:<br/>
-  [
+  $$
   \theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
-  ]</p>
+  $$</p>
 </li>
 <li>
 <p><strong>Energy</strong>:<br/>
-  [
+  $$
   E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
-  ]</p>
+  $$</p>
 </li>
 <li>
 <p><strong>Maximum Amplitude at Resonance</strong>:<br/>
-  [
+  $$
   \theta_{\text{max}} = \frac{A}{\gamma \omega_0}
-  ]</p>
+  $$</p>
 </li>
 </ul>
-<p>Certainly! Here's a Python script to simulate the behavior of the forced damped pendulum, including the solutions for the damped and driven system, and visualize the results.</p>
 <p>We'll use numerical methods to solve the differential equation for the forced damped pendulum. The script will use the <code>solve_ivp</code> function from SciPy to solve the system, and visualize the results with Matplotlib.</p>
 <h3 id="python-script-for-simulating-the-forced-damped-pendulum">Python Script for Simulating the Forced Damped Pendulum:</h3>
 <pre><code class="language-python">import numpy as np
@@ -386,9 +385,9 @@ plt.show()
 <li>
 <p><strong>Forced Damped Pendulum Differential Equation</strong>:
    The function <code>forced_damped_pendulum(t, y)</code> represents the system of ordinary differential equations:
-   [
+   $$
    \theta''(t) + \gamma \theta'(t) + \omega_0^2 \sin(\theta(t)) = A \cos(\omega t)
-   ]
+   $$
    We return the derivatives of <span class="arithmatex">\(\theta(t)\)</span> and <span class="arithmatex">\(\theta'(t)\)</span> in this function for numerical integration.</p>
 </li>
 <li>

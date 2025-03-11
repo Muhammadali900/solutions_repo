@@ -75,23 +75,8 @@ The goal is to investigate how the horizontal range of a projectile depends on t
 
 - **Effect of Gravitational Acceleration**: If the gravitational acceleration \(g\) increases (as it would on a planet with a stronger gravitational pull), the range decreases because the projectile falls back to the ground more quickly.
 
----
 
-### **4. Practical Applications**
-
-This model of projectile motion is applicable to various real-world scenarios, such as:
-
-- **Sports**: In sports like soccer, basketball, or golf, understanding the relationship between the launch angle and range can help players optimize their throws or kicks for maximum distance.
-  
-- **Engineering**: Engineers may use this model to design systems that involve the launch of projectiles or vehicles, such as in missile guidance or rocket launches.
-  
-- **Astrophysics**: The motion of space objects, such as asteroids or satellites, can be modeled similarly to predict trajectories and landing zones, considering gravitational forces from celestial bodies.
-
-- **Uneven Terrain and Air Resistance**: In real-world conditions, factors like wind and uneven terrain must be considered, and the model can be extended to incorporate drag and varying gravitational forces.
-
----
-
-### **5. Implementation**
+### **4. Implementation**
 
 To simulate and visualize the projectile motion, we can create a computational tool that calculates the range for various angles of projection. Below is the Python script for the simulation.
 

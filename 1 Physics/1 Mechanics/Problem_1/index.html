@@ -197,7 +197,7 @@
 <p>Projectile motion, while seemingly simple, offers a rich playground for exploring fundamental principles of physics. The task is to analyze how the range of a projectile depends on its angle of projection. Although the problem appears straightforward, the governing equations of projectile motion involve both linear and quadratic relationships, which provide a deeper insight into the behavior of projectiles.</p>
 <p>What makes this topic particularly compelling is the number of free parameters involved in these equations, such as:</p>
 <ul>
-<li><strong>Initial velocity</strong> (<span class="arithmatex">\(v_0\)</span>)</li>
+<li><strong>Initial velocity</strong> (<span class="arithmatex">\($v_0$\)</span>)</li>
 <li><strong>Gravitational acceleration</strong> (<span class="arithmatex">\(g\)</span>)</li>
 <li><strong>Launch height</strong> (<span class="arithmatex">\(h\)</span>)</li>
 </ul>
@@ -206,44 +206,44 @@
 <h3 id="2-theoretical-foundation"><strong>2. Theoretical Foundation</strong></h3>
 <p>The motion of a projectile can be described by the following equations, derived from the fundamental principles of Newtonian mechanics.</p>
 <h4 id="21-derivation-of-the-governing-equations"><strong>2.1 Derivation of the Governing Equations</strong></h4>
-<p>When a projectile is launched with an initial velocity <span class="arithmatex">\(v_0\)</span> at an angle <span class="arithmatex">\(\theta\)</span>, the motion can be broken into two components: horizontal motion (constant velocity) and vertical motion (under constant acceleration due to gravity).</p>
+<p>When a projectile is launched with an initial velocity <span class="arithmatex">\($v_0$\)</span> at an angle <span class="arithmatex">\(\$theta$\)</span>, the motion can be broken into two components: horizontal motion (constant velocity) and vertical motion (under constant acceleration due to gravity).</p>
 <ol>
 <li><strong>Horizontal Motion (constant velocity):</strong>
-   [
-   x(t) = v_0 \cos(\theta) \cdot t
-   ]
+   $$
+   x(t) = <span class="arithmatex">\(v_0\)</span> \cos(\theta) \cdot t
+   $$
    Where:</li>
 <li><span class="arithmatex">\(x(t)\)</span> is the horizontal displacement at time <span class="arithmatex">\(t\)</span>,</li>
 <li>
-<p><span class="arithmatex">\(v_0 \cos(\theta)\)</span> is the horizontal component of the initial velocity.</p>
+<p><span class="arithmatex">\($v_0$ \cos(\$theta$)\)</span> is the horizontal component of the initial velocity.</p>
 </li>
 <li>
 <p><strong>Vertical Motion (accelerated motion under gravity):</strong>
-   [
-   y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2
-   ]
+   $$
+   y(t) = <span class="arithmatex">\(v_0\)</span> \sin(\theta) \cdot t - \frac{1}{2} g t^2
+   $$
    Where:</p>
 </li>
 <li><span class="arithmatex">\(y(t)\)</span> is the vertical displacement at time <span class="arithmatex">\(t\)</span>,</li>
-<li><span class="arithmatex">\(v_0 \sin(\theta)\)</span> is the vertical component of the initial velocity,</li>
+<li><span class="arithmatex">\($v_0$ \sin(\theta)\)</span> is the vertical component of the initial velocity,</li>
 <li><span class="arithmatex">\(g\)</span> is the acceleration due to gravity.</li>
 </ol>
 <h4 id="22-time-of-flight-and-range"><strong>2.2 Time of Flight and Range</strong></h4>
 <p>The <strong>time of flight</strong> <span class="arithmatex">\(T\)</span> is determined by when the projectile hits the ground, i.e., when <span class="arithmatex">\(y(T) = 0\)</span>. Solving for <span class="arithmatex">\(T\)</span> gives:
-[
-T = \frac{2 v_0 \sin(\theta)}{g}
-]</p>
+$$
+T = \frac{2 <span class="arithmatex">\(v_0\)</span> \sin(\theta)}{g}
+$$</p>
 <p>The <strong>horizontal range</strong> <span class="arithmatex">\(R\)</span>, which is the total horizontal distance traveled by the projectile, is obtained by multiplying the horizontal velocity by the time of flight:
-[
-R = v_0 \cos(\theta) \cdot T = \frac{v_0^2 \sin(2\theta)}{g}
-]
-Here, <span class="arithmatex">\(\sin(2\theta)\)</span> arises from the trigonometric identity for the sine of a double angle.</p>
+$$
+R = <span class="arithmatex">\(v_0\)</span> \cos(\theta) \cdot T = \frac{<span class="arithmatex">\(v_0^2\)</span> \sin(2\theta)}{g}
+$$
+Here, $(\sin(2\theta))$ arises from the trigonometric identity for the sine of a double angle.</p>
 <h4 id="23-analysis-of-the-range"><strong>2.3 Analysis of the Range</strong></h4>
 <ul>
-<li>The range <span class="arithmatex">\(R\)</span> depends <strong>non-linearly</strong> on the angle <span class="arithmatex">\(\theta\)</span>.</li>
+<li>The range $(R)$ depends <strong>non-linearly</strong> on the angle <span class="arithmatex">\(\$theta$\)</span>.</li>
 <li>The range is <strong>maximized</strong> when the angle of projection is <strong><span class="arithmatex">\(\theta = 45^\circ\)</span></strong> under ideal conditions (i.e., no air resistance).</li>
-<li><strong>Higher initial velocities</strong> <span class="arithmatex">\(v_0\)</span> increase the range.</li>
-<li>A <strong>stronger gravitational field</strong> (higher <span class="arithmatex">\(g\)</span>) reduces the range.</li>
+<li><strong>Higher initial velocities</strong> <span class="arithmatex">\($v_0$\)</span> increase the range.</li>
+<li>A <strong>stronger gravitational field</strong> <span class="arithmatex">\((higher \(g\))\)</span> reduces the range.</li>
 </ul>
 <hr/>
 <h3 id="3-analysis-of-the-range"><strong>3. Analysis of the Range</strong></h3>
@@ -285,7 +285,7 @@ import matplotlib.pyplot as plt
 # Function to calculate projectile range
 def projectile_range(v0, theta, g=9.81):
     theta_rad = np.radians(theta)  # Convert degrees to radians
-    return (v0**2 * np.sin(2 * theta_rad)) / g  # Range formula
+    return ($v0**2$ * $np.sin(2 * theta_rad)$) / g  # Range formula
 
 # Generate data for different angles
 angles = np.linspace(0, 90, 100)  # Angles from 0 to 90 degrees

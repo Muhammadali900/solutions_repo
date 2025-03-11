@@ -390,31 +390,7 @@ plt.show()
    $$
    We return the derivatives of <span class="arithmatex">\(\theta(t)\)</span> and <span class="arithmatex">\(\theta'(t)\)</span> in this function for numerical integration.</p>
 </li>
-<li>
-<p><strong>Numerical Solution</strong>:
-   We use <code>solve_ivp</code> to solve the system of equations numerically. The time span is from 0 to 100 seconds, with 10,000 time points for high resolution.</p>
-</li>
-<li>
-<p><strong>Visualization</strong>:</p>
-</li>
-<li>The first plot shows the angular displacement <span class="arithmatex">\(\theta(t)\)</span> over time.</li>
-<li>The second plot shows the phase portrait, which is a plot of <span class="arithmatex">\(\theta(t)\)</span> vs. <span class="arithmatex">\(\theta'(t)\)</span>. This shows the relationship between the angular displacement and velocity, which can help identify the system's dynamics.</li>
-<li>The third part (optional) computes and plots the frequency response of the system, which shows how the maximum amplitude of oscillation changes as the driving frequency varies.</li>
 </ol>
-<h3 id="how-to-modify-the-parameters"><strong>How to Modify the Parameters</strong>:</h3>
-<ul>
-<li><strong>Changing the damping coefficient (<span class="arithmatex">\(\gamma\)</span>)</strong>: This will affect whether the system is underdamped, critically damped, or overdamped. For example:</li>
-<li>For <strong>underdamped</strong> motion, set <span class="arithmatex">\(\gamma\)</span> to a small value (e.g., 0.2).</li>
-<li>
-<p>For <strong>overdamped</strong> motion, set <span class="arithmatex">\(\gamma\)</span> to a large value (e.g., 5).</p>
-</li>
-<li>
-<p><strong>Changing the driving frequency (<span class="arithmatex">\(\omega\)</span>)</strong>: This affects the system's resonance. If <span class="arithmatex">\(\omega\)</span> is close to the natural frequency <span class="arithmatex">\(\omega_0\)</span>, the system will oscillate with large amplitude (resonance). If <span class="arithmatex">\(\omega\)</span> is far from <span class="arithmatex">\(\omega_0\)</span>, the amplitude will be smaller.</p>
-</li>
-<li>
-<p><strong>Adjusting the driving amplitude (<span class="arithmatex">\(A\)</span>)</strong>: This will affect the maximum amplitude of oscillation.</p>
-</li>
-</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

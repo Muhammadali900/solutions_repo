@@ -82,7 +82,7 @@ plt.show()
 ## **Findings and Discussion**  
 - The range increases until **θ = 45°**, then decreases symmetrically.  
 - **Higher initial velocities** increase the range.  
-- **Stronger gravity (e.g., on Jupiter)** reduces the range.  
+- **Stronger gravity (e.g., on Jupiter)** reduces the range.
 
  
 

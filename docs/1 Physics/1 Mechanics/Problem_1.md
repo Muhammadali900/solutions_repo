@@ -10,7 +10,7 @@ Projectile motion, while seemingly simple, offers a rich playground for explorin
 
 What makes this topic particularly compelling is the number of free parameters involved in these equations, such as:
 
-- **Initial velocity** (\($v_0$\))
+- **Initial velocity** (\(v_0\))
 - **Gravitational acceleration** (\(g\))
 - **Launch height** (\(h\))
 
@@ -24,7 +24,7 @@ The motion of a projectile can be described by the following equations, derived 
 
 #### **2.1 Derivation of the Governing Equations**
 
-When a projectile is launched with an initial velocity \($v_0$\) at an angle \(\$theta$\), the motion can be broken into two components: horizontal motion (constant velocity) and vertical motion (under constant acceleration due to gravity).
+When a projectile is launched with an initial velocity \(v_0\) at an angle \(\theta\), the motion can be broken into two components: horizontal motion (constant velocity) and vertical motion (under constant acceleration due to gravity).
 
 1. **Horizontal Motion (constant velocity):**
    $$
@@ -32,36 +32,36 @@ When a projectile is launched with an initial velocity \($v_0$\) at an angle \(\
    $$
    Where:
    - \(x(t)\) is the horizontal displacement at time \(t\),
-   - \($v_0$ \cos(\$theta$)\) is the horizontal component of the initial velocity.
+   - \(v_0 \cos(\$theta$)\) is the horizontal component of the initial velocity.
 
 2. **Vertical Motion (accelerated motion under gravity):**
    $$
-   y(t) = $v_0$ \sin(\theta) \cdot t - \frac{1}{2} g t^2
+   y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2
    $$
    Where:
    - \(y(t)\) is the vertical displacement at time \(t\),
-   - \($v_0$ \sin(\theta)\) is the vertical component of the initial velocity,
+   - \(v_0 \sin(\theta)\) is the vertical component of the initial velocity,
    - \(g\) is the acceleration due to gravity.
 
 #### **2.2 Time of Flight and Range**
 
 The **time of flight** \(T\) is determined by when the projectile hits the ground, i.e., when \(y(T) = 0\). Solving for \(T\) gives:
 $$
-T = \frac{2 $v_0$ \sin(\theta)}{g}
+T = \frac{2 v_0 \sin(\theta)}{g}
 $$
 
 The **horizontal range** \(R\), which is the total horizontal distance traveled by the projectile, is obtained by multiplying the horizontal velocity by the time of flight:
 $$
-R = $v_0$ \cos(\theta) \cdot T = \frac{$v_0^2$ \sin(2\theta)}{g}
+R = v_0 \cos(\theta) \cdot T = \frac{v_0^2 \sin(2\theta)}{g}
 $$
-Here, \$(\sin(2\theta)\)$ arises from the trigonometric identity for the sine of a double angle.
+Here, \(\sin(2\theta)\) arises from the trigonometric identity for the sine of a double angle.
 
 #### **2.3 Analysis of the Range**
 
-- The range \$(R\)$ depends **non-linearly** on the angle \(\$theta$\).
+- The range \(R\) depends **non-linearly** on the angle \(\theta\).
 - The range is **maximized** when the angle of projection is **\(\theta = 45^\circ\)** under ideal conditions (i.e., no air resistance).
-- **Higher initial velocities** \($v_0$\) increase the range.
-- A **stronger gravitational field** $(higher \(g\))$ reduces the range.
+- **Higher initial velocities** \(v_0\) increase the range.
+- A **stronger gravitational field** (higher \(g\)) reduces the range.
 
 ---
 
@@ -102,7 +102,7 @@ import matplotlib.pyplot as plt
 # Function to calculate projectile range
 def projectile_range(v0, theta, g=9.81):
     theta_rad = np.radians(theta)  # Convert degrees to radians
-    return ($v0**2$ * $np.sin(2 * theta_rad)$) / g  # Range formula
+    return (v0**2 * np.sin(2 * theta_rad)) / g  # Range formula
 
 # Generate data for different angles
 angles = np.linspace(0, 90, 100)  # Angles from 0 to 90 degrees

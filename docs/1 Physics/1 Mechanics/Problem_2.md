@@ -59,7 +59,7 @@ $$
 
 The solution to this equation depends on the value of the damping coefficient \(\gamma\). It can be categorized as:
 
-- **Underdamped (\(\gamma^2 < 4 \omega_0^2\))**: The pendulum oscillates with exponentially decaying amplitude.
+- **Underdamped **(\(\gamma^2 < 4 \omega_0^2\))**: The pendulum oscillates with exponentially decaying amplitude.
 - **Critically damped (\(\gamma^2 = 4 \omega_0^2\))**: The pendulum returns to equilibrium as quickly as possible without oscillating.
 - **Overdamped (\(\gamma^2 > 4 \omega_0^2\))**: The pendulum returns to equilibrium without oscillating, but slower than in the critically damped case.
 

@@ -259,23 +259,10 @@ plt.show()
    $$
    We return the derivatives of \(\theta(t)\) and \(\theta'(t)\) in this function for numerical integration.
 
-3. **Numerical Solution**:
-   We use `solve_ivp` to solve the system of equations numerically. The time span is from 0 to 100 seconds, with 10,000 time points for high resolution.
 
-4. **Visualization**:
-   - The first plot shows the angular displacement \(\theta(t)\) over time.
-   - The second plot shows the phase portrait, which is a plot of \(\theta(t)\) vs. \(\theta'(t)\). This shows the relationship between the angular displacement and velocity, which can help identify the system's dynamics.
-   - The third part (optional) computes and plots the frequency response of the system, which shows how the maximum amplitude of oscillation changes as the driving frequency varies.
 
-### **How to Modify the Parameters**:
 
-- **Changing the damping coefficient (\(\gamma\))**: This will affect whether the system is underdamped, critically damped, or overdamped. For example:
-  - For **underdamped** motion, set \(\gamma\) to a small value (e.g., 0.2).
-  - For **overdamped** motion, set \(\gamma\) to a large value (e.g., 5).
-  
-- **Changing the driving frequency (\(\omega\))**: This affects the system's resonance. If \(\omega\) is close to the natural frequency \(\omega_0\), the system will oscillate with large amplitude (resonance). If \(\omega\) is far from \(\omega_0\), the amplitude will be smaller.
 
-- **Adjusting the driving amplitude (\(A\))**: This will affect the maximum amplitude of oscillation.
 
 
 

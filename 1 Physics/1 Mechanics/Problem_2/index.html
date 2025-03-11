@@ -202,8 +202,8 @@
 \theta(t) = \theta_0 \cos(\omega_0 t + \phi)
 \]</div>
 <p>Where:
-- <span class="arithmatex">\(\(\theta_0\)\)</span> is the initial amplitude.
-- <span class="arithmatex">\(\(\phi\)\)</span> is the phase constant determined by initial conditions.</p>
+- <span class="arithmatex">\(\theta_0\)</span> is the initial amplitude.
+- <span class="arithmatex">\(\phi\)</span> is the phase constant determined by initial conditions.</p>
 <h3 id="4-solution-for-the-damped-unforced-case-damped-pendulum"><strong>4. Solution for the Damped, Unforced Case (Damped Pendulum)</strong></h3>
 <p>When we add damping but no external forcing (i.e., <span class="arithmatex">\(A = 0\)</span>), the equation becomes:</p>
 <div class="arithmatex">\[
@@ -211,18 +211,18 @@
 \]</div>
 <p>The solution to this equation depends on the value of the damping coefficient <span class="arithmatex">\(\gamma\)</span>. It can be categorized as:</p>
 <ul>
-<li><strong>Underdamped <span class="arithmatex">\((\(\gamma^2 &lt; 4 \omega_0^2\))\)</span></strong>: The pendulum oscillates with exponentially decaying amplitude.</li>
-<li><strong>Critically damped <span class="arithmatex">\((\(\gamma^2 = 4 \omega_0^2\))\)</span></strong>: The pendulum returns to equilibrium as quickly as possible without oscillating.</li>
-<li><strong>Overdamped <span class="arithmatex">\((\(\gamma^2 &gt; 4 \omega_0^2\))\)</span></strong>: The pendulum returns to equilibrium without oscillating, but slower than in the critically damped case.</li>
+<li><strong>Underdamped (<span class="arithmatex">\(\gamma^2 &lt; 4 \omega_0^2\)</span>)</strong>: The pendulum oscillates with exponentially decaying amplitude.</li>
+<li><strong>Critically damped (<span class="arithmatex">\(\gamma^2 = 4 \omega_0^2\)</span>)</strong>: The pendulum returns to equilibrium as quickly as possible without oscillating.</li>
+<li><strong>Overdamped (<span class="arithmatex">\(\gamma^2 &gt; 4 \omega_0^2\)</span>)</strong>: The pendulum returns to equilibrium without oscillating, but slower than in the critically damped case.</li>
 </ul>
 <p>The solution for the underdamped case is:</p>
 <div class="arithmatex">\[
 \theta(t) = \theta_0 e^{-\gamma t / 2} \cos(\omega_d t + \phi)
 \]</div>
 <p>Where:
-- <span class="arithmatex">\(\(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\gamma}{2}\right)^2}\)\)</span> is the damped frequency.
-- <span class="arithmatex">\(\(\theta_0\) and \(\phi\)\)</span> are determined by initial conditions.
-- The exponential term <span class="arithmatex">\(\(e^{-\gamma t / 2}\)\)</span> represents the decaying amplitude.</p>
+- <span class="arithmatex">\(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\gamma}{2}\right)^2}\)</span> is the damped frequency.
+- <span class="arithmatex">\(\theta_0\)</span> and <span class="arithmatex">\(\phi\)</span> are determined by initial conditions.
+- The exponential term <span class="arithmatex">\(e^{-\gamma t / 2}\)</span> represents the decaying amplitude.</p>
 <h3 id="5-forced-undamped-case-driven-pendulum"><strong>5. Forced, Undamped Case (Driven Pendulum)</strong></h3>
 <p>When there is no damping (<span class="arithmatex">\(\gamma = 0\)</span>), but there is an external driving force, the equation becomes:</p>
 <div class="arithmatex">\[
@@ -233,10 +233,10 @@
 \theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
 \]</div>
 <p>Where:
-- <span class="arithmatex">\(\(\delta = \tan^{-1}\left(\frac{\gamma \omega}{\omega_0^2 - \omega^2}\right)\)\)</span> is the phase shift.
-- <span class="arithmatex">\(\(A\)\)</span> is the driving amplitude.
-- <span class="arithmatex">\(\(\omega\)\)</span> is the driving frequency.
-- <span class="arithmatex">\(\(\omega_0\)\)</span> is the natural frequency of the pendulum.</p>
+- <span class="arithmatex">\(\delta = \tan^{-1}\left(\frac{\gamma \omega}{\omega_0^2 - \omega^2}\right)\)</span> is the phase shift.
+- <span class="arithmatex">\(A\)</span> is the driving amplitude.
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency.
+- <span class="arithmatex">\(\omega_0\)</span> is the natural frequency of the pendulum.</p>
 <h3 id="6-forced-and-damped-case-complete-system"><strong>6. Forced and Damped Case (Complete System)</strong></h3>
 <p>For the complete system with both damping and external driving force, the general solution is given by the combination of the transient and steady-state solutions:</p>
 <div class="arithmatex">\[
@@ -257,13 +257,13 @@
 E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
 \]</div>
 <p>Where:
-- <span class="arithmatex">\(\(m\)\)</span> is the mass of the pendulum.
-- <span class="arithmatex">\(\(l\)\)</span> is the length of the pendulum.
-- <span class="arithmatex">\(\(\theta'(t)\)\)</span> is the angular velocity.
-- <span class="arithmatex">\(\(\theta(t)\)\)</span> is the angular displacement.</p>
-<p>For the forced damped pendulum, the energy fluctuates due to the energy supplied by the external driving force and the energy dissipated by damping. At resonance <span class="arithmatex">\((\(\omega = \omega_0\))\)</span>, the energy absorption is maximized.</p>
+- <span class="arithmatex">\(m\)</span> is the mass of the pendulum.
+- <span class="arithmatex">\(l\)</span> is the length of the pendulum.
+- <span class="arithmatex">\(\theta'(t)\)</span> is the angular velocity.
+- <span class="arithmatex">\(\theta(t)\)</span> is the angular displacement.</p>
+<p>For the forced damped pendulum, the energy fluctuates due to the energy supplied by the external driving force and the energy dissipated by damping. At resonance (<span class="arithmatex">\(\omega = \omega_0\)</span>), the energy absorption is maximized.</p>
 <h3 id="8-resonance-and-frequency-response"><strong>8. Resonance and Frequency Response</strong></h3>
-<p>In resonance, the system oscillates with maximum amplitude. The resonance condition occurs when the driving frequency <span class="arithmatex">\(\(\omega\)\)</span> equals the natural frequency <span class="arithmatex">\(\(\omega_0\)\)</span>. In this case, the amplitude of the oscillations grows, which can be expressed as:</p>
+<p>In resonance, the system oscillates with maximum amplitude. The resonance condition occurs when the driving frequency <span class="arithmatex">\(\omega\)</span> equals the natural frequency <span class="arithmatex">\(\omega_0\)</span>. In this case, the amplitude of the oscillations grows, which can be expressed as:</p>
 <div class="arithmatex">\[
 \theta_{\text{max}} = \frac{A}{\gamma \omega_0}
 \]</div>

@@ -7,10 +7,13 @@ $$
 $$  
 
 Where:  
-- $ \theta $ is the angular displacement (radians).  
-- $ g $ is the acceleration due to gravity ($ 9.8 $ m/s²).  
-- $ L $ is the length of the pendulum.  
-- The term $ \sin(\theta) $ accounts for the restoring torque due to gravity.  
+- $\theta$ is the angular displacement (radians).
+
+- $g$ is the acceleration due to gravity ($ 9.8 $ m/s²). 
+
+- $L$ is the length of the pendulum. 
+
+- The term $\sin(\theta)$ accounts for the restoring torque due to gravity.  
 
 This is a nonlinear second-order differential equation, making it difficult to solve analytically for large angles.  
 
@@ -33,9 +36,12 @@ $$
 $$  
 
 Where:  
-- $ \theta_0 $ is the initial amplitude.  
-- $ \phi $ is the phase constant, determined by initial conditions.  
-- $ \omega $ is the natural frequency of the pendulum, given by:  
+- $\theta_0$ is the initial amplitude.
+
+- $\phi$ is the phase constant, determined by initial conditions. 
+
+- $\omega$ is the natural frequency of the pendulum, given by: 
+
 
 $$  
 \omega = \sqrt{\frac{g}{L}}  
@@ -71,7 +77,7 @@ $$
 
 A useful way to visualize pendulum motion is in phase space, plotting angular velocity $ \dot{\theta} $ against angular displacement $ \theta $. The phase portrait shows closed curves for undamped motion, representing conservation of energy.
 
-## 7. Frequency of Oscillations  
+## 6. Frequency of Oscillations  
 
 The period of oscillation $ T $ for small angles is given by:  
 
@@ -98,7 +104,7 @@ T \approx 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{16} \theta_0^2 + \frac{11}{
 $$  
 
 
-## 6. Numerical Solution using Python  
+## 7. Numerical Solution using Python  
 
 Since the nonlinear equation:  
 

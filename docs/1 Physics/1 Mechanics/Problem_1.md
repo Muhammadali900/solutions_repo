@@ -1,156 +1,160 @@
-# Comprehensive Exploration of Projectile Motion
+## 1. Equation of Motion  
 
-## 1. Fundamental Theoretical Concepts
+A simple pendulum consists of a mass $m$ attached to a string of length $L$, swinging under the influence of gravity. The equation governing its motion is:  
 
-Projectile motion is the movement of an object under the influence of gravity and its initial velocity. It's governed by the laws of physics and can be analyzed by dividing the motion into horizontal and vertical components.
+$$  
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin\theta = 0  
+$$  
 
----
+Where:  
+- $ \theta $ is the angular displacement (radians).  
+- $ g $ is the acceleration due to gravity ($ 9.8 $ m/s²).  
+- $ L $ is the length of the pendulum.  
+- The term $ \sin(\theta) $ accounts for the restoring torque due to gravity.  
 
-### 1.1. Governing Equations of Motion
-The motion follows Newton's laws and can be described by these fundamental equations:
-1. **Horizontal displacement**:
-   $$x = v_0 \cos(\theta) t$$
-2. **Vertical displacement**:
-   $$y = v_0 \sin(\theta) t - \frac{1}{2} g t^2$$
-3. **Horizontal velocity**:
-   $$v_x = v_0 \cos(\theta)$$
-4. **Vertical velocity**:
-   $$v_y = v_0 \sin(\theta) - g t$$
+This is a nonlinear second-order differential equation, making it difficult to solve analytically for large angles.  
 
----
+## 2. Small-Angle Approximation  
 
-### 1.2. Additional Basic Formulas
-- **Range (assuming flat terrain)**:
-  $$R = \frac{v_0^2 \sin(2\theta)}{g}$$
-- **Maximum height**:
-  $$H = \frac{(v_0 \sin(\theta))^2}{2g}$$
-- **Time of flight**:
-  $$T = \frac{2v_0 \sin(\theta)}{g}$$
-- **Trajectory equation**:
-  $$y = x \tan(\theta) - \frac{g x^2}{2(v_0 \cos(\theta))^2}$$
+For small angles where $ \theta \approx \sin(\theta) $ (in radians), the equation simplifies to:  
 
----
+$$  
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \theta = 0  
+$$  
 
-### 1.3. Advanced Formulas
-- **Range with air resistance (simplified)**:
-  $$R \approx \frac{v_0^2 \sin(2\theta)}{g + \frac{C_d}{m}v_0 \cos(\theta)}$$
-- **Range on an inclined plane**:
-  $$R = \frac{2 v_0^2 \cos^2(\theta - \phi) \sin(\theta)}{g \cos(\phi)}$$
-- **Energy relations**:
-  - Kinetic energy:
-    $$KE = \frac{1}{2} m (v_x^2 + v_y^2)$$
-  - Potential energy:
-    $$PE = m g y$$
-  - Total energy:
-    $$E = KE + PE$$
-- **Rotational dynamics (if spinning)**:
-  $$L = I \omega, \text{ where } I = \frac{2}{5}mr^2 \text{ for a sphere}$$
+This is a linear second-order ordinary differential equation, similar to a simple harmonic oscillator.  
 
----
+## 3. Solution for the Simple Pendulum  
 
-## 2. Python Code: Simulations and Visualizations
+For small oscillations, the solution takes the form:  
 
-### 2.1. Basic Range Calculator
+$$  
+\theta (t) = \theta_0 \cos(\omega t + \phi)  
+$$  
+
+Where:  
+- $ \theta_0 $ is the initial amplitude.  
+- $ \phi $ is the phase constant, determined by initial conditions.  
+- $ \omega $ is the natural frequency of the pendulum, given by:  
+
+$$  
+\omega = \sqrt{\frac{g}{L}}  
+$$  
+
+## 4. Energy of the Simple Pendulum  
+
+The total mechanical energy $ E $ is the sum of kinetic and potential energy:  
+
+$$  
+E = T + U  
+$$  
+
+Where:  
+
+### Kinetic Energy  
+$$  
+T = \frac{1}{2} m L^2 \left( \frac{d\theta}{dt} \right)^2  
+$$  
+
+### Potential Energy (measured from the lowest position)  
+$$  
+U = mgL(1 - \cos\theta)  
+$$  
+
+The total energy remains constant for an ideal pendulum:  
+
+$$  
+E = \frac{1}{2} m L^2 \left( \frac{d\theta}{dt} \right)^2 + mgL(1 - \cos\theta)  
+$$  
+
+## 5. Phase Space Representation  
+
+A useful way to visualize pendulum motion is in phase space, plotting angular velocity $ \dot{\theta} $ against angular displacement $ \theta $. The phase portrait shows closed curves for undamped motion, representing conservation of energy.
+
+## 7. Frequency of Oscillations  
+
+The period of oscillation $ T $ for small angles is given by:  
+
+$$  
+T = 2\pi \sqrt{\frac{L}{g}}  
+$$  
+
+For large amplitudes, the period must be corrected using elliptic integrals:  
+
+$$  
+T = 4 \sqrt{\frac{L}{g}} \int_0^{\pi/2} \frac{d\phi}{\sqrt{1 - k^2 \sin^2\phi}}  
+$$  
+
+where:  
+
+$$  
+k = \sin\left(\frac{\theta_0}{2}\right)  
+$$  
+
+For small oscillations, we can approximate:  
+
+$$  
+T \approx 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{16} \theta_0^2 + \frac{11}{3072} \theta_0^4 + \dots\right)  
+$$  
+
+
+## 6. Numerical Solution using Python  
+
+Since the nonlinear equation:  
+
+$$  
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = 0  
+$$ 
+
 ```python
-import math
-
-def calculate_range(v0, angle, g=9.8):
-    angle_rad = math.radians(angle)
-    return (v0**2 * math.sin(2 * angle_rad)) / g
-
-# Example
-range_result = calculate_range(20, 45)
-print(f"Range: {range_result:.2f} meters")
-2.2. Maximum Height and Time of Flight
-python
-def max_height_and_time(v0, angle, g=9.8):
-    angle_rad = math.radians(angle)
-    max_height = (v0**2 * math.sin(angle_rad)**2) / (2 * g)
-    time_of_flight = (2 * v0 * math.sin(angle_rad)) / g
-    return max_height, time_of_flight
-
-# Example
-height, time = max_height_and_time(20, 45)
-print(f"Maximum Height: {height:.2f} meters")
-print(f"Time of Flight: {time:.2f} seconds")
-2.3. Range vs. Angle Plot
-python
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
 
-angles = np.linspace(0, 90, 500)
-ranges = [calculate_range(20, angle) for angle in angles]
+# Parameters
+g = 9.8  # Gravity (m/s^2)
+L = 1.0  # Length of pendulum (m)
+t_span = (0, 10)  # Time span for simulation
+initial_conditions = [np.pi / 4, 0]  # Initial conditions: [theta(0), theta'(0)]
 
-plt.plot(angles, ranges)
-plt.title('Range vs. Angle of Projection')
-plt.xlabel('Angle (degrees)')
-plt.ylabel('Range (meters)')
-plt.grid()
-plt.show()
-2.4. Simulation with Air Resistance
-python
-def simulate_with_air_resistance(v0, angle, Cd, mass, g=9.8, dt=0.01):
-    angle_rad = math.radians(angle)
-    vx, vy = v0 * math.cos(angle_rad), v0 * math.sin(angle_rad)
-    x, y = 0, 0
-    positions_x, positions_y = [x], [y]
+# Differential equation for the simple pendulum
+def simple_pendulum(t, y):
+    theta, theta_dot = y
+    dtheta_dt = theta_dot
+    dtheta_dot_dt = - (g / L) * np.sin(theta)
+    return [dtheta_dt, dtheta_dot_dt]
 
-    while y >= 0:
-        drag_x = -Cd * vx**2
-        drag_y = -Cd * vy**2
-        ax = drag_x / mass
-        ay = -g + drag_y / mass
-        vx += ax * dt
-        vy += ay * dt
-        x += vx * dt
-        y += vy * dt
-        positions_x.append(x)
-        positions_y.append(y)
+# Solve using Runge-Kutta method
+solution = solve_ivp(simple_pendulum, t_span, initial_conditions, t_eval=np.linspace(0, 10, 1000))
 
-    return positions_x, positions_y
+# Extract solution
+t = solution.t
+theta = solution.y[0]
+theta_dot = solution.y[1]
 
-x_vals, y_vals = simulate_with_air_resistance(20, 45, 0.05, 2)
-plt.plot(x_vals, y_vals)
-plt.title('Projectile Motion with Air Resistance')
-plt.xlabel('Horizontal Distance (m)')
-plt.ylabel('Vertical Distance (m)')
-plt.grid()
-plt.show()
-2.5. Range on an Inclined Plane
-python
-def range_on_inclined_plane(v0, angle, incline_angle, g=9.8):
-    angle_rad = math.radians(angle)
-    incline_rad = math.radians(incline_angle)
-    return (2 * v0**2 * math.cos(angle_rad - incline_rad)**2 * math.sin(angle_rad)) / (g * math.cos(incline_rad))
-
-# Example
-inclined_range = range_on_inclined_plane(20, 45, 30)
-print(f"Range on Inclined Plane: {inclined_range:.2f} meters")
-2.6. Energy Analysis Visualization
-python
-def energy_components(v0, angle, t, mass, g=9.8):
-    angle_rad = math.radians(angle)
-    vx = v0 * math.cos(angle_rad)
-    vy = v0 * math.sin(angle_rad) - g * t
-    kinetic_energy = 0.5 * mass * (vx**2 + vy**2)
-    potential_energy = mass * g * (v0 * math.sin(angle_rad) * t - 0.5 * g * t**2)
-    return kinetic_energy, potential_energy
-
-times = np.linspace(0, 2, 500)
-kinetic_energies = []
-potential_energies = []
-
-for t in times:
-    ke, pe = energy_components(20, 45, t, 2)
-    kinetic_energies.append(ke)
-    potential_energies.append(pe)
-
-plt.plot(times, kinetic_energies, label='Kinetic Energy')
-plt.plot(times, potential_energies, label='Potential Energy')
-plt.title('Energy Components Over Time')
-plt.xlabel('Time (s)')
-plt.ylabel('Energy (Joules)')
+# Plot Angular Displacement vs Time
+plt.figure(figsize=(10, 6))
+plt.plot(t, theta, label="Theta (rad)")
+plt.title("Simple Pendulum Motion")
+plt.xlabel("Time (s)")
+plt.ylabel("Angular Displacement (rad)")
+plt.grid(True)
 plt.legend()
-plt.grid()
 plt.show()
-3. Limitations and Suggested Enhancements
+
+# Plot Phase Portrait
+plt.figure(figsize=(8, 6))
+plt.plot(theta, theta_dot)
+plt.title("Phase Portrait of the Simple Pendulum")
+plt.xlabel("Theta (rad)")
+plt.ylabel("Theta' (rad/s)")
+plt.grid(True)
+plt.show(
+
+
+
+
+
+
+
+

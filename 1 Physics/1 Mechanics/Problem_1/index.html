@@ -256,44 +256,50 @@ T \approx 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{16} \theta_0^2 + \frac{11}{
 <div class="arithmatex">\[  
 \frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = 0  
 \]</div>
-<p>```python
-import numpy as np
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp</p>
-<h1 id="parameters">Parameters</h1>
-<p>g = 9.8  # Gravity (m/s^2)
+from scipy.integrate import solve_ivp
+
+# Parameters
+g = 9.8  # Gravity (m/s^2)
 L = 1.0  # Length of pendulum (m)
 t_span = (0, 10)  # Time span for simulation
-initial_conditions = [np.pi / 4, 0]  # Initial conditions: [theta(0), theta'(0)]</p>
-<h1 id="differential-equation-for-the-simple-pendulum">Differential equation for the simple pendulum</h1>
-<p>def simple_pendulum(t, y):
+initial_conditions = [np.pi / 4, 0]  # Initial conditions: [theta(0), theta'(0)]
+
+# Differential equation for the simple pendulum
+def simple_pendulum(t, y):
     theta, theta_dot = y
     dtheta_dt = theta_dot
     dtheta_dot_dt = - (g / L) * np.sin(theta)
-    return [dtheta_dt, dtheta_dot_dt]</p>
-<h1 id="solve-using-runge-kutta-method">Solve using Runge-Kutta method</h1>
-<p>solution = solve_ivp(simple_pendulum, t_span, initial_conditions, t_eval=np.linspace(0, 10, 1000))</p>
-<h1 id="extract-solution">Extract solution</h1>
-<p>t = solution.t
+    return [dtheta_dt, dtheta_dot_dt]
+
+# Solve using Runge-Kutta method
+solution = solve_ivp(simple_pendulum, t_span, initial_conditions, t_eval=np.linspace(0, 10, 1000))
+
+# Extract solution
+t = solution.t
 theta = solution.y[0]
-theta_dot = solution.y[1]</p>
-<h1 id="plot-angular-displacement-vs-time">Plot Angular Displacement vs Time</h1>
-<p>plt.figure(figsize=(10, 6))
+theta_dot = solution.y[1]
+
+# Plot Angular Displacement vs Time
+plt.figure(figsize=(10, 6))
 plt.plot(t, theta, label="Theta (rad)")
 plt.title("Simple Pendulum Motion")
 plt.xlabel("Time (s)")
 plt.ylabel("Angular Displacement (rad)")
 plt.grid(True)
 plt.legend()
-plt.show()</p>
-<h1 id="plot-phase-portrait">Plot Phase Portrait</h1>
-<p>plt.figure(figsize=(8, 6))
+plt.show()
+
+# Plot Phase Portrait
+plt.figure(figsize=(8, 6))
 plt.plot(theta, theta_dot)
 plt.title("Phase Portrait of the Simple Pendulum")
 plt.xlabel("Theta (rad)")
 plt.ylabel("Theta' (rad/s)")
 plt.grid(True)
-plt.show(</p>
+plt.show(
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

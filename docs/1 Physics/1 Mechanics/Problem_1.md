@@ -156,6 +156,7 @@ plt.xlabel("Theta (rad)")
 plt.ylabel("Theta' (rad/s)")
 plt.grid(True)
 plt.show(
+```
 
 
 

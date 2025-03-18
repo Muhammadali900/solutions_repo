@@ -32,9 +32,11 @@ $$
 R = v_0 \cos(\theta) t_f = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
+---
+
 ### 2. Analysis of the Range
 
-- The range is a function of the launch angle \( \theta \), initial velocity \( v_0 \), and gravitational acceleration \( g \).
+- The range \( R \) is a function of the launch angle \( \theta \), initial velocity \( v_0 \), and gravitational acceleration \( g \).
 - The **maximum range** occurs at \( \theta = 45^\circ \), because:
 
 $$
@@ -43,11 +45,16 @@ $$
 
 Thus, the range is maximized when the angle is \( 45^\circ \).
 
+---
+
 ### 3. Practical Applications
 
 In real scenarios, additional factors like air resistance and uneven terrain modify the ideal range equation. The formula becomes more complex as we incorporate:
+
 - **Drag force**: \( F_d = \frac{1}{2} C_d \rho A v^2 \),
 - **Uneven terrain**: Adjust launch angle based on height differences.
+
+---
 
 ### 4. Implementation (Python Code)
 

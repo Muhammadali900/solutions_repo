@@ -1,75 +1,55 @@
-### Problem 1: Investigating the Range as a Function of the Angle of Projection
+# Problem 1: Investigating the Range as a Function of the Angle of Projection
 
 ---
 
-#### 1. Theoretical Foundation
+### 1. Theoretical Foundation
 
-Projectile motion follows from the basic equations of motion under constant acceleration. The equations of motion are:
+Projectile motion is governed by two main equations: horizontal and vertical motion.
 
-- **Horizontal motion**:  
-  $$
-  x(t) = v_0 \cos(\theta) t
-  $$
-
-- **Vertical motion**:  
-  $$
-  y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2
-  $$
-
-To find the time of flight $t_f$, we set $y(t_f) = 0$ (i.e., when the projectile hits the ground):
+#### Horizontal Motion:
 
 $$
-0 = v_0 \sin(\theta) t_f - \frac{1}{2} g t_f^2
+x(t) = v_0 \cos(\theta) t
 $$
 
-Solving for $t_f$, we get:
+#### Vertical Motion:
+
+$$
+y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2
+$$
+
+The time of flight \( t_f \) is found by setting \( y(t_f) = 0 \):
 
 $$
 t_f = \frac{2 v_0 \sin(\theta)}{g}
 $$
 
-Substituting $t_f$ into the equation for $x(t)$, we can find the horizontal range $R$:
+#### Range Equation:
+
+Substituting \( t_f \) into the horizontal motion equation:
 
 $$
-R = \frac{v_0^2 \sin(2\theta)}{g}
+R = v_0 \cos(\theta) t_f = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
-This is the formula for the **range of a projectile** as a function of the launch angle $\theta$.
+### 2. Analysis of the Range
 
----
-
-#### 2. Analysis of the Range
-
-From the derived equation for range:
+- The range is a function of the launch angle \( \theta \), initial velocity \( v_0 \), and gravitational acceleration \( g \).
+- The **maximum range** occurs at \( \theta = 45^\circ \), because:
 
 $$
-R(\theta) = \frac{v_0^2 \sin(2\theta)}{g}
+\sin(2 \times 45^\circ) = 1
 $$
 
-We can see that the range depends on:
-- The initial velocity $v_0$,
-- The gravitational acceleration $g$,
-- The angle of projection $\theta$.
+Thus, the range is maximized when the angle is \( 45^\circ \).
 
-- The **sine of double the angle** $\sin(2\theta)$ gives a characteristic curve where the range is maximized when $\theta = 45^\circ$.
-- If the initial velocity increases, the range increases proportionally.
-- The range is inversely proportional to gravity; the higher the gravitational acceleration, the shorter the range.
+### 3. Practical Applications
 
----
+In real scenarios, additional factors like air resistance and uneven terrain modify the ideal range equation. The formula becomes more complex as we incorporate:
+- **Drag force**: \( F_d = \frac{1}{2} C_d \rho A v^2 \),
+- **Uneven terrain**: Adjust launch angle based on height differences.
 
-#### 3. Practical Applications
-
-In real-world situations, the model can be adapted for:
-- **Uneven terrain**: The launch angle might need to be adjusted for different elevations.
-- **Air resistance**: This introduces a drag force that slows down the projectile, especially at higher velocities.
-
-To account for these factors, more advanced models are required, such as:
-- **Drag force models** (e.g., quadratic drag for high velocities),
-- **Simulation of motion on curved surfaces** (e.g., hills).
-
----
-
-#### 4. Implementation 
+### 4. Implementation (Python Code)
 
 ```python
 import numpy as np

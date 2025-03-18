@@ -243,6 +243,7 @@ plt.grid(True)
 plt.show()
 ```
 
+
 ### **Explanation of the Python Code**:
 
 1. **Parameters**:

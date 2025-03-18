@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Problem 2 - Physics and Mathematics</title>
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_2.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Physics and Mathematics
+        </a><div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../..">Introduction</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">1 Physics</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<ul class="current">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">2 Gravity</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_2/">Problem 2</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_3/">Problem 3</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Waves</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../3%20Waves/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Electromagnetism</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4%20Electromagnetism/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Circuits</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../5%20Circuits/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">6 Statistics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">7 Measurements</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">2 Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/1%20Linear_algebra/">Linear Algebra</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/2%20Analytic_geometry/">Analytic geometry</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/3%20Calculus/">Calculus</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">3 Discret Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal">1 Set Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_02%20Set_Theory/">Set Theory</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_03%20Relations/">Relations</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_04%20Functions/">Functions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">2 Number Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_05%20Combinatorics/">Combinatorics</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_08%20Number_Theory/">Number Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Recurrence and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_06%20Sequences_and_Series/">Sequences and Series</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_07%20Induction/">Induction</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_09%20Recurrence/">Recurrence</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Graph Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/4%20Graph%20Theory%20and%20.../_10%20Graph_Theory/">Graph Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Logic</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/5%20Logic/_01%20Logic/">Logic</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Physics and Mathematics</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
+<li class="breadcrumb-item">1 Physics</li>
+<li class="breadcrumb-item">1 Mechanics</li>
+<li class="breadcrumb-item active">Problem 2</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h3 id="1-differential-equation-for-forced-damped-pendulum"><strong>1. Differential Equation for Forced Damped Pendulum</strong></h3>
+<p>The general form of the equation of motion for a forced damped pendulum is:</p>
+<div class="arithmatex">\[
+\theta''(t) + \gamma \theta'(t) + \omega_0^2 \sin(\theta(t)) = A \cos(\omega t)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\theta(t)\)</span> is the angular displacement of the pendulum as a function of time.
+- <span class="arithmatex">\(\gamma\)</span> is the damping coefficient (measuring the rate of energy dissipation).
+- <span class="arithmatex">\(\omega_0\)</span> is the natural frequency of the pendulum (without damping or external driving force).
+- <span class="arithmatex">\(A\)</span> is the amplitude of the external driving force.
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency of the external force.</p>
+<h3 id="2-small-angle-approximation"><strong>2. Small-Angle Approximation</strong></h3>
+<p>For small oscillations where <span class="arithmatex">\(\theta(t)\)</span> is small (usually in radians), we can make the approximation:</p>
+<div class="arithmatex">\[
+\sin(\theta(t)) \approx \theta(t)
+\]</div>
+<p>This leads to the simplified linear equation:</p>
+<div class="arithmatex">\[
+\theta''(t) + \gamma \theta'(t) + \omega_0^2 \theta(t) = A \cos(\omega t)
+\]</div>
+<p>This is a second-order linear ordinary differential equation with constant coefficients, which is much easier to solve.</p>
+<h3 id="3-solution-for-the-undamped-unforced-case-free-pendulum"><strong>3. Solution for the Undamped, Unforced Case (Free Pendulum)</strong></h3>
+<p>For the case when there is no damping (<span class="arithmatex">\(\gamma = 0\)</span>) and no external driving force (<span class="arithmatex">\(A = 0\)</span>), the equation simplifies to:</p>
+<div class="arithmatex">\[
+\theta''(t) + \omega_0^2 \theta(t) = 0
+\]</div>
+<p>This is a simple harmonic oscillator, and its solution is:</p>
+<div class="arithmatex">\[
+\theta(t) = \theta_0 \cos(\omega_0 t + \phi)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\theta_0\)</span> is the initial amplitude.
+- <span class="arithmatex">\(\phi\)</span> is the phase constant determined by initial conditions.</p>
+<h3 id="4-solution-for-the-damped-unforced-case-damped-pendulum"><strong>4. Solution for the Damped, Unforced Case (Damped Pendulum)</strong></h3>
+<p>When we add damping but no external forcing (i.e., <span class="arithmatex">\(A = 0\)</span>), the equation becomes:</p>
+<div class="arithmatex">\[
+\theta''(t) + \gamma \theta'(t) + \omega_0^2 \theta(t) = 0
+\]</div>
+<p>The solution to this equation depends on the value of the damping coefficient <span class="arithmatex">\(\gamma\)</span>. It can be categorized as:</p>
+<ul>
+<li><strong>Underdamped </strong>(<span class="arithmatex">\(\gamma^2 &lt; 4 \omega_0^2\)</span>)**: The pendulum oscillates with exponentially decaying amplitude.</li>
+<li><strong>Critically damped (<span class="arithmatex">\(\gamma^2 = 4 \omega_0^2\)</span>)</strong>: The pendulum returns to equilibrium as quickly as possible without oscillating.</li>
+<li><strong>Overdamped (<span class="arithmatex">\(\gamma^2 &gt; 4 \omega_0^2\)</span>)</strong>: The pendulum returns to equilibrium without oscillating, but slower than in the critically damped case.</li>
+</ul>
+<p>The solution for the underdamped case is:</p>
+<div class="arithmatex">\[
+\theta(t) = \theta_0 e^{-\gamma t / 2} \cos(\omega_d t + \phi)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\gamma}{2}\right)^2}\)</span> is the damped frequency.
+- <span class="arithmatex">\(\theta_0\)</span> and <span class="arithmatex">\(\phi\)</span> are determined by initial conditions.
+- The exponential term <span class="arithmatex">\(e^{-\gamma t / 2}\)</span> represents the decaying amplitude.</p>
+<h3 id="5-forced-undamped-case-driven-pendulum"><strong>5. Forced, Undamped Case (Driven Pendulum)</strong></h3>
+<p>When there is no damping (<span class="arithmatex">\(\gamma = 0\)</span>), but there is an external driving force, the equation becomes:</p>
+<div class="arithmatex">\[
+\theta''(t) + \omega_0^2 \theta(t) = A \cos(\omega t)
+\]</div>
+<p>The solution to this equation is:</p>
+<div class="arithmatex">\[
+\theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\delta = \tan^{-1}\left(\frac{\gamma \omega}{\omega_0^2 - \omega^2}\right)\)</span> is the phase shift.
+- <span class="arithmatex">\(A\)</span> is the driving amplitude.
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency.
+- <span class="arithmatex">\(\omega_0\)</span> is the natural frequency of the pendulum.</p>
+<h3 id="6-forced-and-damped-case-complete-system"><strong>6. Forced and Damped Case (Complete System)</strong></h3>
+<p>For the complete system with both damping and external driving force, the general solution is given by the combination of the transient and steady-state solutions:</p>
+<div class="arithmatex">\[
+\theta(t) = \theta_{\text{transient}}(t) + \theta_{\text{steady}}(t)
+\]</div>
+<ul>
+<li>The <strong>transient</strong> part of the solution represents the initial conditions and will decay over time due to damping.</li>
+<li>The <strong>steady-state</strong> part of the solution represents the long-term behavior of the system, which oscillates with a constant amplitude at the driving frequency.</li>
+</ul>
+<p>For steady-state oscillations, the solution is:</p>
+<div class="arithmatex">\[
+\theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
+\]</div>
+<p>This shows how the system responds to the periodic driving force in the long run.</p>
+<h3 id="7-energy-considerations"><strong>7. Energy Considerations</strong></h3>
+<p>The total mechanical energy <span class="arithmatex">\(E(t)\)</span> of the system is the sum of the kinetic energy and the potential energy:</p>
+<div class="arithmatex">\[
+E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(m\)</span> is the mass of the pendulum.
+- <span class="arithmatex">\(l\)</span> is the length of the pendulum.
+- <span class="arithmatex">\(\theta'(t)\)</span> is the angular velocity.
+- <span class="arithmatex">\(\theta(t)\)</span> is the angular displacement.</p>
+<p>For the forced damped pendulum, the energy fluctuates due to the energy supplied by the external driving force and the energy dissipated by damping. At resonance (<span class="arithmatex">\(\omega = \omega_0\)</span>), the energy absorption is maximized.</p>
+<h3 id="8-resonance-and-frequency-response"><strong>8. Resonance and Frequency Response</strong></h3>
+<p>In resonance, the system oscillates with maximum amplitude. The resonance condition occurs when the driving frequency <span class="arithmatex">\(\omega\)</span> equals the natural frequency <span class="arithmatex">\(\omega_0\)</span>. In this case, the amplitude of the oscillations grows, which can be expressed as:</p>
+<div class="arithmatex">\[
+\theta_{\text{max}} = \frac{A}{\gamma \omega_0}
+\]</div>
+<p>This shows that resonance can lead to large oscillations, especially if the damping is small. If the damping is large, the resonance effect is reduced.</p>
+<h3 id="summary-of-key-formulas"><strong>Summary of Key Formulas</strong></h3>
+<ul>
+<li>
+<p><strong>Undamped, Free Pendulum (Simple Harmonic Motion)</strong>:<br/>
+  $$
+  \theta(t) = \theta_0 \cos(\omega_0 t + \phi)
+  $$</p>
+</li>
+<li>
+<p><strong>Damped, Free Pendulum</strong>:<br/>
+  $$
+  \theta(t) = \theta_0 e^{-\gamma t / 2} \cos(\omega_d t + \phi)
+  $$</p>
+</li>
+<li>
+<p><strong>Forced, Damped Pendulum</strong>:<br/>
+  $$
+  \theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\gamma \omega)^2}} \cos(\omega t - \delta)
+  $$</p>
+</li>
+<li>
+<p><strong>Energy</strong>:<br/>
+  $$
+  E(t) = \frac{1}{2} m l^2 \left( \theta'(t)^2 + \omega_0^2 \theta(t)^2 \right)
+  $$</p>
+</li>
+<li>
+<p><strong>Maximum Amplitude at Resonance</strong>:<br/>
+  $$
+  \theta_{\text{max}} = \frac{A}{\gamma \omega_0}
+  $$</p>
+</li>
+</ul>
+<p>We'll use numerical methods to solve the differential equation for the forced damped pendulum. The script will use the <code>solve_ivp</code> function from SciPy to solve the system, and visualize the results with Matplotlib.</p>
+<h3 id="python-script-for-simulating-the-forced-damped-pendulum">Python Script for Simulating the Forced Damped Pendulum:</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Parameters
+gamma = 0.2  # Damping coefficient (can adjust for underdamped, overdamped cases)
+omega_0 = 2  # Natural frequency (rad/s)
+A = 1        # Amplitude of the driving force
+omega = 1.8  # Frequency of the driving force (change to test resonance behavior)
+t_span = (0, 100)  # Time span for the simulation
+initial_conditions = [0.5, 0]  # Initial conditions: [theta(0), theta'(0)]
+
+# Differential equation for the forced damped pendulum
+def forced_damped_pendulum(t, y):
+    theta, theta_dot = y
+    dtheta_dt = theta_dot
+    dtheta_dot_dt = -gamma * theta_dot - omega_0**2 * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, dtheta_dot_dt]
+
+# Solve the differential equation using Runge-Kutta method (via solve_ivp)
+solution = solve_ivp(forced_damped_pendulum, t_span, initial_conditions, t_eval=np.linspace(0, 100, 10000))
+
+# Extract solution
+t = solution.t
+theta = solution.y[0]
+theta_dot = solution.y[1]
+
+# Plotting the solution: Angular displacement vs. Time
+plt.figure(figsize=(10, 6))
+plt.plot(t, theta)
+plt.title('Forced Damped Pendulum Motion')
+plt.xlabel('Time (s)')
+plt.ylabel('Angular Displacement (rad)')
+plt.grid(True)
+plt.show()
+
+# Plotting the Phase Portrait: theta vs. theta'
+plt.figure(figsize=(8, 6))
+plt.plot(theta, theta_dot)
+plt.title('Phase Portrait of the Forced Damped Pendulum')
+plt.xlabel('Theta (rad)')
+plt.ylabel('Theta\' (rad/s)')
+plt.grid(True)
+plt.show()
+
+# Frequency Response: The steady-state amplitude vs driving frequency (if needed)
+# This could involve running simulations for different values of omega and plotting the resulting amplitude.
+def compute_amplitude(omega_values):
+    amplitudes = []
+    for omega_val in omega_values:
+        # Update the global omega
+        global omega
+        omega = omega_val
+        solution = solve_ivp(forced_damped_pendulum, t_span, initial_conditions, t_eval=np.linspace(0, 100, 10000))
+        amplitudes.append(np.max(np.abs(solution.y[0])))  # Maximum amplitude observed in the solution
+    return amplitudes
+
+omega_values = np.linspace(0.5, 2.5, 100)  # Driving frequency range
+amplitudes = compute_amplitude(omega_values)
+
+# Plot Frequency Response
+plt.figure(figsize=(10, 6))
+plt.plot(omega_values, amplitudes)
+plt.title('Frequency Response of the Forced Damped Pendulum')
+plt.xlabel('Driving Frequency (omega)')
+plt.ylabel('Maximum Amplitude (rad)')
+plt.grid(True)
+plt.show()
+</code></pre>
+<h3 id="explanation-of-the-python-code"><strong>Explanation of the Python Code</strong>:</h3>
+<ol>
+<li><strong>Parameters</strong>:</li>
+<li><strong>gamma</strong>: Damping coefficient, controlling the rate at which energy is dissipated from the system.</li>
+<li><strong>omega_0</strong>: Natural frequency of the pendulum.</li>
+<li><strong>A</strong>: Amplitude of the driving force.</li>
+<li><strong>omega</strong>: Driving frequency of the external force.</li>
+<li>
+<p><strong>initial_conditions</strong>: The initial angular displacement (<span class="arithmatex">\(\theta(0)\)</span>) and angular velocity (<span class="arithmatex">\(\theta'(0)\)</span>).</p>
+</li>
+<li>
+<p><strong>Forced Damped Pendulum Differential Equation</strong>:
+   The function <code>forced_damped_pendulum(t, y)</code> represents the system of ordinary differential equations:
+   $$
+   \theta''(t) + \gamma \theta'(t) + \omega_0^2 \sin(\theta(t)) = A \cos(\omega t)
+   $$
+   We return the derivatives of <span class="arithmatex">\(\theta(t)\)</span> and <span class="arithmatex">\(\theta'(t)\)</span> in this function for numerical integration.</p>
+</li>
+</ol>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../Problem_1/" title="Problem 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../2%20Gravity/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../Problem_1/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../../2%20Gravity/Problem_1/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../../..";</script>
+<script src="../../../js/theme_extra.js"></script>
+<script src="../../../js/theme.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="../../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

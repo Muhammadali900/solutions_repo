@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Escape Velocities and Cosmic Velocities - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Escape Velocities and Cosmic Velocities";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -56,8 +56,22 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Orbital Period and Orbital Radius: Kepler's Third Law</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Escape Velocities and Cosmic Velocities</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-mathematical-derivations-of-cosmic-velocities">2. Mathematical Derivations of Cosmic Velocities</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-cosmic-velocity-v_1">First Cosmic Velocity (\(v_1\))</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#second-cosmic-velocity-v_2">Second Cosmic Velocity (\(v_2\))</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#third-cosmic-velocity-v_3">Third Cosmic Velocity (\(v_3\))</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-calculations-for-different-celestial-bodies">3. Calculations for Different Celestial Bodies</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_3/">Problem 3</a>
@@ -163,7 +177,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Escape Velocities and Cosmic Velocities</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +185,241 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Escape velocity is the minimum velocity required for an object to escape the gravitational influence of a celestial body, without further propulsion. Beyond escape velocity, the object will not return to the body, assuming no other forces act on it (such as air resistance). There are also several types of cosmic velocities that define specific escape or orbiting conditions in a star system.</p>
+<ul>
+<li><strong>First Cosmic Velocity (<span class="arithmatex">\(v_1\)</span>)</strong>: The velocity required for an object to orbit the celestial body in a circular orbit.</li>
+<li><strong>Second Cosmic Velocity (<span class="arithmatex">\(v_2\)</span>)</strong>: The escape velocity, or the velocity required for an object to break free of a celestial body’s gravitational pull.</li>
+<li><strong>Third Cosmic Velocity (<span class="arithmatex">\(v_3\)</span>)</strong>: The velocity required for an object to escape the gravitational influence of the entire star system.</li>
+</ul>
+<h2 id="2-mathematical-derivations-of-cosmic-velocities">2. Mathematical Derivations of Cosmic Velocities</h2>
+<p>The formulas for these velocities are derived from Newtonian mechanics, specifically gravitational forces.</p>
+<h3 id="first-cosmic-velocity-v_1">First Cosmic Velocity (<span class="arithmatex">\(v_1\)</span>)</h3>
+<p>The first cosmic velocity is the velocity required for a body to enter a stable circular orbit around a celestial body. For a circular orbit, the centripetal force is provided by gravity:</p>
+<div class="arithmatex">\[F_{\text{gravity}} = F_{\text{centripetal}}\]</div>
+<div class="arithmatex">\[\frac{G M m}{r^2} = \frac{m v_1^2}{r}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(G\)</span> is the gravitational constant</li>
+<li><span class="arithmatex">\(M\)</span> is the mass of the celestial body (e.g., Earth)</li>
+<li><span class="arithmatex">\(m\)</span> is the mass of the object in orbit</li>
+<li><span class="arithmatex">\(r\)</span> is the radius of orbit</li>
+<li><span class="arithmatex">\(v_1\)</span> is the first cosmic velocity</li>
+</ul>
+<p>Canceling <span class="arithmatex">\(m\)</span> from both sides:</p>
+<div class="arithmatex">\[v_1 = \sqrt{\frac{G M}{r}}\]</div>
+<h3 id="second-cosmic-velocity-v_2">Second Cosmic Velocity (<span class="arithmatex">\(v_2\)</span>)</h3>
+<p>The second cosmic velocity is the escape velocity—the minimum velocity required for an object to escape the gravitational pull of the celestial body. The energy required to escape is the sum of kinetic and potential energy. The total energy of the object at escape is zero (it reaches an infinite distance with zero velocity). The gravitational potential energy is:</p>
+<div class="arithmatex">\[U = -\frac{G M m}{r}\]</div>
+<p>The total mechanical energy at the escape point is zero:</p>
+<div class="arithmatex">\[\frac{1}{2} m v_2^2 - \frac{G M m}{r} = 0\]</div>
+<p>Solving for <span class="arithmatex">\(v_2\)</span>:</p>
+<div class="arithmatex">\[v_2 = \sqrt{\frac{2 G M}{r}}\]</div>
+<h3 id="third-cosmic-velocity-v_3">Third Cosmic Velocity (<span class="arithmatex">\(v_3\)</span>)</h3>
+<p>The third cosmic velocity is the velocity required to escape the gravitational influence of an entire star system, such as the Sun’s gravitational field. It can be derived from the escape velocity from the star system, considering the distance from the star’s center (usually the distance from the Sun's center to Earth):</p>
+<div class="arithmatex">\[v_3 = \sqrt{\frac{2 G M_{\text{star}}}{r_{\text{star}}}}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(M_{\text{star}}\)</span> is the mass of the star (e.g., Sun)</li>
+<li><span class="arithmatex">\(r_{\text{star}}\)</span> is the distance from the star’s center (for instance, the distance from the Earth to the Sun)</li>
+</ul>
+<h2 id="3-calculations-for-different-celestial-bodies">3. Calculations for Different Celestial Bodies</h2>
+<p>Let’s calculate these velocities for Earth, Mars, and Jupiter.
+The formula for escape velocity and orbital velocity depends on the mass and radius of the celestial body. We will calculate the first and second cosmic velocities, using the following known values:</p>
+<p><strong>Earth:</strong></p>
+<ul>
+<li>Mass (<span class="arithmatex">\(M_{\text{Earth}}\)</span>): <span class="arithmatex">\(5.972 \times 10^{24} \, \text{kg}\)</span></li>
+<li>Radius (<span class="arithmatex">\(R_{\text{Earth}}\)</span>): <span class="arithmatex">\(6.371 \times 10^{6} \, \text{m}\)</span></li>
+</ul>
+<p><strong>Mars:</strong></p>
+<ul>
+<li>Mass (<span class="arithmatex">\(M_{\text{Mars}}\)</span>): <span class="arithmatex">\(0.64171 \times 10^{24} \, \text{kg}\)</span></li>
+<li>Radius (<span class="arithmatex">\(R_{\text{Mars}}\)</span>): <span class="arithmatex">\(3.396 \times 10^{6} \, \text{m}\)</span></li>
+</ul>
+<p><strong>Jupiter:</strong></p>
+<ul>
+<li>Mass (<span class="arithmatex">\(M_{\text{Jupiter}}\)</span>): <span class="arithmatex">\(1.898 \times 10^{27} \, \text{kg}\)</span></li>
+<li>Radius (<span class="arithmatex">\(R_{\text{Jupiter}}\)</span>): <span class="arithmatex">\(6.991 \times 10^{7} \, \text{m}\)</span></li>
+</ul>
+<p>Using these values, we will compute the first and second cosmic velocities.</p>
+<h1 id="advanced-concepts-in-escape-and-cosmic-velocities">Advanced Concepts in Escape and Cosmic Velocities</h1>
+<h2 id="1-gravitational-potential-energy-in-a-non-spherical-potential">1. Gravitational Potential Energy in a Non-Spherical Potential</h2>
+<p>For non-spherical celestial bodies (e.g., rotating bodies like planets), the gravitational potential energy changes slightly due to the distribution of mass, particularly for objects that are not perfectly spherical. In such cases, the gravitational potential energy <span class="arithmatex">\(U\)</span> at a distance <span class="arithmatex">\(r\)</span> from the center of mass can be written as:</p>
+<div class="arithmatex">\[U = - \frac{GMm}{r} \left(1 + \frac{1}{2} \frac{r^2}{R_{\text{eq}}^2} \right)\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(R_{\text{eq}}\)</span> is the equatorial radius of the planet.</li>
+</ul>
+<p>The term <span class="arithmatex">\(\frac{r^2}{R_{\text{eq}}^2}\)</span> introduces a correction for the planet’s oblateness (flattening at the poles). This formula helps in considering real celestial bodies where <span class="arithmatex">\(r\)</span> is near the planet’s equator or poles.</p>
+<h2 id="2-relativistic-correction-to-escape-velocity">2. Relativistic Correction to Escape Velocity</h2>
+<p>When objects move at speeds close to the speed of light, relativistic effects come into play. The relativistic escape velocity <span class="arithmatex">\(v_{\text{rel}}\)</span> is given by:</p>
+<div class="arithmatex">\[v_{\text{rel}} = \sqrt{\frac{2GM}{r} \left(1 + \frac{v_{\text{orbital}}^2}{c^2} \right)}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(v_{\text{orbital}}\)</span> is the orbital velocity of the object in question.</li>
+<li><span class="arithmatex">\(c\)</span> is the speed of light.</li>
+</ul>
+<p>At low velocities (non-relativistic), this reduces to the classical escape velocity formula, but for high velocities, the correction term accounts for relativistic effects.</p>
+<h2 id="3-generalized-third-cosmic-velocity">3. Generalized Third Cosmic Velocity</h2>
+<p>The generalized third cosmic velocity <span class="arithmatex">\(v_3\)</span> accounts for a system where the object must escape not just the gravitational influence of a single star but also overcome the combined gravitational potential of the entire galaxy. For a multi-body system, the escape velocity from a galactic center at a distance <span class="arithmatex">\(r_{\text{galaxy}}\)</span> is:</p>
+<div class="arithmatex">\[v_3 = \sqrt{\frac{2 G M_{\text{galaxy}}}{r_{\text{galaxy}}} \left(1 + \frac{v_{\text{orbital}}^2}{c^2} \right)}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(M_{\text{galaxy}}\)</span> is the mass of the galaxy.</li>
+<li><span class="arithmatex">\(r_{\text{galaxy}}\)</span> is the distance from the galactic center.</li>
+</ul>
+<p>This formula considers the combined gravitational potential from the star system and the galactic center.</p>
+<h2 id="4-the-escape-velocity-for-a-rotating-body-centrifugal-force-considerations">4. The Escape Velocity for a Rotating Body (Centrifugal Force Considerations)</h2>
+<p>For rotating bodies such as Earth, centrifugal forces also play a role in determining the velocity required to escape. The escape velocity <span class="arithmatex">\(v_{\text{esc}}\)</span> at the surface of a rotating body, taking into account centrifugal forces at latitude <span class="arithmatex">\(\phi\)</span>, is given by:</p>
+<div class="arithmatex">\[v_{\text{esc}} = \sqrt{\frac{2GM}{r} + \omega^2 r^2 - 2\omega r^2 \sin \phi \cos \phi}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega\)</span> is the angular velocity of the celestial body.</li>
+<li><span class="arithmatex">\(r\)</span> is the radius at a specific latitude.</li>
+<li><span class="arithmatex">\(\phi\)</span> is the latitude of the object from the axis of rotation (e.g., Earth's surface).</li>
+</ul>
+<p>This formula takes into account the reduced effective escape velocity due to the centrifugal force at the equator.</p>
+<h2 id="5-gravitational-binding-energy-of-a-planet">5. Gravitational Binding Energy of a Planet</h2>
+<p>For a planet, the gravitational binding energy <span class="arithmatex">\(E_b\)</span>, or the energy required to disperse a planet's mass to infinity, can be calculated by:</p>
+<div class="arithmatex">\[E_b = -\frac{3}{5} \frac{GM^2}{R}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(M\)</span> is the mass of the planet.</li>
+<li><span class="arithmatex">\(R\)</span> is the radius of the planet.</li>
+</ul>
+<p>This formula provides an understanding of the energy scale needed to disrupt a planet’s gravitational binding.</p>
+<h2 id="6-cosmic-velocities-of-earth-mars-and-jupiter">6. Cosmic Velocities of Earth, Mars, and Jupiter</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
+M_earth = 5.972e24  # Mass of Earth (kg)
+R_earth = 6.371e6  # Radius of Earth (m)
+M_mars = 6.39e23  # Mass of Mars (kg)
+R_mars = 3.390e6  # Radius of Mars (m)
+M_jupiter = 1.898e27 # Mass of Jupiter (kg)
+R_jupiter = 6.9911e7 # Radius of Jupiter (m)
+M_sun = 1.989e30 # Mass of Sun (kg)
+R_earthSun = 1.496e11 # Distance from earth to sun (m)
+earth_orbital_velocity = 29780 # earth orbital velocity m/s
+
+# Function to calculate first cosmic velocity
+def first_cosmic_velocity(mass, radius):
+    return np.sqrt(G * mass / radius)
+
+# Function to calculate second cosmic velocity (escape velocity)
+def escape_velocity(mass, radius):
+    return np.sqrt(2 * G * mass / radius)
+
+# Calculate velocities
+v1_earth = first_cosmic_velocity(M_earth, R_earth)
+v2_earth = escape_velocity(M_earth, R_earth)
+v1_mars = first_cosmic_velocity(M_mars, R_mars)
+v2_mars = escape_velocity(M_mars, R_mars)
+v1_jupiter = first_cosmic_velocity(M_jupiter, R_jupiter)
+v2_jupiter = escape_velocity(M_jupiter, R_jupiter)
+v_sunEscape = escape_velocity(M_sun, R_earthSun)
+v3_earth = np.sqrt(v_sunEscape**2 + earth_orbital_velocity**2) - earth_orbital_velocity
+
+# Print results
+print(f"Earth: v1 = {v1_earth/1000:.2f} km/s, v2 = {v2_earth/1000:.2f} km/s")
+print(f"Mars: v1 = {v1_mars/1000:.2f} km/s, v2 = {v2_mars/1000:.2f} km/s")
+print(f"Jupiter: v1 = {v1_jupiter/1000:.2f} km/s, v2 = {v2_jupiter/1000:.2f} km/s")
+print(f"Earth: v3 = {v3_earth/1000:.2f} km/s")
+
+# Visualization
+bodies = ['Earth', 'Mars', 'Jupiter']
+v1_values = [v1_earth/1000, v1_mars/1000, v1_jupiter/1000]
+v2_values = [v2_earth/1000, v2_mars/1000, v2_jupiter/1000]
+
+plt.figure(figsize=(10, 6))
+plt.bar(bodies, v1_values, label='First Cosmic Velocity (km/s)', alpha=0.7)
+plt.bar(bodies, v2_values, label='Escape Velocity (km/s)', alpha=0.7)
+plt.ylabel('Velocity (km/s)')
+plt.title('Cosmic Velocities for Various Celestial Bodies')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<h2 id="7-cosmic-velocities-and-escape-velocity-visualizations">7. Cosmic Velocities and Escape Velocity Visualizations</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
+c = 299792458  # Speed of light (m/s)
+M_earth = 5.972e24  # Mass of Earth (kg)
+R_earth = 6.371e6  # Radius of Earth (m)
+earth_angular_velocity = 7.27e-5 # Earth's angular velocity (rad/s)
+
+# Function to calculate first cosmic velocity
+def first_cosmic_velocity(mass, radius):
+    return np.sqrt(G * mass / radius)
+
+# Function to calculate second cosmic velocity (escape velocity)
+def escape_velocity(mass, radius):
+    return np.sqrt(2 * G * mass / radius)
+
+# Function to calculate relativistic escape velocity
+def relativistic_escape_velocity(mass, radius):
+    return c * np.sqrt(1 - (1 + 2 * G * mass / (radius * c**2))**-2)
+
+# Function to calculate escape velocity in a rotating frame
+def rotating_escape_velocity(mass, radius, angular_velocity):
+    rotational_velocity = angular_velocity * radius
+    return np.sqrt(2 * G * mass / radius - rotational_velocity**2)
+
+# Calculate velocities for Earth
+v1_earth = first_cosmic_velocity(M_earth, R_earth)
+v2_earth = escape_velocity(M_earth, R_earth)
+v_esc_rel_earth = relativistic_escape_velocity(M_earth, R_earth)
+v_esc_rot_earth = rotating_escape_velocity(M_earth, R_earth, earth_angular_velocity)
+
+# Create a bar chart for comparison
+velocities = {
+    'First Cosmic': v1_earth / 1000,
+    'Classical Escape': v2_earth / 1000,
+    'Relativistic Escape': v_esc_rel_earth / 1000,
+    'Rotating Escape': v_esc_rot_earth / 1000,
+}
+
+plt.figure(figsize=(10, 6))
+plt.bar(velocities.keys(), velocities.values())
+plt.ylabel('Velocity (km/s)')
+plt.title('Cosmic Velocities for Earth')
+plt.show()
+
+# Example: Escape Velocity vs. Radius
+radii = np.linspace(R_earth, 10 * R_earth, 100)
+classical_escape = escape_velocity(M_earth, radii) / 1000
+relativistic_escape = relativistic_escape_velocity(M_earth, radii) / 1000
+
+plt.figure(figsize=(10, 6))
+plt.plot(radii / R_earth, classical_escape, label='Classical Escape')
+plt.plot(radii / R_earth, relativistic_escape, label='Relativistic Escape')
+plt.xlabel('Radius (multiples of Earth radius)')
+plt.ylabel('Escape Velocity (km/s)')
+plt.title('Escape Velocity vs. Radius')
+plt.legend()
+plt.show()
+
+# Example: Escape Velocity vs. Angular Velocity
+angular_velocities = np.linspace(0, 2 * earth_angular_velocity, 100)
+rotating_escape = rotating_escape_velocity(M_earth, R_earth, angular_velocities) / 1000
+
+plt.figure(figsize=(10, 6))
+plt.plot(angular_velocities / earth_angular_velocity, rotating_escape, label='Rotating Escape')
+plt.xlabel('Angular Velocity (multiples of Earth angular velocity)')
+plt.ylabel('Escape Velocity (km/s)')
+plt.title('Escape Velocity vs. Angular Velocity')
+plt.legend()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<p><img alt="alt text" src="../image-5.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 3 - Physics and Mathematics</title>
+<title>Problem 3: Trajectories of a Freely Released Payload Near Earth - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 3";
+        var mkdocs_page_name = "Problem 3: Trajectories of a Freely Released Payload Near Earth";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_3.md";
         var mkdocs_page_url = null;
       </script>
@@ -58,8 +58,22 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Escape Velocities and Cosmic Velocities</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3: Trajectories of a Freely Released Payload Near Earth</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-gravitational-dynamics-and-equations-of-motion">2. Gravitational Dynamics and Equations of Motion</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-numerical-simulation">3. Numerical Simulation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-initial-conditions-and-setup">4. Initial Conditions and Setup</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-relativistic-equations-of-motion-general-relativity-correction">5. Relativistic Equations of Motion (General Relativity Correction)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#12-solar-radiation-pressure">12. Solar Radiation Pressure</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#13-payload-dynamics-near-earth-trajectories-velocity-and-altitude-over-time">13. Payload Dynamics Near Earth: Trajectories, Velocity, and Altitude Over Time</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +177,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Problem 3</li>
+<li class="breadcrumb-item active">Problem 3: Trajectories of a Freely Released Payload Near Earth</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +185,206 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-3">Problem 3</h1>
+<h1 id="problem-3-trajectories-of-a-freely-released-payload-near-earth">Problem 3: Trajectories of a Freely Released Payload Near Earth</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>In this problem, we’ll analyze the motion of a payload released near Earth, focusing on the influence of Earth’s gravity on its trajectory. Depending on the velocity and direction of release, the trajectory could be:</p>
+<ul>
+<li><strong>Elliptical:</strong> The object remains in orbit around the Earth.</li>
+<li><strong>Parabolic:</strong> The object escapes Earth’s gravity but at exactly escape velocity.</li>
+<li><strong>Hyperbolic:</strong> The object escapes Earth’s gravity with a velocity greater than the escape velocity.</li>
+</ul>
+<p>We will model these trajectories using the two-body problem under Newton's law of gravitation and solve them numerically using Python.</p>
+<h2 id="2-gravitational-dynamics-and-equations-of-motion">2. Gravitational Dynamics and Equations of Motion</h2>
+<p>The gravitational force between Earth and the payload is given by Newton’s Law of Gravitation:</p>
+<div class="arithmatex">\[F = \frac{GMm}{r^2}\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(F\)</span> is the gravitational force.</li>
+<li><span class="arithmatex">\(G\)</span> is the gravitational constant.</li>
+<li><span class="arithmatex">\(M\)</span> is the mass of Earth.</li>
+<li><span class="arithmatex">\(m\)</span> is the mass of the payload.</li>
+<li><span class="arithmatex">\(r\)</span> is the distance between the Earth and the payload.</li>
+</ul>
+<p>This force results in a gravitational acceleration that affects the trajectory of the payload. We can model the motion of the payload with the following equations of motion:</p>
+<div class="arithmatex">\[\ddot{r} = -\frac{GM}{r^2}\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(r\)</span> is the radial distance.</li>
+<li><span class="arithmatex">\(\ddot{r}\)</span> is the acceleration.</li>
+</ul>
+<p>We’ll break down the radial and angular components of motion and solve for the position and velocity of the payload over time using numerical integration.</p>
+<h2 id="3-numerical-simulation">3. Numerical Simulation</h2>
+<p>We'll use Euler's method or Runge-Kutta method to numerically solve the system of differential equations for the position and velocity of the payload.
+The system of equations to solve are:</p>
+<div class="arithmatex">\[\ddot{x} = -\frac{GMx}{r^3}, \quad \ddot{y} = -\frac{GMy}{r^3}\]</div>
+<p>Where <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are the position coordinates of the payload in a 2D plane.</p>
+<h2 id="4-initial-conditions-and-setup">4. Initial Conditions and Setup</h2>
+<p>For our simulation, we’ll define the following initial conditions:</p>
+<ul>
+<li>The initial position of the payload relative to Earth (e.g., at some altitude).</li>
+<li>The initial velocity of the payload (e.g., tangential or radial).</li>
+<li>The initial angle of release.</li>
+</ul>
+<p>We'll visualize the trajectories for different cases of initial velocities and directions (parabolic, elliptical, and hyperbolic).</p>
+<h2 id="5-relativistic-equations-of-motion-general-relativity-correction">5. Relativistic Equations of Motion (General Relativity Correction)</h2>
+<p>When velocities approach a significant fraction of the speed of light, we must modify Newtonian gravity using General Relativity corrections. The relativistic equation of motion for an object in Earth's gravitational field is: </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\frac{d^2r}{dt^2} = -\frac{GM}{r^2} \left( 1 + \frac{3GM}{c^2 r} \right)\)</span>\)</span> 
+ where: </p>
+<ul>
+<li><span class="arithmatex">\(c\)</span> is the speed of light (3.0×10<sup>8</sup> m/s), </li>
+<li><span class="arithmatex">\(GM\)</span> is Earth's gravitational parameter. 
+ This additional term accounts for the relativistic time dilation and length contraction near strong gravitational fields. </li>
+</ul>
+<p>## 6. Perturbation Due to Earth's Oblateness (J2 Effect) 
+ Since Earth is not a perfect sphere, higher-order gravitational terms introduce perturbations in the motion of the payload. The J2 perturbation effect modifies the acceleration as: </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(a_r = -\frac{GM}{r^2} \left[ 1 - \frac{3}{2} J_2 \left( \frac{R_E}{r} \right)^2 (1 - 3 \cos^2\theta) \right]\)</span>\)</span> 
+ where: </p>
+<ul>
+<li><span class="arithmatex">\(J_2 \approx 1.08263 \times 10^{-3}\)</span> is Earth's oblateness coefficient, </li>
+<li><span class="arithmatex">\(R_E\)</span> is the equatorial radius of Earth, </li>
+<li><span class="arithmatex">\(\theta\)</span> is the latitude. 
+ This effect causes a precession of satellite orbits, known as the J2-induced secular drift. </li>
+</ul>
+<p>## 7. Three-Body Problem (Influence of Moon or Sun on the Payload) 
+ When a payload is released into space, its trajectory is not only influenced by Earth's gravity but also by other celestial bodies like the Moon or the Sun. In the restricted three-body problem, the equations of motion are: </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\ddot{x} - 2\omega \dot{y} = \frac{\partial U}{\partial x}, \quad \ddot{y} + 2\omega \dot{x} = \frac{\partial U}{\partial y}, \quad \ddot{z} = \frac{\partial U}{\partial z}\)</span>\)</span> 
+ where: </p>
+<ul>
+<li><span class="arithmatex">\(U\)</span> is the effective potential: 
+   <span class="arithmatex">\(<span class="arithmatex">\(U = \frac{1}{2} \omega^2 (x^2 + y^2) + \frac{GM_1}{r_1} + \frac{GM_2}{r_2}\)</span>\)</span> </li>
+<li><span class="arithmatex">\(M_1, M_2\)</span> are the masses of Earth and the Moon (or Sun), </li>
+<li><span class="arithmatex">\(r_1, r_2\)</span> are the distances from the payload to each body. 
+ This equation governs Lagrange points, where the gravitational and centrifugal forces balance. </li>
+</ul>
+<p>## 8. Atmospheric Drag and Reentry Dynamics 
+ For payloads re-entering Earth's atmosphere, we must consider aerodynamic drag. The equation of motion with drag force is: </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(m \frac{d\mathbf{v}}{dt} = -\frac{GMm}{r^2} + \frac{1}{2} C_D \rho A v^2\)</span>\)</span> 
+ where: </p>
+<ul>
+<li><span class="arithmatex">\(C_D\)</span> is the drag coefficient, </li>
+<li><span class="arithmatex">\(\rho\)</span> is the atmospheric density (which varies with altitude), </li>
+<li><span class="arithmatex">\(A\)</span> is the cross-sectional area. 
+ The drag force significantly reduces velocity and causes heat buildup during reentry. </li>
+</ul>
+<p>## 9. Lorentz Force for Charged Payloads in Space 
+ If the payload is charged, it experiences an additional force due to Earth's magnetic field: </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\mathbf{F} = q (\mathbf{E} + \mathbf{v} \times \mathbf{B})\)</span>\)</span> 
+ where: </p>
+<ul>
+<li><span class="arithmatex">\(q\)</span> is the charge of the payload, </li>
+<li><span class="arithmatex">\(\mathbf{E}\)</span> is the electric field, </li>
+<li><span class="arithmatex">\(\mathbf{B}\)</span> is Earth's magnetic field. 
+ This effect is crucial for spacecraft operating near planetary magnetospheres. </li>
+</ul>
+<p>## 10. Non-Inertial Frame Corrections (Coriolis &amp; Centrifugal Forces) 
+ When the payload is released from a moving spacecraft, we need to correct for non-inertial effects: </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\mathbf{F}_{\text{non-inertial}} = -2m (\mathbf{\Omega} \times \mathbf{v}) - m \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r})\)</span>\)</span> 
+ where: </p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{\Omega}\)</span> is the rotational velocity of the spacecraft. 
+ These effects are critical for precise orbital insertions.</li>
+</ul>
+<p>## 11. Non-Spherical Harmonics and Higher-Order Perturbations
+Beyond J2, Earth's gravitational field has higher-order harmonics (J3, J4, etc.) and tesseral harmonics (Cnm, Snm). These account for more subtle variations in Earth's gravity.</p>
+<p>Generalized Gravitational Potential:
+<span class="arithmatex">\(<span class="arithmatex">\(U = \frac{GM}{r} \left[ 1 - \sum_{n=2}^{\infty} \sum_{m=0}^{n} \left( \frac{R_e}{r} \right)^n P_{nm}(\sin\phi) (C_{nm} \cos(m\lambda) + S_{nm} \sin(m\lambda)) \right]\)</span>\)</span>
+Where:
+* <span class="arithmatex">\(P_{nm}\)</span> are associated Legendre polynomials.
+* <span class="arithmatex">\(C_{nm}\)</span> and <span class="arithmatex">\(S_{nm}\)</span> are spherical harmonic coefficients.
+* <span class="arithmatex">\(\lambda\)</span> is the longitude.</p>
+<h2 id="12-solar-radiation-pressure">12. Solar Radiation Pressure</h2>
+<p>For long-duration space missions, solar radiation pressure can significantly affect trajectories.</p>
+<p>Solar Radiation Pressure Force:
+<span class="arithmatex">\(<span class="arithmatex">\(F_{rad} = \frac{P_{rad} A_{cr} (1+q)}{c}\)</span>\)</span>
+Where:
+* <span class="arithmatex">\(P_{rad}\)</span> is the solar radiation pressure.
+* <span class="arithmatex">\(A_{cr}\)</span> is the spacecraft's cross-sectional area.
+* <span class="arithmatex">\(q\)</span> is the reflectivity coefficient.
+* <span class="arithmatex">\(c\)</span> is the speed of light.</p>
+<h2 id="13-payload-dynamics-near-earth-trajectories-velocity-and-altitude-over-time">13. Payload Dynamics Near Earth: Trajectories, Velocity, and Altitude Over Time</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Constants
+G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
+M_earth = 5.972e24  # Mass of Earth (kg)
+R_earth = 6.371e6  # Radius of Earth (m)
+
+# Equations of motion
+def payload_trajectory(t, y):
+    x, vx, z, vz = y
+    r = np.sqrt(x**2 + z**2)
+    ax = -G * M_earth * x / r**3
+    az = -G * M_earth * z / r**3
+    return [vx, ax, vz, az]
+
+# Initial conditions
+altitude = 400e3  # 400 km altitude
+r0 = R_earth + altitude
+v_orbit = np.sqrt(G * M_earth / r0)
+v_escape = np.sqrt(2 * G * M_earth / r0)
+
+# Time span
+time_span = [0, 10000]
+time_points = np.linspace(time_span[0], time_span[1], 1000)
+
+# Example 1: Circular orbit
+initial_state_circular = [r0, 0, 0, v_orbit]
+solution_circular = solve_ivp(payload_trajectory, time_span, initial_state_circular, t_eval=time_points)
+
+# Example 2: Elliptical orbit (sub-orbital reentry)
+initial_state_elliptical = [r0, 0.5 * v_orbit, 0, 0.5 * v_orbit]
+solution_elliptical = solve_ivp(payload_trajectory, time_span, initial_state_elliptical, t_eval=time_points)
+
+# Example 3: Escape trajectory (hyperbolic)
+initial_state_escape = [r0, 0, 0, 1.2 * v_escape]
+solution_escape = solve_ivp(payload_trajectory, time_span, initial_state_escape, t_eval=time_points)
+
+# Plotting trajectories
+plt.figure(figsize=(12, 8))
+plt.plot(solution_circular.y[0], solution_circular.y[2], label='Circular Orbit')
+plt.plot(solution_elliptical.y[0], solution_elliptical.y[2], label='Elliptical Reentry')
+plt.plot(solution_escape.y[0], solution_escape.y[2], label='Escape Trajectory')
+plt.scatter(0, 0, color='red', label='Earth')
+plt.xlabel('X (m)')
+plt.ylabel('Z (m)')
+plt.title('Payload Trajectories Near Earth')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Plotting velocity vs. time
+plt.figure(figsize=(12, 8))
+plt.plot(time_points, np.sqrt(solution_circular.y[1]**2 + solution_circular.y[3]**2), label='Circular Orbit Velocity')
+plt.plot(time_points, np.sqrt(solution_elliptical.y[1]**2 + solution_elliptical.y[3]**2), label='Elliptical Reentry Velocity')
+plt.plot(time_points, np.sqrt(solution_escape.y[1]**2 + solution_escape.y[3]**2), label='Escape Trajectory Velocity')
+plt.xlabel('Time (s)')
+plt.ylabel('Velocity (m/s)')
+plt.title('Payload Velocity vs. Time')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Plotting altitude vs. time
+alt_circular = np.sqrt(solution_circular.y[0]**2 + solution_circular.y[2]**2) - R_earth
+alt_elliptical = np.sqrt(solution_elliptical.y[0]**2 + solution_elliptical.y[2]**2) - R_earth
+alt_escape = np.sqrt(solution_escape.y[0]**2 + solution_escape.y[2]**2) - R_earth
+
+plt.figure(figsize=(12, 8))
+plt.plot(time_points, alt_circular / 1000, label='Circular Orbit Altitude')
+plt.plot(time_points, alt_elliptical / 1000, label='Elliptical Reentry Altitude')
+plt.plot(time_points, alt_escape / 1000, label='Escape Trajectory Altitude')
+plt.xlabel('Time (s)')
+plt.ylabel('Altitude (km)')
+plt.title('Payload Altitude vs. Time')
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<p><img alt="alt text" src="../image-8.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

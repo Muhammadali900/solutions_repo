@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Interference Patterns on a Water Surface - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Interference Patterns on a Water Surface";
         var mkdocs_page_input_path = "1 Physics/3 Waves/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -64,8 +64,22 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">3 Waves</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Interference Patterns on a Water Surface</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#a-simulation-based-exploration-using-regular-polygons">A Simulation-Based Exploration Using Regular Polygons</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-real-world-relevance">2. Real-World Relevance</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-wave-physics-background">3. Wave Physics Background</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#4-superposition-principle">4. Superposition Principle</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#5-graphical-representation">5. Graphical Representation</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +177,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">3 Waves</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Interference Patterns on a Water Surface</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +185,264 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="interference-patterns-on-a-water-surface">Interference Patterns on a Water Surface</h1>
+<h2 id="a-simulation-based-exploration-using-regular-polygons">A Simulation-Based Exploration Using Regular Polygons</h2>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>Wave interference is a fundamental concept in physics that describes how two or more waves combine when they overlap in space. On a water surface, this phenomenon is visually intuitive and can be observed when multiple ripples interact, forming patterns of reinforcement (constructive interference) or cancellation (destructive interference).</p>
+<p>In this study, we simulate the interference patterns created by coherent wave sources placed at the vertices of regular polygons — such as triangles, squares, and pentagons. The regular placement ensures symmetry and makes it easier to study the resulting wave interactions.</p>
+<h3 id="2-real-world-relevance">2. Real-World Relevance</h3>
+<ul>
+<li><strong>Noise-canceling headphones</strong>: Use destructive interference to cancel ambient sound.</li>
+<li><strong>Optical instruments</strong>: Lasers interfere to form holograms or measure distances with extreme precision.</li>
+<li><strong>Engineering and architecture</strong>: Vibration patterns in structures are often analyzed using interference principles.</li>
+</ul>
+<h3 id="3-wave-physics-background">3. Wave Physics Background</h3>
+<p>Each point source creates a circular wave that propagates outward. The mathematical expression for a wave from a point source is shown below:</p>
+<div class="arithmatex">\[
+\eta_i(x, y, t) = \frac{A}{r_i} \cdot \cos\Bigl(kr_i - \omega t + \phi_i\Bigr)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\eta_i(x, y, t)\)</span>: Displacement at point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span> from source <span class="arithmatex">\(i\)</span><br/>
+- <span class="arithmatex">\(A\)</span>: Amplitude (constant for all sources)<br/>
+- <span class="arithmatex">\(r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}\)</span>: Distance from the source to the point<br/>
+- <span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span>: Wave number (inverse of wavelength)<br/>
+- <span class="arithmatex">\(\omega = 2\pi f\)</span>: Angular frequency (proportional to frequency)<br/>
+- <span class="arithmatex">\(\phi_i\)</span>: Initial phase of the wave from source <span class="arithmatex">\(i\)</span></p>
+<p>Since all waves are coherent, we assume:
+- Same <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(\lambda\)</span>, <span class="arithmatex">\(f\)</span>, and <span class="arithmatex">\(\phi = 0\)</span></p>
+<h3 id="4-superposition-principle">4. Superposition Principle</h3>
+<p>The total surface displacement at any point is calculated using the principle of linear superposition. Below is the corresponding formula:</p>
+<div class="arithmatex">\[
+\eta_{sum}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
+\]</div>
+<p>This summation produces the interference pattern:
+- <strong>Bright regions</strong>: Constructive interference (waves add up)
+- <strong>Dark regions</strong>: Destructive interference (waves cancel)</p>
+<h3 id="5-graphical-representation">5. Graphical Representation</h3>
+<p>Below is a Python script that uses Matplotlib to generate and display the interference patterns for a triangular, square, and pentagonal arrangement of point sources.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants for wave properties
+A = 1.0            # amplitude
+wavelength = 2.0   # wavelength
+frequency = 1.0    # frequency
+phi = 0.0          # phase offset
+
+k = 2 * np.pi / wavelength
+omega = 2 * np.pi * frequency
+
+# Create a grid of x, y points to evaluate wave displacements
+x = np.linspace(-10, 10, 500)
+y = np.linspace(-10, 10, 500)
+X, Y = np.meshgrid(x, y)
+
+def polygon_vertices(n_sides, radius=5, center=(0, 0)):
+    """Returns the coordinates of the vertices of a regular polygon"""
+    angles = np.linspace(0, 2*np.pi, n_sides, endpoint=False)
+    cx, cy = center
+    return [(cx + radius*np.cos(a), cy + radius*np.sin(a)) for a in angles]
+
+def total_wave(X, Y, t, sources):
+    """Calculates the total wave displacement by summing the waves from all sources"""
+    eta = np.zeros_like(X)
+    for (x0, y0) in sources:
+        r = np.sqrt((X - x0)**2 + (Y - y0)**2) + 1e-6  # to avoid division by zero
+        eta += (A / np.sqrt(r)) * np.cos(k * r - omega * t + phi)
+    return eta
+
+# Time snapshot for visualization
+t = 0
+
+# Create the figure for plotting
+fig, axs = plt.subplots(1, 3, figsize=(18, 6))
+titles = ['Triangle (3 sources)', 'Square (4 sources)', 'Pentagon (5 sources)']
+
+# Generate and plot the interference patterns for each polygon
+for ax, sides, title in zip(axs, [3, 4, 5], titles):
+    sources = polygon_vertices(sides)  # Get the polygon vertices
+    eta_sum = total_wave(X, Y, t, sources)  # Compute the total wave displacement
+    im = ax.imshow(eta_sum, extent=(-10, 10, -10, 10), cmap='seismic', origin='lower')  # Plot the pattern
+    ax.set_title(title)
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.scatter(*zip(*sources), color='black', marker='x', label='Sources')  # Mark the sources
+    ax.legend()
+
+# Add color bar for better understanding
+fig.colorbar(im, ax=axs.ravel().tolist(), shrink=0.7, label='Wave Displacement')
+
+# Adjust layout for better spacing
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image.png"/></p>
+<h1 id="analysis-of-graphs">Analysis of Graphs</h1>
+<h3 id="triangle-3-sources">Triangle (3 Sources)</h3>
+<p>The interference pattern exhibits <strong>three-fold symmetry</strong>. Bright areas represent <strong>constructive interference</strong>, while dark areas show <strong>destructive interference</strong>.</p>
+<h3 id="square-4-sources">Square (4 Sources)</h3>
+<p>The interference pattern forms a <strong>four-fold symmetric grid</strong>, with regions of amplification and cancellation of waves.</p>
+<h3 id="pentagon-5-sources">Pentagon (5 Sources)</h3>
+<p>The interference pattern becomes more complex with <strong>five-fold symmetry</strong>, showcasing intricate regions of constructive and destructive interference.</p>
+<h1 id="6formulas-used-in-the-code">6.Formulas Used in the Code</h1>
+<h4 id="1-distance-to-source">1. Distance to Source</h4>
+<div class="arithmatex">\[
+r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}
+\]</div>
+<p><strong>Explanation</strong>: This is the Euclidean distance from a point <span class="arithmatex">\((x, y)\)</span> to the wave source at <span class="arithmatex">\((x_i, y_i)\)</span>.<br/>
+<strong>Why it's important</strong>: Farther points receive weaker waves and are reached later.</p>
+<p><strong>Example</strong>: From <span class="arithmatex">\((0,0)\)</span> to <span class="arithmatex">\((3,4)\)</span>:</p>
+<div class="arithmatex">\[
+r = \sqrt{3^2 + 4^2} = 5
+\]</div>
+<hr/>
+<h4 id="2-wave-number">2. Wave Number</h4>
+<div class="arithmatex">\[
+k = \frac{2\pi}{\lambda}
+\]</div>
+<p><strong>Explanation</strong>: Number of wave cycles per unit length.<br/>
+<strong>Why it's important</strong>: Controls how tightly packed the waves are.<br/>
+<strong>Note</strong>: <span class="arithmatex">\(\lambda\)</span> is the wavelength — distance between two crests.</p>
+<hr/>
+<h4 id="3-angular-frequency">3. Angular Frequency</h4>
+<div class="arithmatex">\[
+\omega = 2\pi f
+\]</div>
+<p><strong>Explanation</strong>: How quickly the wave oscillates (in time).<br/>
+<strong>Why it's important</strong>: High frequency → fast oscillation.<br/>
+<strong>Note</strong>: <span class="arithmatex">\(f\)</span> is frequency in Hz.</p>
+<hr/>
+<h4 id="4-single-wave-equation">4. Single Wave Equation</h4>
+<div class="arithmatex">\[
+\eta_i(x, y, t) = \frac{A}{r_i} \cdot \cos(kr_i - \omega t)
+\]</div>
+<p><strong>Explanation</strong>: Displacement from a single wave source at a point in space and time.</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span> is the amplitude  </li>
+<li><span class="arithmatex">\(\frac{1}{r_i}\)</span> models decay with distance  </li>
+<li><span class="arithmatex">\(\cos(kr_i - \omega t)\)</span> describes wave oscillation</li>
+</ul>
+<p><strong>Closer = stronger wave</strong>; farther = weaker.</p>
+<hr/>
+<h4 id="5-total-wave-equation-superposition">5. Total Wave Equation (Superposition)</h4>
+<div class="arithmatex">\[
+\eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
+\]</div>
+<p><strong>Explanation</strong>: Add up contributions from all sources.<br/>
+<strong>Why it's important</strong>: This is how interference patterns form.</p>
+<hr/>
+<h4 id="6-constructive-interference-condition">6. Constructive Interference Condition</h4>
+<div class="arithmatex">\[
+\Delta r = m \lambda \quad (m = 0, \pm1, \pm2, \dots)
+\]</div>
+<p><strong>Explanation</strong>: Waves reinforce when path difference is a whole multiple of wavelength.</p>
+<p><strong>Example</strong>: If <span class="arithmatex">\(\lambda = 2\)</span>, then <span class="arithmatex">\(\Delta r = 2, 4, 6, \dots\)</span></p>
+<hr/>
+<h4 id="7-destructive-interference-condition">7. Destructive Interference Condition</h4>
+<div class="arithmatex">\[
+\Delta r = \left(m + \frac{1}{2} \right)\lambda
+\]</div>
+<p><strong>Explanation</strong>: Waves cancel when their path difference is a half multiple of the wavelength.</p>
+<p><strong>Example</strong>: If <span class="arithmatex">\(\lambda = 2\)</span>, then <span class="arithmatex">\(\Delta r = 1, 3, 5, \dots\)</span></p>
+<hr/>
+<h4 id="8-wave-decay-due-to-distance">8. Wave Decay Due to Distance</h4>
+<div class="arithmatex">\[
+\text{Amplitude} \propto \frac{1}{r_i}
+\]</div>
+<p><strong>Explanation</strong>: Waves lose strength as they spread out.<br/>
+ Real-life: Drop a pebble — strong ripples near impact, weaker far out.</p>
+<h1 id="7-visualizing-wave-interference-square-source-dynamics">7. Visualizing Wave Interference: Square Source Dynamics</h1>
+<p>Here’s the enhanced Python script generating three graphs:</p>
+<ol>
+<li><strong>Interference pattern at <span class="arithmatex">\( t = 0 \)</span></strong></li>
+<li><strong>Time evolution at the center <span class="arithmatex">\( (0, 0) \)</span></strong></li>
+<li><strong>Cross-sectional displacement along <span class="arithmatex">\( y = 0 \)</span></strong></li>
+</ol>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+A = 1.0  # Amplitude
+lambda_ = 0.5  # Wavelength
+k = 2 * np.pi / lambda_  # Wave number
+omega = 2 * np.pi  # Angular frequency (f = 1)
+t = 0  # Initial time
+
+# Define grid
+x = np.linspace(-2, 2, 200)
+y = np.linspace(-2, 2, 200)
+X, Y = np.meshgrid(x, y)
+
+# Source positions (square)
+sources = [(1, 1), (1, -1), (-1, -1), (-1, 1)]
+
+# Total wave displacement at t = 0
+eta_sum = np.zeros_like(X)
+for (x0, y0) in sources:
+    r = np.sqrt((X - x0)**2 + (Y - y0)**2)
+    eta_i = A / np.sqrt(r + 0.01) * np.cos(k * r - omega * t)  # Avoid division by zero
+    eta_sum += eta_i
+
+# Graph 1: 2D Interference Pattern
+plt.figure(figsize=(10, 8))
+plt.contourf(X, Y, eta_sum, levels=20, cmap='seismic')
+plt.colorbar(label='Displacement')
+plt.title('Interference Pattern from Square Sources (t = 0)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+
+# Graph 2: Time Evolution at (0, 0)
+t_values = np.linspace(0, 2, 100)
+eta_time = []
+for t in t_values:
+    eta = 0
+    for (x0, y0) in sources:
+        r = np.sqrt((0 - x0)**2 + (0 - y0)**2)
+        eta += A / np.sqrt(r) * np.cos(k * r - omega * t)
+    eta_time.append(eta)
+
+plt.figure(figsize=(10, 4))
+plt.plot(t_values, eta_time, 'b-', label='Displacement')
+plt.title('Displacement at (0, 0) Over Time')
+plt.xlabel('Time (s)')
+plt.ylabel('Displacement')
+plt.grid()
+plt.legend()
+plt.show()
+
+# Graph 3: Cross-section along y = 0
+eta_cross = np.zeros_like(x)
+for i, x_val in enumerate(x):
+    eta = 0
+    for (x0, y0) in sources:
+        r = np.sqrt((x_val - x0)**2 + (0 - y0)**2)
+        eta += A / np.sqrt(r + 0.01) * np.cos(k * r)
+    eta_cross[i] = eta
+
+plt.figure(figsize=(10, 4))
+plt.plot(x, eta_cross, 'r-', label='Displacement along y = 0')
+plt.title('Displacement Along y = 0 at t = 0')
+plt.xlabel('x')
+plt.ylabel('Displacement')
+plt.grid()
+plt.legend()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<h1 id="results-and-interpretation">Results and Interpretation</h1>
+<h2 id="2d-interference-pattern">2D Interference Pattern</h2>
+<p>The contour plot shows a symmetric pattern due to the square’s geometry. Bright red and blue areas indicate <strong>constructive interference</strong> (high positive/negative displacement), while white areas near zero show <strong>destructive interference</strong>.<br/>
+Diagonal lines of symmetry emerge from the equal spacing of sources.</p>
+<h2 id="time-evolution-at-0-0">Time Evolution at (0, 0)</h2>
+<p>The reference point is arbitrary:<br/>
+The line plot reveals periodic oscillations, as waves from all sources interfere at the center. Peaks and troughs depend on the phase alignment over time.</p>
+<h2 id="cross-section-along-y-0">Cross-section Along <span class="arithmatex">\(y = 0\)</span></h2>
+<p>This graph shows how displacement varies along the x-axis at <span class="arithmatex">\(y = 0\)</span>. Sharp peaks and dips highlight interference effects, with symmetry around <span class="arithmatex">\(x = 0\)</span>.</p>
+<h2 id="discussion">Discussion</h2>
+<p>The square arrangement produces a highly symmetric interference pattern, with <strong>constructive interference</strong> strongest where path differences are integer multiples of <span class="arithmatex">\(\lambda\)</span>. <strong>Destructive interference</strong> dominates where path differences are half-wavelength multiples.The <span class="arithmatex">\(\frac{1}{r}\)</span> amplitude decay ensures distant points have weaker contributions, shaping the pattern’s spread. This simulation could be extended to other polygons (e.g., triangle or pentagon) or varying <span class="arithmatex">\(\lambda\)</span> to explore richer patterns.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

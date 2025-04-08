@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>1. Theoretical Foundation: Equations of Motion - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "1. Theoretical Foundation: Equations of Motion";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,8 +46,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">1. Theoretical Foundation: Equations of Motion</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#horizontal-motion">Horizontal Motion</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#vertical-motion">Vertical Motion</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -163,7 +167,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">1. Theoretical Foundation: Equations of Motion</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,139 +175,169 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h2 id="1-equation-of-motion">1. Equation of Motion</h2>
-<p>A simple pendulum consists of a mass <span class="arithmatex">\(m\)</span> attached to a string of length <span class="arithmatex">\(L\)</span>, swinging under the influence of gravity. The equation governing its motion is:  </p>
-<div class="arithmatex">\[  
-\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin\theta = 0  
-\]</div>
-<p>Where:<br/>
-- <span class="arithmatex">\(\theta\)</span> is the angular displacement (radians).</p>
+<h1 id="1-theoretical-foundation-equations-of-motion">1. Theoretical Foundation: Equations of Motion</h1>
+<p>Projectile motion can be understood by decomposing it into horizontal and vertical components. Assuming no air resistance and that the projectile is launched from ground level, the motion is governed by the following kinematic equations:</p>
+<h2 id="horizontal-motion">Horizontal Motion</h2>
+<p><strong>Velocity:</strong></p>
+<div class="arithmatex">\[ v_x = v_0 \cdot \cos(\theta) \]</div>
+<p><strong>Displacement:</strong></p>
+<div class="arithmatex">\[ x(t) = v_0 \cdot \cos(\theta) \cdot t \]</div>
+<h2 id="vertical-motion">Vertical Motion</h2>
+<p><strong>Velocity:</strong></p>
+<div class="arithmatex">\[ v_y = v_0 \cdot \sin(\theta) - g \cdot t \]</div>
+<p><strong>Displacement:</strong></p>
+<div class="arithmatex">\[ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g \cdot t^2 \]</div>
+<p>Here:</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(g\)</span> is the acceleration due to gravity ($ 9.8 $ m/s²). </p>
-</li>
-<li>
-<p><span class="arithmatex">\(L\)</span> is the length of the pendulum. </p>
-</li>
-<li>
-<p>The term <span class="arithmatex">\(\sin(\theta)\)</span> accounts for the restoring torque due to gravity.  </p>
-</li>
+<li><span class="arithmatex">\(v_0\)</span> is the initial launch speed.</li>
+<li><span class="arithmatex">\(\theta\)</span> is the angle of projection.</li>
+<li><span class="arithmatex">\(g\)</span> is the acceleration due to gravity (approximately 9.8 m/s²).</li>
+<li><span class="arithmatex">\(t\)</span> is the time elapsed.</li>
 </ul>
-<p>This is a nonlinear second-order differential equation, making it difficult to solve analytically for large angles.  </p>
-<h2 id="2-small-angle-approximation">2. Small-Angle Approximation</h2>
-<p>For small angles where $ \theta \approx \sin(\theta) $ (in radians), the equation simplifies to:  </p>
-<div class="arithmatex">\[  
-\frac{d^2\theta}{dt^2} + \frac{g}{L} \theta = 0  
-\]</div>
-<p>This is a linear second-order ordinary differential equation, similar to a simple harmonic oscillator.  </p>
-<h2 id="3-solution-for-the-simple-pendulum">3. Solution for the Simple Pendulum</h2>
-<p>For small oscillations, the solution takes the form:  </p>
-<div class="arithmatex">\[  
-\theta (t) = \theta_0 \cos(\omega t + \phi)  
-\]</div>
-<p>Where:<br/>
-- <span class="arithmatex">\(\theta_0\)</span> is the initial amplitude.</p>
+<p>The time of flight <span class="arithmatex">\(T\)</span> can be found by setting <span class="arithmatex">\(y(T) = 0\)</span>:</p>
+<div class="arithmatex">\[ 0 = v_0 \cdot \sin(\theta) \cdot T - \frac{1}{2} g \cdot T^2 \]</div>
+<p>Solving for <span class="arithmatex">\(T\)</span>:</p>
+<div class="arithmatex">\[ T = \frac{2 v_0 \cdot \sin(\theta)}{g} \]</div>
+<p>The range <span class="arithmatex">\(R\)</span>, which is the horizontal distance traveled, is then:</p>
+<div class="arithmatex">\[ R = x(T) = v_0 \cdot \cos(\theta) \cdot T = \frac{v_0^2 \cdot \sin(2\theta)}{g} \]</div>
+<p>This equation shows that the range depends on both the initial speed and the angle of projection.</p>
+<h1 id="2-analysis-of-the-range">2. Analysis of the Range</h1>
+<p>The horizontal range <span class="arithmatex">\(R\)</span> of a projectile is influenced by several factors, including the angle of projection <span class="arithmatex">\(\theta\)</span>, the initial velocity <span class="arithmatex">\(v_0\)</span>, and the acceleration due to gravity <span class="arithmatex">\(g\)</span>. Let's analyze how each of these parameters affects the range.</p>
+<h2 id="1-dependence-on-the-angle-of-projection">1. Dependence on the Angle of Projection</h2>
+<p>The range equation for a projectile launched from ground level is:</p>
+<div class="arithmatex">\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]</div>
+<p>This equation indicates that the range depends on <span class="arithmatex">\(\sin(2\theta)\)</span>:</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(\phi\)</span> is the phase constant, determined by initial conditions. </p>
-</li>
-<li>
-<p><span class="arithmatex">\(\omega\)</span> is the natural frequency of the pendulum, given by: </p>
-</li>
+<li><strong>Maximum Range:</strong> The function <span class="arithmatex">\(\sin(2\theta)\)</span> reaches its maximum value of 1 when <span class="arithmatex">\(2\theta = 90^\circ\)</span>, or <span class="arithmatex">\(\theta = 45^\circ\)</span>. Therefore, the projectile achieves its maximum range when launched at a 45-degree angle.</li>
+<li><strong>Symmetric Angles:</strong> Angles equidistant from 45 degrees (e.g., 30° and 60°) yield the same range because <span class="arithmatex">\(\sin(60^\circ) = \sin(120^\circ)\)</span>. However, the trajectories differ; a lower angle results in a flatter trajectory with shorter flight time, while a higher angle produces a steeper trajectory with longer flight time.</li>
 </ul>
-<div class="arithmatex">\[  
-\omega = \sqrt{\frac{g}{L}}  
-\]</div>
-<h2 id="4-energy-of-the-simple-pendulum">4. Energy of the Simple Pendulum</h2>
-<p>The total mechanical energy $ E $ is the sum of kinetic and potential energy:  </p>
-<div class="arithmatex">\[  
-E = T + U  
-\]</div>
-<p>Where:  </p>
-<h3 id="kinetic-energy">Kinetic Energy</h3>
-<div class="arithmatex">\[  
-T = \frac{1}{2} m L^2 \left( \frac{d\theta}{dt} \right)^2  
-\]</div>
-<h3 id="potential-energy-measured-from-the-lowest-position">Potential Energy (measured from the lowest position)</h3>
-<div class="arithmatex">\[  
-U = mgL(1 - \cos\theta)  
-\]</div>
-<p>The total energy remains constant for an ideal pendulum:  </p>
-<div class="arithmatex">\[  
-E = \frac{1}{2} m L^2 \left( \frac{d\theta}{dt} \right)^2 + mgL(1 - \cos\theta)  
-\]</div>
-<h2 id="5-phase-space-representation">5. Phase Space Representation</h2>
-<p>A useful way to visualize pendulum motion is in phase space, plotting angular velocity $ \dot{\theta} $ against angular displacement $ \theta $. The phase portrait shows closed curves for undamped motion, representing conservation of energy.</p>
-<h2 id="6-frequency-of-oscillations">6. Frequency of Oscillations</h2>
-<p>The period of oscillation $ T $ for small angles is given by:  </p>
-<div class="arithmatex">\[  
-T = 2\pi \sqrt{\frac{L}{g}}  
-\]</div>
-<p>For large amplitudes, the period must be corrected using elliptic integrals:  </p>
-<div class="arithmatex">\[  
-T = 4 \sqrt{\frac{L}{g}} \int_0^{\pi/2} \frac{d\phi}{\sqrt{1 - k^2 \sin^2\phi}}  
-\]</div>
-<p>where:  </p>
-<div class="arithmatex">\[  
-k = \sin\left(\frac{\theta_0}{2}\right)  
-\]</div>
-<p>For small oscillations, we can approximate:  </p>
-<div class="arithmatex">\[  
-T \approx 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{16} \theta_0^2 + \frac{11}{3072} \theta_0^4 + \dots\right)  
-\]</div>
-<h2 id="7-numerical-solution-using-python">7. Numerical Solution using Python</h2>
-<p>Since the nonlinear equation:  </p>
-<div class="arithmatex">\[  
-\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = 0  
-\]</div>
+<h2 id="2-influence-of-initial-velocity">2. Influence of Initial Velocity</h2>
+<p>The initial velocity <span class="arithmatex">\(v_0\)</span> has a quadratic effect on the range:</p>
+<ul>
+<li><strong>Direct Relationship:</strong> Since <span class="arithmatex">\(R \propto v_0^2\)</span>, doubling the initial velocity quadruples the range. This quadratic relationship underscores the significant impact of initial speed on how far the projectile travels.</li>
+</ul>
+<h2 id="3-effect-of-gravitational-acceleration">3. Effect of Gravitational Acceleration</h2>
+<p>Gravity <span class="arithmatex">\(g\)</span> inversely affects the range:</p>
+<ul>
+<li><strong>Inverse Relationship:</strong> An increase in gravitational acceleration results in a decrease in range. For instance, on the Moon, where gravity is weaker than on Earth, a projectile would travel farther than it would with the same initial conditions on Earth.</li>
+</ul>
+<h1 id="3-practical-applications">3. Practical Applications</h1>
+<p>Projectile motion models, while foundational in physics, often assume ideal conditions such as uniform terrain and negligible air resistance. However, real-world scenarios frequently involve complexities like uneven terrain and aerodynamic forces. Adapting the basic projectile motion model to account for these factors enhances its applicability across various fields.</p>
+<h2 id="1-basic-projectile-motion-neglecting-air-resistance">1. Basic Projectile Motion (Neglecting Air Resistance)</h2>
+<p><strong>Time of Flight (T):</strong></p>
+<div class="arithmatex">\[ T = \frac{2 v_0 \sin(\theta)}{g} \]</div>
+<p><strong>Maximum Height (H):</strong></p>
+<div class="arithmatex">\[ H = \frac{(v_0 \sin(\theta))^2}{2g} \]</div>
+<p><strong>Horizontal Range (R):</strong></p>
+<div class="arithmatex">\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]</div>
+<p>The range is maximized when <span class="arithmatex">\(\theta = 45^\circ\)</span>.</p>
+<p>Where:
+- <span class="arithmatex">\(v_0\)</span> = initial velocity
+- <span class="arithmatex">\(\theta\)</span> = launch angle
+- <span class="arithmatex">\(g\)</span> = acceleration due to gravity</p>
+<h2 id="2-uneven-terrain">2. Uneven Terrain</h2>
+<p>When launching from a height <span class="arithmatex">\(y_0\)</span>, the range equation adjusts to:</p>
+<div class="arithmatex">\[ R = \frac{v_0 \cos(\theta)}{g} \left( v_0 \sin(\theta) + \sqrt{(v_0 \sin(\theta))^2 + 2 g y_0} \right) \]</div>
+<h2 id="3-air-resistance">3. Air Resistance</h2>
+<p>Accounting for air resistance complicates the equations, often requiring numerical methods for precise solutions. However, for small projectiles at high speeds, the range <span class="arithmatex">\(R\)</span> can be approximated by:</p>
+<div class="arithmatex">\[ R \approx \frac{v_0 v_t}{g} \]</div>
+<p>Where <span class="arithmatex">\(v_t\)</span> is the terminal velocity.</p>
+<h1 id="4-implementation">4. Implementation</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
 
-# Parameters
-g = 9.8  # Gravity (m/s^2)
-L = 1.0  # Length of pendulum (m)
-t_span = (0, 10)  # Time span for simulation
-initial_conditions = [np.pi / 4, 0]  # Initial conditions: [theta(0), theta'(0)]
+# Constants
+g = 9.81  # Acceleration due to gravity (m/s²)
 
-# Differential equation for the simple pendulum
-def simple_pendulum(t, y):
-    theta, theta_dot = y
-    dtheta_dt = theta_dot
-    dtheta_dot_dt = - (g / L) * np.sin(theta)
-    return [dtheta_dt, dtheta_dot_dt]
+# Function to calculate the range of a projectile
+def calculate_range(v0, theta):
+    theta_rad = np.radians(theta)
+    range = (v0**2) * np.sin(2 * theta_rad) / g
+    return range
 
-# Solve using Runge-Kutta method
-solution = solve_ivp(simple_pendulum, t_span, initial_conditions, t_eval=np.linspace(0, 10, 1000))
+# Function to plot range vs. launch angle for different initial velocities
+def plot_range_vs_angle(initial_velocities, angles):
+    plt.figure(figsize=(10, 6))
+    for v in initial_velocities:
+        ranges = [calculate_range(v, angle) for angle in angles]
+        plt.plot(angles, ranges, label=f'v0 = {v} m/s')
+    plt.title('Projectile Range vs. Launch Angle')
+    plt.xlabel('Launch Angle (degrees)')
+    plt.ylabel('Range (meters)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
-# Extract solution
-t = solution.t
-theta = solution.y[0]
-theta_dot = solution.y[1]
+# Function to simulate and plot projectile motion
+def plot_trajectory(v0, theta):
+    theta_rad = np.radians(theta)
+    t_flight = 2 * v0 * np.sin(theta_rad) / g
+    t = np.linspace(0, t_flight, num=500)
+    x = v0 * np.cos(theta_rad) * t
+    y = v0 * np.sin(theta_rad) * t - 0.5 * g * t**2
+    plt.plot(x, y, label=f'v0 = {v0} m/s, θ = {theta}°')
 
-# Plot Angular Displacement vs Time
-plt.figure(figsize=(10, 6))
-plt.plot(t, theta, label="Theta (rad)")
-plt.title("Simple Pendulum Motion")
-plt.xlabel("Time (s)")
-plt.ylabel("Angular Displacement (rad)")
-plt.grid(True)
-plt.legend()
-plt.show()
+# Main execution
+if __name__ == "__main__":
+    # Parameters
+    initial_velocities = [20, 30, 40]  # Different initial velocities in m/s
+    angles = np.linspace(0, 90, num=91)  # Angles from 0 to 90 degrees
 
-# Plot Phase Portrait
-plt.figure(figsize=(8, 6))
-plt.plot(theta, theta_dot)
-plt.title("Phase Portrait of the Simple Pendulum")
-plt.xlabel("Theta (rad)")
-plt.ylabel("Theta' (rad/s)")
-plt.grid(True)
-plt.show(
+    # Plot range vs. launch angle for different initial velocities
+    plot_range_vs_angle(initial_velocities, angles)
+
+    # Plot trajectories for different initial conditions
+    plt.figure(figsize=(10, 6))
+    for v0 in initial_velocities:
+        for theta in [30, 45, 60]:  # Example angles
+            plot_trajectory(v0, theta)
+    plt.title('Projectile Motion Trajectories')
+    plt.xlabel('Horizontal Distance (meters)')
+    plt.ylabel('Vertical Distance (meters)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 </code></pre>
-<p><img alt="alt text" src="../image.png"/></p>
-<p><img alt="alt text" src="../image-1.png"/></p>
-<p><img alt="alt text" src="../image-2.png"/></p>
-<p><img alt="alt text" src="../image-3.png"/></p>
+<p><img alt="alt text" src="../image.png"/>
+<img alt="alt text" src="../image-1.png"/></p>
+<h1 id="explanation">Explanation:</h1>
+<h2 id="constants-and-functions">Constants and Functions</h2>
+<ul>
+<li>
+<p><strong>Gravitational Acceleration</strong>: The constant <span class="arithmatex">\(g\)</span> represents gravitational acceleration, typically defined as <span class="arithmatex">\(9.8 \, \text{m/s}^2\)</span>.  </p>
+</li>
+<li>
+<p><strong>calculate_range</strong>: Computes the horizontal range <span class="arithmatex">\(R\)</span> for a given initial velocity <span class="arithmatex">\(v_0\)</span> and launch angle <span class="arithmatex">\(\theta\)</span>. The standard formula is:<br/>
+  $$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
+</li>
+<li>
+<p><strong>plot_range_vs_angle</strong>: Generates a plot of range <span class="arithmatex">\(R\)</span> versus launch angle <span class="arithmatex">\(\theta\)</span> for a list of initial velocities <span class="arithmatex">\(v_0\)</span>. This visualizes how <span class="arithmatex">\(R\)</span> peaks at <span class="arithmatex">\(\theta = 45^\circ\)</span> and varies with <span class="arithmatex">\(v_0\)</span>.</p>
+</li>
+<li>
+<p><strong>plot_trajectory</strong>: Simulates and plots the projectile’s trajectory (<span class="arithmatex">\(x-y\)</span> path) for given initial conditions. The parametric equations are:<br/>
+  $$ x(t) = v_0 \cos(\theta) \cdot t $$<br/>
+  $$ y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+</li>
+</ul>
+<h2 id="main-execution">Main Execution</h2>
+<p>The simulation follows these steps:</p>
+<ol>
+<li><strong>Input Definition</strong>: </li>
+<li>A list of initial velocities <span class="arithmatex">\(v_0\)</span> is defined (e.g., [<span class="arithmatex">\(10, 20, 30\)</span>] m/s).</li>
+<li>
+<p>A range of launch angles <span class="arithmatex">\(\theta\)</span> is specified (e.g., <span class="arithmatex">\(0^\circ\)</span> to <span class="arithmatex">\(90^\circ\)</span> in increments).</p>
+</li>
+<li>
+<p><strong>Range Visualization</strong>: </p>
+</li>
+<li>
+<p>The plot_range_vs_angle function is called to plot <span class="arithmatex">\(R\)</span> versus <span class="arithmatex">\(\theta\)</span> for each <span class="arithmatex">\(v_0\)</span>. This shows the maximum range at <span class="arithmatex">\(\theta = 45^\circ\)</span> and the quadratic effect of <span class="arithmatex">\(v_0\)</span>.</p>
+</li>
+<li>
+<p><strong>Trajectory Visualization</strong>: </p>
+</li>
+<li>The plot_trajectory function plots trajectories for combinations of the specified <span class="arithmatex">\(v_0\)</span> values and example angles: <span class="arithmatex">\(30^\circ\)</span>, <span class="arithmatex">\(45^\circ\)</span>, and <span class="arithmatex">\(60^\circ\)</span>. This illustrates differences in height, range, and flight time.</li>
+</ol>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

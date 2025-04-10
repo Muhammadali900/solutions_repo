@@ -147,8 +147,11 @@ NASA and ESA use these calculations to:
 
 This simulation will:
 - Simulate circular orbits for different radii.
+
 - Compute orbital periods numerically.
+
 - Compare with Kepler’s Third Law:  
+
   $$ T^2 \propto r^3 $$
 
 
@@ -192,7 +195,9 @@ plt.show()
 
 This simulation will:
 - Shows a full circular orbit for one satellite around Earth.
+
 - Displays Earth as a blue dot and the satellite path in red.
+
 - Includes the orbital period in the title for clarity.
 
 ```python
@@ -235,7 +240,9 @@ plt.show()
 
 This simulation will:
 - Plots multiple orbits at different radii on the same graph for comparison.
+
 - Also plots $T^2$ vs $r^3$ for those orbits to confirm Kepler’s Law.
+
 - Combines visual clarity and physics verification in one figure.
 
 

@@ -1,8 +1,3 @@
-# Introduction
-
-In space exploration and orbital mechanics, cosmic velocities refer to the minimum speeds needed to achieve specific motion goals around a celestial body, such as Earth. These velocities determine whether a spacecraft can enter orbit, escape the planet's gravity, or even leave the Solar System. There are three key thresholds: the first, second, and third cosmic velocities, each marking a deeper level of motion into space.
-
-
 # 1. Cosmic Velocities – Definitions & Physical Meaning
 
 Cosmic velocities refer to the critical speeds needed to achieve specific motion objectives relative to a celestial body like Earth. These are fundamental in space exploration and orbital mechanics.

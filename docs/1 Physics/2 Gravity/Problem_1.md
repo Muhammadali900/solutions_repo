@@ -146,6 +146,7 @@ NASA and ESA use these calculations to:
 # 4. Python Implementation: Simulating Circular Orbits
 
 This simulation will:
+
 - Simulate circular orbits for different radii.
 
 - Compute orbital periods numerically.
@@ -194,6 +195,7 @@ plt.show()
 
 
 This simulation will:
+
 - Shows a full circular orbit for one satellite around Earth.
 
 - Displays Earth as a blue dot and the satellite path in red.
@@ -239,6 +241,7 @@ plt.show()
 # 6. Multiple Orbits + Kepler Verification
 
 This simulation will:
+
 - Plots multiple orbits at different radii on the same graph for comparison.
 
 - Also plots $T^2$ vs $r^3$ for those orbits to confirm Kepler’s Law.

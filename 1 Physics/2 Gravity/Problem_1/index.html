@@ -295,10 +295,16 @@ $$ M_{\text{Earth}} \approx 5.97 \times 10^{24} \, \text{kg} $$</p>
 - Determine exoplanet distances and host star masses using orbital data.</p>
 <h1 id="4-python-implementation-simulating-circular-orbits">4. Python Implementation: Simulating Circular Orbits</h1>
 <p>This simulation will:
-- Simulate circular orbits for different radii.
-- Compute orbital periods numerically.
-- Compare with Kepler’s Third Law:<br/>
-  $$ T^2 \propto r^3 $$</p>
+- Simulate circular orbits for different radii.</p>
+<ul>
+<li>
+<p>Compute orbital periods numerically.</p>
+</li>
+<li>
+<p>Compare with Kepler’s Third Law:  </p>
+</li>
+</ul>
+<p>$$ T^2 \propto r^3 $$</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -329,9 +335,15 @@ plt.show()
 <p><img alt="alt text" src="../image-9.png"/></p>
 <h1 id="5static-visualization-of-circular-orbit-period">5.Static Visualization of Circular Orbit + Period</h1>
 <p>This simulation will:
-- Shows a full circular orbit for one satellite around Earth.
-- Displays Earth as a blue dot and the satellite path in red.
-- Includes the orbital period in the title for clarity.</p>
+- Shows a full circular orbit for one satellite around Earth.</p>
+<ul>
+<li>
+<p>Displays Earth as a blue dot and the satellite path in red.</p>
+</li>
+<li>
+<p>Includes the orbital period in the title for clarity.</p>
+</li>
+</ul>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -365,9 +377,15 @@ plt.show()
 <p><img alt="alt text" src="../image-10.png"/></p>
 <h1 id="6-multiple-orbits-kepler-verification">6. Multiple Orbits + Kepler Verification</h1>
 <p>This simulation will:
-- Plots multiple orbits at different radii on the same graph for comparison.
-- Also plots <span class="arithmatex">\(T^2\)</span> vs <span class="arithmatex">\(r^3\)</span> for those orbits to confirm Kepler’s Law.
-- Combines visual clarity and physics verification in one figure.</p>
+- Plots multiple orbits at different radii on the same graph for comparison.</p>
+<ul>
+<li>
+<p>Also plots <span class="arithmatex">\(T^2\)</span> vs <span class="arithmatex">\(r^3\)</span> for those orbits to confirm Kepler’s Law.</p>
+</li>
+<li>
+<p>Combines visual clarity and physics verification in one figure.</p>
+</li>
+</ul>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 

@@ -76,7 +76,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#key-systems-where-the-lorentz-force-is-crucial">Key Systems Where the Lorentz Force Is Crucial</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#1-particle-accelerators-eg-cyclotrons-synchrotrons">1. Particle Accelerators (e.g., Cyclotrons, Synchrotrons)</a>
+<li class="toctree-l4"><a class="reference internal" href="#1-particle-accelerators">1. Particle Accelerators</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#2-mass-spectrometers">2. Mass Spectrometers</a>
 </li>
@@ -207,7 +207,7 @@
 - <span class="arithmatex">\(v\)</span> is the velocity of the particle.</p>
 <p>This force determines the trajectory and acceleration of particles in various physical systems, especially in modern technology and fundamental physics.</p>
 <h2 id="key-systems-where-the-lorentz-force-is-crucial">Key Systems Where the Lorentz Force Is Crucial</h2>
-<h3 id="1-particle-accelerators-eg-cyclotrons-synchrotrons">1. Particle Accelerators (e.g., Cyclotrons, Synchrotrons)</h3>
+<h3 id="1-particle-accelerators">1. Particle Accelerators</h3>
 <p><strong>Application</strong>: Accelerate charged particles to high speeds using electric fields and guide them with magnetic fields.</p>
 <p><strong>Lorentz Role</strong>:
 - Electric fields provide acceleration (linear increase in speed).
@@ -374,9 +374,9 @@ plt.show()
 </code></pre>
 <p><img alt="alt text" src="../image-5.png"/> </p>
 <p><img alt="alt text" src="../image-6.png"/></p>
-<h1 id="explanation">Explanation:</h1>
+<h2 id="explanation">Explanation:</h2>
 <p>This Python script simulates and visualizes the motion of a charged particle under the Lorentz force in both 2D and 3D, highlighting key physical effects such as the Larmor radius and E × B drift velocity.</p>
-<h2 id="parameters">Parameters</h2>
+<h3 id="parameters">Parameters</h3>
 <ul>
 <li><span class="arithmatex">\(q = 1.0\)</span>: Charge of the particle (arbitrary units).</li>
 <li><span class="arithmatex">\(m = 1.0\)</span>: Mass of the particle (arbitrary units).</li>
@@ -387,7 +387,7 @@ plt.show()
 <li><span class="arithmatex">\(dt = 0.01\)</span>: Time step for simulation.</li>
 <li><span class="arithmatex">\(\text{steps} = 3000\)</span>: Number of time steps.</li>
 </ul>
-<h2 id="plot">Plot</h2>
+<h3 id="plot">Plot</h3>
 <ul>
 <li><strong>2D Plot</strong>:</li>
 <li>Displays the particle’s trajectory projected onto the x-y plane.</li>
@@ -405,7 +405,7 @@ plt.show()
 <li>Highlights helical motion (due to <span class="arithmatex">\(v_{0z} \neq 0\)</span>) combined with drift.</li>
 <li>Labels axes in meters and includes a legend.</li>
 </ul>
-<h1 id="python-simulation-3d-motion">Python Simulation (3D Motion)</h1>
+<h2 id="python-simulation-3d-motion">Python Simulation (3D Motion)</h2>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -454,9 +454,9 @@ ax.legend()
 plt.show()
 </code></pre>
 <p><img alt="alt text" src="../image-7.png"/></p>
-<h1 id="explanation_1">Explanation:</h1>
+<h2 id="explanation_1">Explanation:</h2>
 <p>This Python script simulates and visualizes the 3D motion of a charged particle under the Lorentz force, demonstrating its trajectory influenced by electric and magnetic fields.</p>
-<h2 id="parameters_1">Parameters</h2>
+<h3 id="parameters_1">Parameters</h3>
 <ul>
 <li><span class="arithmatex">\(q = 1.0\)</span>: Charge of the particle (arbitrary units).</li>
 <li><span class="arithmatex">\(m = 1.0\)</span>: Mass of the particle (arbitrary units).</li>
@@ -467,7 +467,7 @@ plt.show()
 <li><span class="arithmatex">\(E = [0.0, 0.0, 0.0]\)</span>: Electric field vector (no electric field in this setup).</li>
 <li><span class="arithmatex">\(B = [0.0, 0.0, 1.0]\)</span>: Magnetic field vector (along z-axis, strength 1.0).</li>
 </ul>
-<h2 id="simulation-method">Simulation Method</h2>
+<h3 id="simulation-method">Simulation Method</h3>
 <p>The script uses Euler’s method to numerically solve the equations of motion under the Lorentz force:</p>
 <div class="arithmatex">\[ F = q E + q (v \times B) \]</div>
 <div class="arithmatex">\[ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = \frac{F}{m} = \frac{q}{m} \left( E + v \times B \right) \]</div>
@@ -477,7 +477,7 @@ plt.show()
 <li><strong>Update</strong>: Updates velocity (<span class="arithmatex">\(v \gets v + a \cdot dt\)</span>) and position (<span class="arithmatex">\(r \gets r + v \cdot dt\)</span>).</li>
 <li>Tracks positions over 5000 steps to form the trajectory.</li>
 </ul>
-<h2 id="physical-calculations">Physical Calculations</h2>
+<h3 id="physical-calculations">Physical Calculations</h3>
 <ul>
 <li><strong>Larmor Radius (<span class="arithmatex">\(r_L\)</span>)</strong>:<br/>
   Since <span class="arithmatex">\(E = 0\)</span>, the particle undergoes circular or helical motion in a uniform magnetic field. The radius of the circular component (in the x-y plane, perpendicular to <span class="arithmatex">\(B\)</span>) is:</li>
@@ -494,7 +494,7 @@ plt.show()
   Since <span class="arithmatex">\(E = 0\)</span>, there is no drift velocity (<span class="arithmatex">\(v_{\text{drift}} = \frac{E \times B}{B^2} = 0\)</span>).</p>
 </li>
 </ul>
-<h2 id="plot_1">Plot</h2>
+<h3 id="plot_1">Plot</h3>
 <ul>
 <li><strong>3D Plot</strong>:</li>
 <li>Displays the full 3D trajectory (<span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(z\)</span>) of the particle.</li>

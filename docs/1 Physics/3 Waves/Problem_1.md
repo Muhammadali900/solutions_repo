@@ -227,7 +227,7 @@ Where:
 The peak map stores the maximum $|\eta_{\text{sum}}|$ over all time snapshots $t \in [0, T]$.
 
 ### Plot
-- **Interference Pattern**: Displays the peak displacement as a 2D contour plot using the `plasma` colormap, highlighting constructive interference zones (high displacement).
+- **Interference Pattern**: Displays the peak displacement as a 2D contour plot using the plasma colormap, highlighting constructive interference zones (high displacement).
 - **Grid**: Covers a $10 \times 10 \, \text{m}$ area with 400x400 points for high resolution.
 - **Colorbar**: Indicates maximum displacement $|\eta|$.
 - **Title and Axes**: Labels the plot as "Peak Interference Zones (Constructive Regions)" with $x$ and $y$ axes in meters.

@@ -17,7 +17,7 @@ This force determines the trajectory and acceleration of particles in various ph
 
 ## Key Systems Where the Lorentz Force Is Crucial
 
-### 1. Particle Accelerators (e.g., Cyclotrons, Synchrotrons)
+### 1. Particle Accelerators
 
 **Application**: Accelerate charged particles to high speeds using electric fields and guide them with magnetic fields.
 
@@ -254,11 +254,11 @@ plt.show()
 
 
 
-# Explanation:
+## Explanation:
 
 This Python script simulates and visualizes the motion of a charged particle under the Lorentz force in both 2D and 3D, highlighting key physical effects such as the Larmor radius and E × B drift velocity.
 
-## Parameters
+### Parameters
 - $q = 1.0$: Charge of the particle (arbitrary units).
 - $m = 1.0$: Mass of the particle (arbitrary units).
 - $B = [0, 0, 1.0]$: Magnetic field vector (along z-axis, strength 1.0).
@@ -268,7 +268,7 @@ This Python script simulates and visualizes the motion of a charged particle und
 - $dt = 0.01$: Time step for simulation.
 - $\text{steps} = 3000$: Number of time steps.
 
-## Plot
+### Plot
 - **2D Plot**:
   - Displays the particle’s trajectory projected onto the x-y plane.
   - Shows circular or curved motion due to the magnetic field.
@@ -286,7 +286,7 @@ This Python script simulates and visualizes the motion of a charged particle und
 
 
 
-# Python Simulation (3D Motion)
+## Python Simulation (3D Motion)
 
 
 ```python
@@ -342,11 +342,11 @@ plt.show()
 
 
 
-# Explanation:
+## Explanation:
 
 This Python script simulates and visualizes the 3D motion of a charged particle under the Lorentz force, demonstrating its trajectory influenced by electric and magnetic fields.
 
-## Parameters
+### Parameters
 - $q = 1.0$: Charge of the particle (arbitrary units).
 - $m = 1.0$: Mass of the particle (arbitrary units).
 - $dt = 0.01$: Time step for simulation.
@@ -356,7 +356,7 @@ This Python script simulates and visualizes the 3D motion of a charged particle 
 - $E = [0.0, 0.0, 0.0]$: Electric field vector (no electric field in this setup).
 - $B = [0.0, 0.0, 1.0]$: Magnetic field vector (along z-axis, strength 1.0).
 
-## Simulation Method
+### Simulation Method
 The script uses Euler’s method to numerically solve the equations of motion under the Lorentz force:
 
 $$ F = q E + q (v \times B) $$
@@ -368,7 +368,7 @@ $$ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = \frac{F}{m} = \frac{q}{m} \left( E +
 - **Update**: Updates velocity ($v \gets v + a \cdot dt$) and position ($r \gets r + v \cdot dt$).
 - Tracks positions over 5000 steps to form the trajectory.
 
-## Physical Calculations
+### Physical Calculations
 - **Larmor Radius ($r_L$)**:  
   Since $E = 0$, the particle undergoes circular or helical motion in a uniform magnetic field. The radius of the circular component (in the x-y plane, perpendicular to $B$) is:
 
@@ -382,7 +382,7 @@ $$ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = \frac{F}{m} = \frac{q}{m} \left( E +
 - **E × B Drift**:  
   Since $E = 0$, there is no drift velocity ($v_{\text{drift}} = \frac{E \times B}{B^2} = 0$).
 
-## Plot
+### Plot
 - **3D Plot**:
   - Displays the full 3D trajectory ($x$, $y$, $z$) of the particle.
   - Shows a helical path due to the magnetic field ($B$ along z) and non-zero $v_{0z}$.

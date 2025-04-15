@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 3: Trajectories of a Freely Released Payload Near Earth - Physics and Mathematics</title>
+<title>1. Analyze the Possible Trajectories of a Payload Released Near Earth - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 3: Trajectories of a Freely Released Payload Near Earth";
+        var mkdocs_page_name = "1. Analyze the Possible Trajectories of a Payload Released Near Earth";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_3.md";
         var mkdocs_page_url = null;
       </script>
@@ -58,21 +58,17 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">1. Cosmic Velocities – Definitions &amp; Physical Meaning</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3: Trajectories of a Freely Released Payload Near Earth</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">1. Analyze the Possible Trajectories of a Payload Released Near Earth</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+<li class="toctree-l3"><a class="reference internal" href="#objective">Objective</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#2-gravitational-dynamics-and-equations-of-motion">2. Gravitational Dynamics and Equations of Motion</a>
+<li class="toctree-l3"><a class="reference internal" href="#governing-force-newtons-law-of-universal-gravitation">Governing Force – Newton’s Law of Universal Gravitation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#3-numerical-simulation">3. Numerical Simulation</a>
+<li class="toctree-l3"><a class="reference internal" href="#total-mechanical-energy">Total Mechanical Energy</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#4-initial-conditions-and-setup">4. Initial Conditions and Setup</a>
+<li class="toctree-l3"><a class="reference internal" href="#escape-velocity">Escape Velocity</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#5-relativistic-equations-of-motion-general-relativity-correction">5. Relativistic Equations of Motion (General Relativity Correction)</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#12-solar-radiation-pressure">12. Solar Radiation Pressure</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#13-payload-dynamics-near-earth-trajectories-velocity-and-altitude-over-time">13. Payload Dynamics Near Earth: Trajectories, Velocity, and Altitude Over Time</a>
+<li class="toctree-l3"><a class="reference internal" href="#shape-of-the-orbit-conic-sections">Shape of the Orbit: Conic Sections</a>
 </li>
 </ul>
 </li>
@@ -177,7 +173,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Problem 3: Trajectories of a Freely Released Payload Near Earth</li>
+<li class="breadcrumb-item active">1. Analyze the Possible Trajectories of a Payload Released Near Earth</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -185,206 +181,453 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-3-trajectories-of-a-freely-released-payload-near-earth">Problem 3: Trajectories of a Freely Released Payload Near Earth</h1>
-<h2 id="1-introduction">1. Introduction</h2>
-<p>In this problem, we’ll analyze the motion of a payload released near Earth, focusing on the influence of Earth’s gravity on its trajectory. Depending on the velocity and direction of release, the trajectory could be:</p>
+<h1 id="1-analyze-the-possible-trajectories-of-a-payload-released-near-earth">1. Analyze the Possible Trajectories of a Payload Released Near Earth</h1>
+<h2 id="objective">Objective</h2>
+<p>When a payload is released from a spacecraft near Earth, its subsequent trajectory depends on its initial velocity and position relative to Earth. The shape of the path—elliptical, parabolic, or hyperbolic—is governed by Newton’s Law of Gravitation and the conservation of mechanical energy.</p>
+<p>Understanding these paths is fundamental in planning:
+- Satellite orbits,
+- Escape missions,
+- Reentry maneuvers,
+- Interplanetary probes.</p>
+<h2 id="governing-force-newtons-law-of-universal-gravitation">Governing Force – Newton’s Law of Universal Gravitation</h2>
+<p>The force acting on the payload due to Earth’s gravity is:</p>
+<div class="arithmatex">\[ F = -\frac{G M m}{r^2} \hat{r} \]</div>
+<p>Where:
+- <span class="arithmatex">\(G\)</span>: Gravitational constant (<span class="arithmatex">\(6.674 \times 10^{-11} \, \text{Nm}^2/\text{kg}^2\)</span>),
+- <span class="arithmatex">\(M\)</span>: Mass of Earth,
+- <span class="arithmatex">\(m\)</span>: Mass of the payload,
+- <span class="arithmatex">\(r\)</span>: Distance from Earth’s center,
+- <span class="arithmatex">\(\hat{r}\)</span>: Unit vector from Earth to the payload.</p>
+<h2 id="total-mechanical-energy">Total Mechanical Energy</h2>
+<p>The motion is governed by conservation of total mechanical energy:</p>
+<div class="arithmatex">\[ E = \frac{1}{2} m v^2 - \frac{G M m}{r} \]</div>
+<p>This determines the trajectory type:</p>
+<table>
+<thead>
+<tr>
+<th>Energy Condition</th>
+<th>Trajectory Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(E &lt; 0\)</span></td>
+<td>Elliptical</td>
+<td>Closed orbit; bound to Earth</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E = 0\)</span></td>
+<td>Parabolic</td>
+<td>Just enough speed to escape; marginal escape</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E &gt; 0\)</span></td>
+<td>Hyperbolic</td>
+<td>Unbound; excess speed leads to escape</td>
+</tr>
+</tbody>
+</table>
+<h2 id="escape-velocity">Escape Velocity</h2>
+<p>The minimum speed required to escape Earth’s gravitational pull is:</p>
+<div class="arithmatex">\[ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \]</div>
 <ul>
-<li><strong>Elliptical:</strong> The object remains in orbit around the Earth.</li>
-<li><strong>Parabolic:</strong> The object escapes Earth’s gravity but at exactly escape velocity.</li>
-<li><strong>Hyperbolic:</strong> The object escapes Earth’s gravity with a velocity greater than the escape velocity.</li>
+<li>If the payload’s speed <span class="arithmatex">\(v = v_{\text{escape}}\)</span> → parabolic trajectory.</li>
+<li>If <span class="arithmatex">\(v &lt; v_{\text{escape}}\)</span> → elliptical (or circular) trajectory.</li>
+<li>If <span class="arithmatex">\(v &gt; v_{\text{escape}}\)</span> → hyperbolic trajectory.</li>
 </ul>
-<p>We will model these trajectories using the two-body problem under Newton's law of gravitation and solve them numerically using Python.</p>
-<h2 id="2-gravitational-dynamics-and-equations-of-motion">2. Gravitational Dynamics and Equations of Motion</h2>
-<p>The gravitational force between Earth and the payload is given by Newton’s Law of Gravitation:</p>
-<div class="arithmatex">\[F = \frac{GMm}{r^2}\]</div>
-<p>where:</p>
-<ul>
-<li><span class="arithmatex">\(F\)</span> is the gravitational force.</li>
-<li><span class="arithmatex">\(G\)</span> is the gravitational constant.</li>
-<li><span class="arithmatex">\(M\)</span> is the mass of Earth.</li>
-<li><span class="arithmatex">\(m\)</span> is the mass of the payload.</li>
-<li><span class="arithmatex">\(r\)</span> is the distance between the Earth and the payload.</li>
-</ul>
-<p>This force results in a gravitational acceleration that affects the trajectory of the payload. We can model the motion of the payload with the following equations of motion:</p>
-<div class="arithmatex">\[\ddot{r} = -\frac{GM}{r^2}\]</div>
-<p>Where:</p>
-<ul>
-<li><span class="arithmatex">\(r\)</span> is the radial distance.</li>
-<li><span class="arithmatex">\(\ddot{r}\)</span> is the acceleration.</li>
-</ul>
-<p>We’ll break down the radial and angular components of motion and solve for the position and velocity of the payload over time using numerical integration.</p>
-<h2 id="3-numerical-simulation">3. Numerical Simulation</h2>
-<p>We'll use Euler's method or Runge-Kutta method to numerically solve the system of differential equations for the position and velocity of the payload.
-The system of equations to solve are:</p>
-<div class="arithmatex">\[\ddot{x} = -\frac{GMx}{r^3}, \quad \ddot{y} = -\frac{GMy}{r^3}\]</div>
-<p>Where <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are the position coordinates of the payload in a 2D plane.</p>
-<h2 id="4-initial-conditions-and-setup">4. Initial Conditions and Setup</h2>
-<p>For our simulation, we’ll define the following initial conditions:</p>
-<ul>
-<li>The initial position of the payload relative to Earth (e.g., at some altitude).</li>
-<li>The initial velocity of the payload (e.g., tangential or radial).</li>
-<li>The initial angle of release.</li>
-</ul>
-<p>We'll visualize the trajectories for different cases of initial velocities and directions (parabolic, elliptical, and hyperbolic).</p>
-<h2 id="5-relativistic-equations-of-motion-general-relativity-correction">5. Relativistic Equations of Motion (General Relativity Correction)</h2>
-<p>When velocities approach a significant fraction of the speed of light, we must modify Newtonian gravity using General Relativity corrections. The relativistic equation of motion for an object in Earth's gravitational field is: </p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\frac{d^2r}{dt^2} = -\frac{GM}{r^2} \left( 1 + \frac{3GM}{c^2 r} \right)\)</span>\)</span> 
- where: </p>
-<ul>
-<li><span class="arithmatex">\(c\)</span> is the speed of light (3.0×10<sup>8</sup> m/s), </li>
-<li><span class="arithmatex">\(GM\)</span> is Earth's gravitational parameter. 
- This additional term accounts for the relativistic time dilation and length contraction near strong gravitational fields. </li>
-</ul>
-<p>## 6. Perturbation Due to Earth's Oblateness (J2 Effect) 
- Since Earth is not a perfect sphere, higher-order gravitational terms introduce perturbations in the motion of the payload. The J2 perturbation effect modifies the acceleration as: </p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(a_r = -\frac{GM}{r^2} \left[ 1 - \frac{3}{2} J_2 \left( \frac{R_E}{r} \right)^2 (1 - 3 \cos^2\theta) \right]\)</span>\)</span> 
- where: </p>
-<ul>
-<li><span class="arithmatex">\(J_2 \approx 1.08263 \times 10^{-3}\)</span> is Earth's oblateness coefficient, </li>
-<li><span class="arithmatex">\(R_E\)</span> is the equatorial radius of Earth, </li>
-<li><span class="arithmatex">\(\theta\)</span> is the latitude. 
- This effect causes a precession of satellite orbits, known as the J2-induced secular drift. </li>
-</ul>
-<p>## 7. Three-Body Problem (Influence of Moon or Sun on the Payload) 
- When a payload is released into space, its trajectory is not only influenced by Earth's gravity but also by other celestial bodies like the Moon or the Sun. In the restricted three-body problem, the equations of motion are: </p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\ddot{x} - 2\omega \dot{y} = \frac{\partial U}{\partial x}, \quad \ddot{y} + 2\omega \dot{x} = \frac{\partial U}{\partial y}, \quad \ddot{z} = \frac{\partial U}{\partial z}\)</span>\)</span> 
- where: </p>
-<ul>
-<li><span class="arithmatex">\(U\)</span> is the effective potential: 
-   <span class="arithmatex">\(<span class="arithmatex">\(U = \frac{1}{2} \omega^2 (x^2 + y^2) + \frac{GM_1}{r_1} + \frac{GM_2}{r_2}\)</span>\)</span> </li>
-<li><span class="arithmatex">\(M_1, M_2\)</span> are the masses of Earth and the Moon (or Sun), </li>
-<li><span class="arithmatex">\(r_1, r_2\)</span> are the distances from the payload to each body. 
- This equation governs Lagrange points, where the gravitational and centrifugal forces balance. </li>
-</ul>
-<p>## 8. Atmospheric Drag and Reentry Dynamics 
- For payloads re-entering Earth's atmosphere, we must consider aerodynamic drag. The equation of motion with drag force is: </p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(m \frac{d\mathbf{v}}{dt} = -\frac{GMm}{r^2} + \frac{1}{2} C_D \rho A v^2\)</span>\)</span> 
- where: </p>
-<ul>
-<li><span class="arithmatex">\(C_D\)</span> is the drag coefficient, </li>
-<li><span class="arithmatex">\(\rho\)</span> is the atmospheric density (which varies with altitude), </li>
-<li><span class="arithmatex">\(A\)</span> is the cross-sectional area. 
- The drag force significantly reduces velocity and causes heat buildup during reentry. </li>
-</ul>
-<p>## 9. Lorentz Force for Charged Payloads in Space 
- If the payload is charged, it experiences an additional force due to Earth's magnetic field: </p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\mathbf{F} = q (\mathbf{E} + \mathbf{v} \times \mathbf{B})\)</span>\)</span> 
- where: </p>
-<ul>
-<li><span class="arithmatex">\(q\)</span> is the charge of the payload, </li>
-<li><span class="arithmatex">\(\mathbf{E}\)</span> is the electric field, </li>
-<li><span class="arithmatex">\(\mathbf{B}\)</span> is Earth's magnetic field. 
- This effect is crucial for spacecraft operating near planetary magnetospheres. </li>
-</ul>
-<p>## 10. Non-Inertial Frame Corrections (Coriolis &amp; Centrifugal Forces) 
- When the payload is released from a moving spacecraft, we need to correct for non-inertial effects: </p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\mathbf{F}_{\text{non-inertial}} = -2m (\mathbf{\Omega} \times \mathbf{v}) - m \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r})\)</span>\)</span> 
- where: </p>
-<ul>
-<li><span class="arithmatex">\(\mathbf{\Omega}\)</span> is the rotational velocity of the spacecraft. 
- These effects are critical for precise orbital insertions.</li>
-</ul>
-<p>## 11. Non-Spherical Harmonics and Higher-Order Perturbations
-Beyond J2, Earth's gravitational field has higher-order harmonics (J3, J4, etc.) and tesseral harmonics (Cnm, Snm). These account for more subtle variations in Earth's gravity.</p>
-<p>Generalized Gravitational Potential:
-<span class="arithmatex">\(<span class="arithmatex">\(U = \frac{GM}{r} \left[ 1 - \sum_{n=2}^{\infty} \sum_{m=0}^{n} \left( \frac{R_e}{r} \right)^n P_{nm}(\sin\phi) (C_{nm} \cos(m\lambda) + S_{nm} \sin(m\lambda)) \right]\)</span>\)</span>
-Where:
-* <span class="arithmatex">\(P_{nm}\)</span> are associated Legendre polynomials.
-* <span class="arithmatex">\(C_{nm}\)</span> and <span class="arithmatex">\(S_{nm}\)</span> are spherical harmonic coefficients.
-* <span class="arithmatex">\(\lambda\)</span> is the longitude.</p>
-<h2 id="12-solar-radiation-pressure">12. Solar Radiation Pressure</h2>
-<p>For long-duration space missions, solar radiation pressure can significantly affect trajectories.</p>
-<p>Solar Radiation Pressure Force:
-<span class="arithmatex">\(<span class="arithmatex">\(F_{rad} = \frac{P_{rad} A_{cr} (1+q)}{c}\)</span>\)</span>
-Where:
-* <span class="arithmatex">\(P_{rad}\)</span> is the solar radiation pressure.
-* <span class="arithmatex">\(A_{cr}\)</span> is the spacecraft's cross-sectional area.
-* <span class="arithmatex">\(q\)</span> is the reflectivity coefficient.
-* <span class="arithmatex">\(c\)</span> is the speed of light.</p>
-<h2 id="13-payload-dynamics-near-earth-trajectories-velocity-and-altitude-over-time">13. Payload Dynamics Near Earth: Trajectories, Velocity, and Altitude Over Time</h2>
+<h2 id="shape-of-the-orbit-conic-sections">Shape of the Orbit: Conic Sections</h2>
+<p>The orbit a payload follows is a conic section with Earth at one focus. Its shape depends on the specific mechanical energy and eccentricity <span class="arithmatex">\(e\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Eccentricity <span class="arithmatex">\(e\)</span></th>
+<th>Orbit Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(e = 0\)</span></td>
+<td>Circular</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0 &lt; e &lt; 1\)</span></td>
+<td>Elliptical</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e = 1\)</span></td>
+<td>Parabolic</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e &gt; 1\)</span></td>
+<td>Hyperbolic</td>
+</tr>
+</tbody>
+</table>
+<p>Eccentricity can be derived using energy and angular momentum, but for initial velocity analysis, energy alone is sufficient to determine the type.</p>
+<h1 id="2-numerical-analysis-of-payload-trajectory-based-on-initial-conditions">2. Numerical Analysis of Payload Trajectory Based on Initial Conditions</h1>
+<h2 id="objective_1">Objective</h2>
+<p>Given the initial position, velocity, and altitude of a payload released near Earth, compute its path using numerical methods that solve Newton’s equations of motion under gravity.</p>
+<p>This analysis helps determine whether the payload:
+- Falls back to Earth (reentry),
+- Enters orbit,
+- Escapes Earth’s gravity.</p>
+<h2 id="physical-model">Physical Model</h2>
+<p>We use Newton’s second law and universal gravitation:</p>
+<div class="arithmatex">\[ F = m a = -\frac{G M m}{r^3} r \Rightarrow a = -\frac{G M}{r^3} r \]</div>
+<p>Where:
+- <span class="arithmatex">\(r\)</span>: Position vector from Earth’s center,
+- <span class="arithmatex">\(a\)</span>: Acceleration,
+- <span class="arithmatex">\(r = \|r\|\)</span>: Magnitude of the position vector.</p>
+<h2 id="numerical-integration-euler-or-runge-kutta">Numerical Integration: Euler or Runge-Kutta</h2>
+<p>We use a numerical integration scheme (Euler or RK4) to compute <span class="arithmatex">\(r(t)\)</span> and <span class="arithmatex">\(v(t)\)</span> over time:</p>
+<div class="arithmatex">\[ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = -\frac{G M}{r^3} r \]</div>
+<h1 id="3-how-trajectories-relate-to-orbital-insertion-reentry-and-escape">3. How Trajectories Relate to Orbital Insertion, Reentry, and Escape</h1>
+<h2 id="objective_2">Objective</h2>
+<p>Interpret the numerical results from Task 2 by linking trajectory types to actual space mission outcomes:
+- Stable orbit (insertion),
+- Reentry (falling back to Earth),
+- Escape (leaving Earth’s gravity).</p>
+<h2 id="1-orbital-insertion-stable-orbit">1. Orbital Insertion (Stable Orbit)</h2>
+<p><strong>Scenario</strong>:<br/>
+The payload achieves a stable elliptical or circular orbit around Earth.</p>
+<p><strong>Conditions</strong>:
+- Total mechanical energy <span class="arithmatex">\(E &lt; 0\)</span>.
+- Velocity <span class="arithmatex">\(v &lt; v_{\text{escape}}\)</span>, but high enough to avoid crashing.
+- Perigee (lowest point) stays above Earth’s surface.</p>
+<p><strong>Result in Simulation</strong>:
+- The trajectory curves around Earth and doesn’t intersect with the planet.
+- Path may be circular (if speed is just right) or elliptical (most common).</p>
+<p><strong>Real-world Examples</strong>:
+- Satellites (e.g., Starlink),
+- International Space Station (ISS),
+- Lunar parking orbits before transfer burns.</p>
+<h2 id="2-reentry-atmospheric-fall-or-crash">2. Reentry (Atmospheric Fall or Crash)</h2>
+<p><strong>Scenario</strong>:<br/>
+The payload’s speed is too low to sustain an orbit, causing it to fall back.</p>
+<p><strong>Conditions</strong>:
+- <span class="arithmatex">\(v &lt; v_{\text{orbital}}\)</span>,
+- Still <span class="arithmatex">\(E &lt; 0\)</span>, but perigee drops below Earth’s surface,
+- Or starts with a downward velocity component.</p>
+<p><strong>Result in Simulation</strong>:
+- The trajectory spirals or curves downward and eventually hits the Earth (passes inside Earth’s radius).</p>
+<p><strong>Real-world Examples</strong>:
+- Returning space capsules (e.g., SpaceX Dragon),
+- Space debris reentry,
+- Rocket stage disposal.</p>
+<h2 id="3-escape-trajectory-leaving-earths-gravity">3. Escape Trajectory (Leaving Earth’s Gravity)</h2>
+<p><strong>Scenario</strong>:<br/>
+Payload reaches or exceeds escape velocity and is no longer gravitationally bound to Earth.</p>
+<p><strong>Conditions</strong>:
+- <span class="arithmatex">\(v \geq v_{\text{escape}}\)</span>,
+- <span class="arithmatex">\(E \geq 0\)</span> (total mechanical energy <span class="arithmatex">\(\geq 0\)</span>).</p>
+<p><strong>Result in Simulation</strong>:
+- The trajectory becomes hyperbolic.
+- Payload moves away from Earth and never returns.</p>
+<p><strong>Real-world Examples</strong>:
+- Interplanetary probes (e.g., Voyager, Mars rovers),
+- Asteroid missions (e.g., OSIRIS-REx),
+- Escape burns after low Earth orbit (LEO).</p>
+<h1 id="4-simulation">4. Simulation</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
 
 # Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_earth = 5.972e24  # Mass of Earth (kg)
-R_earth = 6.371e6  # Radius of Earth (m)
-
-# Equations of motion
-def payload_trajectory(t, y):
-    x, vx, z, vz = y
-    r = np.sqrt(x**2 + z**2)
-    ax = -G * M_earth * x / r**3
-    az = -G * M_earth * z / r**3
-    return [vx, ax, vz, az]
+G = 6.67430e-11             # m^3/kg/s^2
+M = 5.972e24                # kg (mass of Earth)
+R_earth = 6.371e6           # m (radius of Earth)
 
 # Initial conditions
-altitude = 400e3  # 400 km altitude
-r0 = R_earth + altitude
-v_orbit = np.sqrt(G * M_earth / r0)
-v_escape = np.sqrt(2 * G * M_earth / r0)
+altitude = 400e3            # 400 km above Earth
+r0 = np.array([R_earth + altitude, 0])    # Start on x-axis
+v0 = np.array([0, 7500], dtype=float)    # Tangential velocity (m/s), changed to float
+# initialize to float array
 
-# Time span
-time_span = [0, 10000]
-time_points = np.linspace(time_span[0], time_span[1], 1000)
+# Time setup
+dt = 1.0                    # seconds, changed to float
+t_max = 6000                # total simulation time in seconds
+steps = int(t_max / dt)
 
-# Example 1: Circular orbit
-initial_state_circular = [r0, 0, 0, v_orbit]
-solution_circular = solve_ivp(payload_trajectory, time_span, initial_state_circular, t_eval=time_points)
+# Initialize position, velocity
+r = r0.copy()
+v = v0.copy()
 
-# Example 2: Elliptical orbit (sub-orbital reentry)
-initial_state_elliptical = [r0, 0.5 * v_orbit, 0, 0.5 * v_orbit]
-solution_elliptical = solve_ivp(payload_trajectory, time_span, initial_state_elliptical, t_eval=time_points)
+# Storage for path
+trajectory = [r.copy()]
 
-# Example 3: Escape trajectory (hyperbolic)
-initial_state_escape = [r0, 0, 0, 1.2 * v_escape]
-solution_escape = solve_ivp(payload_trajectory, time_span, initial_state_escape, t_eval=time_points)
+# Euler integration
+for _ in range(steps):
+    r_mag = np.linalg.norm(r)
+    a = -G * M * r / r_mag**3
+    v += a * dt
+    r += v * dt
+    trajectory.append(r.copy())
 
-# Plotting trajectories
-plt.figure(figsize=(12, 8))
-plt.plot(solution_circular.y[0], solution_circular.y[2], label='Circular Orbit')
-plt.plot(solution_elliptical.y[0], solution_elliptical.y[2], label='Elliptical Reentry')
-plt.plot(solution_escape.y[0], solution_escape.y[2], label='Escape Trajectory')
-plt.scatter(0, 0, color='red', label='Earth')
-plt.xlabel('X (m)')
-plt.ylabel('Z (m)')
-plt.title('Payload Trajectories Near Earth')
-plt.legend()
+trajectory = np.array(trajectory)
+
+# Plot
+plt.figure(figsize=(7, 7))
+plt.plot(trajectory[:, 0], trajectory[:, 1], label='Payload Path')
+plt.gca().add_patch(plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth'))
+plt.xlabel('x (m)')
+plt.ylabel('y (m)')
+plt.title('Payload Trajectory (Numerical Simulation)')
+plt.axis('equal')
 plt.grid(True)
-plt.show()
-
-# Plotting velocity vs. time
-plt.figure(figsize=(12, 8))
-plt.plot(time_points, np.sqrt(solution_circular.y[1]**2 + solution_circular.y[3]**2), label='Circular Orbit Velocity')
-plt.plot(time_points, np.sqrt(solution_elliptical.y[1]**2 + solution_elliptical.y[3]**2), label='Elliptical Reentry Velocity')
-plt.plot(time_points, np.sqrt(solution_escape.y[1]**2 + solution_escape.y[3]**2), label='Escape Trajectory Velocity')
-plt.xlabel('Time (s)')
-plt.ylabel('Velocity (m/s)')
-plt.title('Payload Velocity vs. Time')
 plt.legend()
-plt.grid(True)
-plt.show()
-
-# Plotting altitude vs. time
-alt_circular = np.sqrt(solution_circular.y[0]**2 + solution_circular.y[2]**2) - R_earth
-alt_elliptical = np.sqrt(solution_elliptical.y[0]**2 + solution_elliptical.y[2]**2) - R_earth
-alt_escape = np.sqrt(solution_escape.y[0]**2 + solution_escape.y[2]**2) - R_earth
-
-plt.figure(figsize=(12, 8))
-plt.plot(time_points, alt_circular / 1000, label='Circular Orbit Altitude')
-plt.plot(time_points, alt_elliptical / 1000, label='Elliptical Reentry Altitude')
-plt.plot(time_points, alt_escape / 1000, label='Escape Trajectory Altitude')
-plt.xlabel('Time (s)')
-plt.ylabel('Altitude (km)')
-plt.title('Payload Altitude vs. Time')
-plt.legend()
-plt.grid(True)
 plt.show()
 </code></pre>
-<p><img alt="alt text" src="../image-6.png"/></p>
-<p><img alt="alt text" src="../image-7.png"/></p>
-<p><img alt="alt text" src="../image-8.png"/></p>
+<p><img alt="alt text" src="../image-15.png"/></p>
+<h2 id="explanation-payload-trajectory-simulation">Explanation: Payload Trajectory Simulation</h2>
+<p>This Python script simulates and visualizes the trajectory of a payload released near Earth, using numerical integration to solve Newton’s equations of motion under gravitational force. The simulation determines the payload’s path based on its initial conditions.</p>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><span class="arithmatex">\(G = 6.67430 \times 10^{-11} \, \text{m}^3/\text{kg}/\text{s}^2\)</span>: Gravitational constant.</li>
+<li><span class="arithmatex">\(M = 5.972 \times 10^{24} \, \text{kg}\)</span>: Mass of Earth.</li>
+<li><span class="arithmatex">\(R_{\text{Earth}} = 6.371 \times 10^6 \, \text{m}\)</span>: Radius of Earth.</li>
+<li><span class="arithmatex">\(\text{altitude} = 400 \times 10^3 \, \text{m}\)</span>: Initial altitude above Earth’s surface (400 km).</li>
+<li><span class="arithmatex">\(r_0 = [R_{\text{Earth}} + \text{altitude}, 0] = [6.771 \times 10^6, 0] \, \text{m}\)</span>: Initial position (on x-axis).</li>
+<li><span class="arithmatex">\(v_0 = [0, 7500] \, \text{m/s}\)</span>: Initial velocity (tangential, along y-axis).</li>
+<li><span class="arithmatex">\(dt = 1.0 \, \text{s}\)</span>: Time step for simulation.</li>
+<li><span class="arithmatex">\(t_{\text{max}} = 6000 \, \text{s}\)</span>: Total simulation time.</li>
+<li><span class="arithmatex">\(\text{steps} = 6000\)</span>: Number of time steps.</li>
+</ul>
+<h3 id="simulation-method">Simulation Method</h3>
+<p>The script uses Euler’s method to numerically solve the equations of motion under gravitational force:</p>
+<div class="arithmatex">\[ F = -\frac{G M m}{r^3} r \quad \Rightarrow \quad a = -\frac{G M}{r^3} r \]</div>
+<div class="arithmatex">\[ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = a \]</div>
+<ul>
+<li><strong>Acceleration</strong>: Computes <span class="arithmatex">\(a = -\frac{G M}{r^3} r\)</span>, where <span class="arithmatex">\(r\)</span> is the position vector and <span class="arithmatex">\(r = \|r\|\)</span>.</li>
+<li><strong>Update</strong>: Updates velocity (<span class="arithmatex">\(v \gets v + a \cdot dt\)</span>) and position (<span class="arithmatex">\(r \gets r + v \cdot dt\)</span>).</li>
+<li>Tracks the trajectory over 6000 steps (6000 seconds, or 100 minutes).</li>
+</ul>
+<h3 id="physical-calculations">Physical Calculations</h3>
+<ul>
+<li><strong>Initial Setup</strong>: The payload starts at an altitude of 400 km (low Earth orbit range), with a tangential velocity of 7500 m/s, which is close to the orbital velocity for this altitude. The orbital velocity for a circular orbit at radius <span class="arithmatex">\(r\)</span> is:</li>
+</ul>
+<p>$$ v_{\text{orbital}} = \sqrt{\frac{G M}{r}} $$</p>
+<p>Substituting <span class="arithmatex">\(r = 6.771 \times 10^6 \, \text{m}\)</span>:</p>
+<p>$$ v_{\text{orbital}} \approx \sqrt{\frac{(6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.771 \times 10^6}} \approx 7670 \, \text{m/s} $$</p>
+<p>Since <span class="arithmatex">\(v_0 = 7500 \, \text{m/s}\)</span> is slightly less than <span class="arithmatex">\(v_{\text{orbital}}\)</span>, the orbit is likely elliptical with a perigee near the starting altitude.</p>
+<ul>
+<li><strong>Escape Velocity</strong>: The escape velocity at this radius is:</li>
+</ul>
+<p>$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \approx \sqrt{2} \cdot v_{\text{orbital}} \approx 10850 \, \text{m/s} $$</p>
+<p>Since <span class="arithmatex">\(v_0 &lt; v_{\text{escape}}\)</span>, the payload remains bound to Earth (no escape).</p>
+<ul>
+<li><strong>Total Mechanical Energy</strong>:</li>
+</ul>
+<p>$$ E = \frac{1}{2} m v^2 - \frac{G M m}{r} $$</p>
+<p>With <span class="arithmatex">\(v_0 = 7500 \, \text{m/s}\)</span> and <span class="arithmatex">\(r = 6.771 \times 10^6 \, \text{m}\)</span>, <span class="arithmatex">\(E &lt; 0\)</span>, confirming a bound (elliptical) orbit.</p>
+<h3 id="plot">Plot</h3>
+<ul>
+<li><strong>Trajectory</strong>:</li>
+<li>Displays the payload’s path in the x-y plane, showing a nearly circular orbit around Earth.</li>
+<li>The trajectory curves around the origin, consistent with <span class="arithmatex">\(v_0\)</span> being close to the circular orbital velocity.</li>
+<li><strong>Earth</strong>: Represented as a blue circle with radius <span class="arithmatex">\(R_{\text{Earth}} = 6.371 \times 10^6 \, \text{m}\)</span>, centered at the origin.</li>
+<li><strong>Axes and Labels</strong>: x and y axes in meters, with a title "Payload Trajectory (Numerical Simulation)" and a legend identifying the payload path and Earth.</li>
+<li><strong>Equal Axes</strong>: Ensures the orbit appears circular (as expected for a near-circular orbit).</li>
+<li><strong>Grid</strong>: Added for better visualization of distances.</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11
+M = 5.972e24
+R_earth = 6.371e6
+
+def simulate_angle_effects(speed=7500, alt_km=300):
+    angles = [0, 15, 30, 45, 60, 75]
+    r0_mag = R_earth + alt_km * 1e3
+    dt = 1
+    steps = 5000
+
+    plt.figure(figsize=(8, 8))
+
+    for angle_deg in angles:
+        angle_rad = np.radians(angle_deg)
+        vx = speed * np.cos(angle_rad)
+        vy = speed * np.sin(angle_rad)
+
+        r = np.array([r0_mag, 0.0])
+        v = np.array([0.0, vy]) + np.array([vx, 0.0])
+
+        path = []
+        for _ in range(steps):
+            r_mag = np.linalg.norm(r)
+            if r_mag &lt; R_earth:
+                break
+            a = -G * M * r / r_mag**3
+            v += a * dt
+            r += v * dt
+            path.append(r.copy())
+
+        path = np.array(path)
+        plt.plot(path[:, 0], path[:, 1], label=f"{angle_deg}°")
+
+    # Earth
+    earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3)
+    plt.gca().add_patch(earth)
+
+    plt.title("Trajectories at Different Launch Angles")
+    plt.xlabel("x (m)")
+    plt.ylabel("y (m)")
+    plt.axis('equal')
+    plt.grid(True)
+    plt.legend(title="Launch Angle")
+    plt.show()
+
+simulate_angle_effects()
+</code></pre>
+<p><img alt="alt text" src="../image-16.png"/></p>
+<h2 id="explanation-payload-trajectory-simulation-at-different-launch-angles">Explanation: Payload Trajectory Simulation at Different Launch Angles</h2>
+<p>This Python script simulates and visualizes the trajectories of a payload released near Earth at various launch angles, using numerical integration to solve Newton’s equations of motion under gravitational force. The simulation explores how the launch angle affects the payload’s path.</p>
+<h3 id="simulation-method_1">Simulation Method</h3>
+<p>The script uses Euler’s method to numerically solve the equations of motion under gravitational force for each launch angle:</p>
+<div class="arithmatex">\[ F = -\frac{G M m}{r^3} r \quad \Rightarrow \quad a = -\frac{G M}{r^3} r \]</div>
+<div class="arithmatex">\[ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = a \]</div>
+<ul>
+<li><strong>Initial Velocity</strong>: For each angle <span class="arithmatex">\(\theta\)</span> (in radians), the initial velocity components are:</li>
+<li><span class="arithmatex">\(v_x = \text{speed} \cdot \cos(\theta)\)</span> (radial component),</li>
+<li><span class="arithmatex">\(v_y = \text{speed} \cdot \sin(\theta)\)</span> (tangential component).</li>
+<li>At <span class="arithmatex">\(\theta = 0^\circ\)</span>, <span class="arithmatex">\(v = [0, 7500]\)</span> (purely tangential); at <span class="arithmatex">\(\theta = 90^\circ\)</span>, <span class="arithmatex">\(v = [7500, 0]\)</span> (purely radial).</li>
+<li><strong>Acceleration</strong>: Computes <span class="arithmatex">\(a = -\frac{G M}{r^3} r\)</span>, where <span class="arithmatex">\(r\)</span> is the position vector and <span class="arithmatex">\(r = \|r\|\)</span>.</li>
+<li><strong>Update</strong>: Updates velocity (<span class="arithmatex">\(v \gets v + a \cdot dt\)</span>) and position (<span class="arithmatex">\(r \gets r + v \cdot dt\)</span>).</li>
+<li><strong>Stopping Condition</strong>: Stops if the payload hits Earth (<span class="arithmatex">\(r &lt; R_{\text{Earth}}\)</span>).</li>
+<li>Simulates each trajectory for up to 5000 steps.</li>
+</ul>
+<h3 id="physical-analysis">Physical Analysis</h3>
+<ul>
+<li><strong>Orbital Velocity</strong>: The velocity for a circular orbit at radius <span class="arithmatex">\(r = 6.671 \times 10^6 \, \text{m}\)</span> is:</li>
+</ul>
+<p>$$ v_{\text{orbital}} = \sqrt{\frac{G M}{r}} \approx \sqrt{\frac{(6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.671 \times 10^6}} \approx 7728 \, \text{m/s} $$</p>
+<ul>
+<li><strong>Escape Velocity</strong>: The escape velocity at this radius is:</li>
+</ul>
+<p>$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \approx \sqrt{2} \cdot v_{\text{orbital}} \approx 10930 \, \text{m/s} $$</p>
+<ul>
+<li><strong>Effect of Launch Angle</strong>:</li>
+<li>The initial speed is <span class="arithmatex">\(7500 \, \text{m/s}\)</span>, which is less than <span class="arithmatex">\(v_{\text{orbital}}\)</span> (7728 m/s), suggesting elliptical orbits or reentry unless the angle provides sufficient tangential velocity.</li>
+<li>At <span class="arithmatex">\(\theta = 0^\circ\)</span>, the velocity is purely tangential (<span class="arithmatex">\(v = [0, 7500]\)</span>), close to orbital velocity, leading to a near-circular or slightly elliptical orbit.</li>
+<li>As <span class="arithmatex">\(\theta\)</span> increases, the tangential component decreases (<span class="arithmatex">\(v_y = 7500 \cdot \sin(\theta)\)</span>), and the radial component increases (<span class="arithmatex">\(v_x = 7500 \cdot \cos(\theta)\)</span>), reducing the angular momentum and causing the perigee to drop.</li>
+<li>
+<p>For higher angles (e.g., 60°, 75°), the payload lacks sufficient tangential velocity to maintain orbit, leading to reentry (perigee below Earth’s surface).</p>
+</li>
+<li>
+<p><strong>Total Mechanical Energy</strong>:</p>
+</li>
+<li>Energy <span class="arithmatex">\(E = \frac{1}{2} m v^2 - \frac{G M m}{r}\)</span> is negative for <span class="arithmatex">\(v = 7500 \, \text{m/s} &lt; v_{\text{escape}}\)</span>, indicating bound trajectories (elliptical or reentry).</li>
+<li>Angular momentum varies with <span class="arithmatex">\(\theta\)</span>, affecting eccentricity and perigee.</li>
+</ul>
+<h3 id="plot_1">Plot</h3>
+<ul>
+<li><strong>Trajectories</strong>:</li>
+<li>Displays the payload’s path for each launch angle in the x-y plane.</li>
+<li>At <span class="arithmatex">\(\theta = 0^\circ\)</span>, the trajectory is a near-circular orbit (blue line), as the tangential velocity is close to <span class="arithmatex">\(v_{\text{orbital}}\)</span>.</li>
+<li>As <span class="arithmatex">\(\theta\)</span> increases (15° to 75°), the orbits become more elliptical with lower perigees, eventually intersecting Earth’s surface (reentry) for larger angles (e.g., 60°, 75°).</li>
+<li><strong>Earth</strong>: Represented as a blue circle with radius <span class="arithmatex">\(R_{\text{Earth}} = 6.371 \times 10^6 \, \text{m}\)</span>, centered at the origin.</li>
+<li><strong>Axes and Labels</strong>: x and y axes in meters, with a title "Trajectories at Different Launch Angles" and a legend identifying each angle.</li>
+<li><strong>Equal Axes</strong>: Ensures orbits appear with correct geometry (e.g., circular for <span class="arithmatex">\(\theta = 0^\circ\)</span>).</li>
+<li><strong>Grid</strong>: Added for better visualization of distances.</li>
+</ul>
+<pre><code class="language-python">def energy_plot(speed=7600, alt_km=400, angle_deg=0):
+    r0 = R_earth + alt_km * 1e3
+    angle = np.radians(angle_deg)
+    v = np.array([speed * np.cos(angle), speed * np.sin(angle)])
+    r = np.array([r0, 0.0])
+
+    dt = 1
+    steps = 8000
+    energy = []
+
+    for _ in range(steps):
+        r_mag = np.linalg.norm(r)
+        if r_mag &lt; R_earth:
+            break
+        kinetic = 0.5 * np.linalg.norm(v)**2
+        potential = -G * M / r_mag
+        total = kinetic + potential
+        energy.append(total)
+
+        a = -G * M * r / r_mag**3
+        v += a * dt
+        r += v * dt
+
+    plt.figure(figsize=(7, 4))
+    plt.plot(energy)
+    plt.title("Total Mechanical Energy Over Time")
+    plt.xlabel("Time step")
+    plt.ylabel("Energy (J/kg)")
+    plt.grid(True)
+    plt.axhline(0, color='red', linestyle='--', label="Escape Threshold")
+    plt.legend()
+    plt.show()
+
+energy_plot()
+</code></pre>
+<p><img alt="alt text" src="../image-17.png"/></p>
+<h2 id="explanation-total-mechanical-energy-simulation">Explanation: Total Mechanical Energy Simulation</h2>
+<p>This Python script simulates and visualizes the total mechanical energy of a payload released near Earth over time, using numerical integration to solve Newton’s equations of motion under gravitational force. The simulation helps determine whether the payload remains bound to Earth or can escape.</p>
+<h3 id="simulation-method_2">Simulation Method</h3>
+<p>The script uses Euler’s method to numerically solve the equations of motion under gravitational force and computes the total mechanical energy at each step:</p>
+<div class="arithmatex">\[ F = -\frac{G M m}{r^3} r \quad \Rightarrow \quad a = -\frac{G M}{r^3} r \]</div>
+<div class="arithmatex">\[ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = a \]</div>
+<ul>
+<li><strong>Acceleration</strong>: Computes <span class="arithmatex">\(a = -\frac{G M}{r^3} r\)</span>, where <span class="arithmatex">\(r\)</span> is the position vector and <span class="arithmatex">\(r = \|r\|\)</span>.</li>
+<li><strong>Update</strong>: Updates velocity (<span class="arithmatex">\(v \gets v + a \cdot dt\)</span>) and position (<span class="arithmatex">\(r \gets r + v \cdot dt\)</span>).</li>
+<li><strong>Energy Calculation</strong>:</li>
+<li>Kinetic energy per unit mass: <span class="arithmatex">\(K = \frac{1}{2} \|v\|^2\)</span>,</li>
+<li>Potential energy per unit mass: <span class="arithmatex">\(U = -\frac{G M}{r}\)</span>,</li>
+<li>Total mechanical energy per unit mass: <span class="arithmatex">\(E = K + U\)</span>.</li>
+<li><strong>Stopping Condition</strong>: Stops if the payload hits Earth (<span class="arithmatex">\(r &lt; R_{\text{Earth}}\)</span>).</li>
+<li>Tracks energy over 8000 steps.</li>
+</ul>
+<h3 id="physical-analysis_1">Physical Analysis</h3>
+<ul>
+<li><strong>Initial Energy</strong>:</li>
+<li>Kinetic energy: <span class="arithmatex">\(K = \frac{1}{2} (7600)^2 = 2.888 \times 10^7 \, \text{J/kg}\)</span>,</li>
+<li>Potential energy: <span class="arithmatex">\(U = -\frac{G M}{r} = -\frac{(6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.771 \times 10^6} \approx -5.885 \times 10^7 \, \text{J/kg}\)</span>,</li>
+<li>
+<p>Total energy: <span class="arithmatex">\(E = K + U \approx 2.888 \times 10^7 - 5.885 \times 10^7 = -2.997 \times 10^7 \, \text{J/kg}\)</span>.</p>
+</li>
+<li>
+<p><strong>Escape Threshold</strong>: </p>
+</li>
+<li>Escape occurs when <span class="arithmatex">\(E \geq 0\)</span>. The plot shows <span class="arithmatex">\(E \approx -3 \times 10^7 \, \text{J/kg}\)</span>, which is negative, indicating a bound orbit (elliptical or circular).</li>
+<li>
+<p>The escape velocity at <span class="arithmatex">\(r = 6.771 \times 10^6 \, \text{m}\)</span> is:</p>
+<div class="arithmatex">\[ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \approx \sqrt{\frac{2 (6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.771 \times 10^6}} \approx 10850 \, \text{m/s} \]</div>
+</li>
+<li>
+<p>Since <span class="arithmatex">\(v = 7600 \, \text{m/s} &lt; v_{\text{escape}}\)</span>, the payload remains bound, consistent with <span class="arithmatex">\(E &lt; 0\)</span>.</p>
+</li>
+<li>
+<p><strong>Orbital Velocity</strong>:</p>
+</li>
+<li>Circular orbital velocity at this radius: <span class="arithmatex">\(v_{\text{orbital}} = \sqrt{\frac{G M}{r}} \approx 7670 \, \text{m/s}\)</span>.</li>
+<li>
+<p>With <span class="arithmatex">\(v = 7600 \, \text{m/s}\)</span>, the orbit is slightly elliptical (close to circular), as <span class="arithmatex">\(v\)</span> is just below <span class="arithmatex">\(v_{\text{orbital}}\)</span>.</p>
+</li>
+<li>
+<p><strong>Energy Conservation</strong>:</p>
+</li>
+<li>The plot shows energy is roughly constant at <span class="arithmatex">\(\approx -3 \times 10^7 \, \text{J/kg}\)</span>, as expected in a conservative system (no drag or other forces).</li>
+<li>Slight variations may be due to numerical errors from Euler’s method.</li>
+</ul>
+<h3 id="plot_2">Plot</h3>
+<ul>
+<li><strong>Energy Over Time</strong>:</li>
+<li>Displays the total mechanical energy per unit mass (<span class="arithmatex">\(E\)</span>) over 8000 time steps.</li>
+<li>The energy remains constant at approximately <span class="arithmatex">\(-3 \times 10^7 \, \text{J/kg}\)</span>, confirming conservation and a bound orbit.</li>
+<li><strong>Escape Threshold</strong>:</li>
+<li>A red dashed line at <span class="arithmatex">\(E = 0\)</span> marks the escape threshold. Since <span class="arithmatex">\(E &lt; 0\)</span>, the payload does not escape Earth’s gravity.</li>
+<li><strong>Axes and Labels</strong>:</li>
+<li>x-axis: Time step (each step = 1 second, so 8000 steps = 8000 seconds ≈ 133 minutes).</li>
+<li>y-axis: Energy in <span class="arithmatex">\(\text{J/kg}\)</span>.</li>
+<li>Title: "Total Mechanical Energy Over Time".</li>
+<li><strong>Grid and Legend</strong>: Includes a grid for readability and a legend identifying the escape threshold line.</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

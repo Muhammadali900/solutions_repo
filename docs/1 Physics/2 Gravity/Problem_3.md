@@ -1,233 +1,502 @@
-# Problem 3: Trajectories of a Freely Released Payload Near Earth
+# 1. Analyze the Possible Trajectories of a Payload Released Near Earth
 
-## 1. Introduction
+## Objective
 
-In this problem, we’ll analyze the motion of a payload released near Earth, focusing on the influence of Earth’s gravity on its trajectory. Depending on the velocity and direction of release, the trajectory could be:
+When a payload is released from a spacecraft near Earth, its subsequent trajectory depends on its initial velocity and position relative to Earth. The shape of the path—elliptical, parabolic, or hyperbolic—is governed by Newton’s Law of Gravitation and the conservation of mechanical energy.
 
-* **Elliptical:** The object remains in orbit around the Earth.
-* **Parabolic:** The object escapes Earth’s gravity but at exactly escape velocity.
-* **Hyperbolic:** The object escapes Earth’s gravity with a velocity greater than the escape velocity.
+Understanding these paths is fundamental in planning:
+- Satellite orbits,
+- Escape missions,
+- Reentry maneuvers,
+- Interplanetary probes.
 
-We will model these trajectories using the two-body problem under Newton's law of gravitation and solve them numerically using Python.
+## Governing Force – Newton’s Law of Universal Gravitation
 
-## 2. Gravitational Dynamics and Equations of Motion
+The force acting on the payload due to Earth’s gravity is:
 
-The gravitational force between Earth and the payload is given by Newton’s Law of Gravitation:
-
-$$F = \frac{GMm}{r^2}$$
-
-where:
-
-* $F$ is the gravitational force.
-* $G$ is the gravitational constant.
-* $M$ is the mass of Earth.
-* $m$ is the mass of the payload.
-* $r$ is the distance between the Earth and the payload.
-
-This force results in a gravitational acceleration that affects the trajectory of the payload. We can model the motion of the payload with the following equations of motion:
-
-$$\ddot{r} = -\frac{GM}{r^2}$$
+$$ F = -\frac{G M m}{r^2} \hat{r} $$
 
 Where:
+- $G$: Gravitational constant ($6.674 \times 10^{-11} \, \text{Nm}^2/\text{kg}^2$),
+- $M$: Mass of Earth,
+- $m$: Mass of the payload,
+- $r$: Distance from Earth’s center,
+- $\hat{r}$: Unit vector from Earth to the payload.
 
-* $r$ is the radial distance.
-* $\ddot{r}$ is the acceleration.
+## Total Mechanical Energy
 
-We’ll break down the radial and angular components of motion and solve for the position and velocity of the payload over time using numerical integration.
+The motion is governed by conservation of total mechanical energy:
 
-## 3. Numerical Simulation
+$$ E = \frac{1}{2} m v^2 - \frac{G M m}{r} $$
 
-We'll use Euler's method or Runge-Kutta method to numerically solve the system of differential equations for the position and velocity of the payload.
-The system of equations to solve are:
+This determines the trajectory type:
 
-$$\ddot{x} = -\frac{GMx}{r^3}, \quad \ddot{y} = -\frac{GMy}{r^3}$$
+| Energy Condition | Trajectory Type | Description                             |
+|------------------|-----------------|-----------------------------------------|
+| $E < 0$          | Elliptical      | Closed orbit; bound to Earth            |
+| $E = 0$          | Parabolic       | Just enough speed to escape; marginal escape |
+| $E > 0$          | Hyperbolic      | Unbound; excess speed leads to escape   |
 
-Where $x$ and $y$ are the position coordinates of the payload in a 2D plane.
+## Escape Velocity
 
-## 4. Initial Conditions and Setup
+The minimum speed required to escape Earth’s gravitational pull is:
 
-For our simulation, we’ll define the following initial conditions:
+$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} $$
 
-* The initial position of the payload relative to Earth (e.g., at some altitude).
-* The initial velocity of the payload (e.g., tangential or radial).
-* The initial angle of release.
+- If the payload’s speed $v = v_{\text{escape}}$ → parabolic trajectory.
+- If $v < v_{\text{escape}}$ → elliptical (or circular) trajectory.
+- If $v > v_{\text{escape}}$ → hyperbolic trajectory.
 
-We'll visualize the trajectories for different cases of initial velocities and directions (parabolic, elliptical, and hyperbolic).
+## Shape of the Orbit: Conic Sections
 
-## 5. Relativistic Equations of Motion (General Relativity Correction) 
- When velocities approach a significant fraction of the speed of light, we must modify Newtonian gravity using General Relativity corrections. The relativistic equation of motion for an object in Earth's gravitational field is: 
+The orbit a payload follows is a conic section with Earth at one focus. Its shape depends on the specific mechanical energy and eccentricity $e$:
 
- $$\frac{d^2r}{dt^2} = -\frac{GM}{r^2} \left( 1 + \frac{3GM}{c^2 r} \right)$$ 
- where: 
+| Eccentricity $e$ | Orbit Type  |
+|------------------|-------------|
+| $e = 0$          | Circular    |
+| $0 < e < 1$      | Elliptical  |
+| $e = 1$          | Parabolic   |
+| $e > 1$          | Hyperbolic  |
 
- * $c$ is the speed of light (3.0×10<sup>8</sup> m/s), 
- * $GM$ is Earth's gravitational parameter. 
- This additional term accounts for the relativistic time dilation and length contraction near strong gravitational fields. 
-
- ## 6. Perturbation Due to Earth's Oblateness (J2 Effect) 
- Since Earth is not a perfect sphere, higher-order gravitational terms introduce perturbations in the motion of the payload. The J2 perturbation effect modifies the acceleration as: 
-
- $$a_r = -\frac{GM}{r^2} \left[ 1 - \frac{3}{2} J_2 \left( \frac{R_E}{r} \right)^2 (1 - 3 \cos^2\theta) \right]$$ 
- where: 
-
- * $J_2 \approx 1.08263 \times 10^{-3}$ is Earth's oblateness coefficient, 
- * $R_E$ is the equatorial radius of Earth, 
- * $\theta$ is the latitude. 
- This effect causes a precession of satellite orbits, known as the J2-induced secular drift. 
+Eccentricity can be derived using energy and angular momentum, but for initial velocity analysis, energy alone is sufficient to determine the type.
 
 
- ## 7. Three-Body Problem (Influence of Moon or Sun on the Payload) 
- When a payload is released into space, its trajectory is not only influenced by Earth's gravity but also by other celestial bodies like the Moon or the Sun. In the restricted three-body problem, the equations of motion are: 
-
- $$\ddot{x} - 2\omega \dot{y} = \frac{\partial U}{\partial x}, \quad \ddot{y} + 2\omega \dot{x} = \frac{\partial U}{\partial y}, \quad \ddot{z} = \frac{\partial U}{\partial z}$$ 
- where: 
-
- * $U$ is the effective potential: 
-   $$U = \frac{1}{2} \omega^2 (x^2 + y^2) + \frac{GM_1}{r_1} + \frac{GM_2}{r_2}$$ 
- * $M_1, M_2$ are the masses of Earth and the Moon (or Sun), 
- * $r_1, r_2$ are the distances from the payload to each body. 
- This equation governs Lagrange points, where the gravitational and centrifugal forces balance. 
 
 
- ## 8. Atmospheric Drag and Reentry Dynamics 
- For payloads re-entering Earth's atmosphere, we must consider aerodynamic drag. The equation of motion with drag force is: 
-
- $$m \frac{d\mathbf{v}}{dt} = -\frac{GMm}{r^2} + \frac{1}{2} C_D \rho A v^2$$ 
- where: 
-
- * $C_D$ is the drag coefficient, 
- * $\rho$ is the atmospheric density (which varies with altitude), 
- * $A$ is the cross-sectional area. 
- The drag force significantly reduces velocity and causes heat buildup during reentry. 
 
 
- ## 9. Lorentz Force for Charged Payloads in Space 
- If the payload is charged, it experiences an additional force due to Earth's magnetic field: 
+# 2. Numerical Analysis of Payload Trajectory Based on Initial Conditions
 
- $$\mathbf{F} = q (\mathbf{E} + \mathbf{v} \times \mathbf{B})$$ 
- where: 
+## Objective
 
- * $q$ is the charge of the payload, 
- * $\mathbf{E}$ is the electric field, 
- * $\mathbf{B}$ is Earth's magnetic field. 
- This effect is crucial for spacecraft operating near planetary magnetospheres. 
+Given the initial position, velocity, and altitude of a payload released near Earth, compute its path using numerical methods that solve Newton’s equations of motion under gravity.
 
+This analysis helps determine whether the payload:
+- Falls back to Earth (reentry),
+- Enters orbit,
+- Escapes Earth’s gravity.
 
- ## 10. Non-Inertial Frame Corrections (Coriolis & Centrifugal Forces) 
- When the payload is released from a moving spacecraft, we need to correct for non-inertial effects: 
+## Physical Model
 
- $$\mathbf{F}_{\text{non-inertial}} = -2m (\mathbf{\Omega} \times \mathbf{v}) - m \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r})$$ 
- where: 
+We use Newton’s second law and universal gravitation:
 
- * $\mathbf{\Omega}$ is the rotational velocity of the spacecraft. 
- These effects are critical for precise orbital insertions.
+$$ F = m a = -\frac{G M m}{r^3} r \Rightarrow a = -\frac{G M}{r^3} r $$
 
- ## 11. Non-Spherical Harmonics and Higher-Order Perturbations
-Beyond J2, Earth's gravitational field has higher-order harmonics (J3, J4, etc.) and tesseral harmonics (Cnm, Snm). These account for more subtle variations in Earth's gravity.
-
-Generalized Gravitational Potential:
-$$U = \frac{GM}{r} \left[ 1 - \sum_{n=2}^{\infty} \sum_{m=0}^{n} \left( \frac{R_e}{r} \right)^n P_{nm}(\sin\phi) (C_{nm} \cos(m\lambda) + S_{nm} \sin(m\lambda)) \right]$$
 Where:
-* $P_{nm}$ are associated Legendre polynomials.
-* $C_{nm}$ and $S_{nm}$ are spherical harmonic coefficients.
-* $\lambda$ is the longitude.
+- $r$: Position vector from Earth’s center,
+- $a$: Acceleration,
+- $r = \|r\|$: Magnitude of the position vector.
 
-## 12. Solar Radiation Pressure
-For long-duration space missions, solar radiation pressure can significantly affect trajectories.
+## Numerical Integration: Euler or Runge-Kutta
 
-Solar Radiation Pressure Force:
-$$F_{rad} = \frac{P_{rad} A_{cr} (1+q)}{c}$$
-Where:
-* $P_{rad}$ is the solar radiation pressure.
-* $A_{cr}$ is the spacecraft's cross-sectional area.
-* $q$ is the reflectivity coefficient.
-* $c$ is the speed of light.
+We use a numerical integration scheme (Euler or RK4) to compute $r(t)$ and $v(t)$ over time:
 
-## 13. Payload Dynamics Near Earth: Trajectories, Velocity, and Altitude Over Time
+$$ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = -\frac{G M}{r^3} r $$
+
+
+
+
+# 3. How Trajectories Relate to Orbital Insertion, Reentry, and Escape
+
+## Objective
+
+Interpret the numerical results from Task 2 by linking trajectory types to actual space mission outcomes:
+- Stable orbit (insertion),
+- Reentry (falling back to Earth),
+- Escape (leaving Earth’s gravity).
+
+## 1. Orbital Insertion (Stable Orbit)
+
+**Scenario**:  
+The payload achieves a stable elliptical or circular orbit around Earth.
+
+**Conditions**:
+- Total mechanical energy $E < 0$.
+- Velocity $v < v_{\text{escape}}$, but high enough to avoid crashing.
+- Perigee (lowest point) stays above Earth’s surface.
+
+**Result in Simulation**:
+- The trajectory curves around Earth and doesn’t intersect with the planet.
+- Path may be circular (if speed is just right) or elliptical (most common).
+
+**Real-world Examples**:
+- Satellites (e.g., Starlink),
+- International Space Station (ISS),
+- Lunar parking orbits before transfer burns.
+
+## 2. Reentry (Atmospheric Fall or Crash)
+
+**Scenario**:  
+The payload’s speed is too low to sustain an orbit, causing it to fall back.
+
+**Conditions**:
+- $v < v_{\text{orbital}}$,
+- Still $E < 0$, but perigee drops below Earth’s surface,
+- Or starts with a downward velocity component.
+
+**Result in Simulation**:
+- The trajectory spirals or curves downward and eventually hits the Earth (passes inside Earth’s radius).
+
+**Real-world Examples**:
+- Returning space capsules (e.g., SpaceX Dragon),
+- Space debris reentry,
+- Rocket stage disposal.
+
+## 3. Escape Trajectory (Leaving Earth’s Gravity)
+
+**Scenario**:  
+Payload reaches or exceeds escape velocity and is no longer gravitationally bound to Earth.
+
+**Conditions**:
+- $v \geq v_{\text{escape}}$,
+- $E \geq 0$ (total mechanical energy $\geq 0$).
+
+**Result in Simulation**:
+- The trajectory becomes hyperbolic.
+- Payload moves away from Earth and never returns.
+
+**Real-world Examples**:
+- Interplanetary probes (e.g., Voyager, Mars rovers),
+- Asteroid missions (e.g., OSIRIS-REx),
+- Escape burns after low Earth orbit (LEO).
+
+
+
+
+
+
+# 4. Simulation
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
 
 # Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_earth = 5.972e24  # Mass of Earth (kg)
-R_earth = 6.371e6  # Radius of Earth (m)
-
-# Equations of motion
-def payload_trajectory(t, y):
-    x, vx, z, vz = y
-    r = np.sqrt(x**2 + z**2)
-    ax = -G * M_earth * x / r**3
-    az = -G * M_earth * z / r**3
-    return [vx, ax, vz, az]
+G = 6.67430e-11             # m^3/kg/s^2
+M = 5.972e24                # kg (mass of Earth)
+R_earth = 6.371e6           # m (radius of Earth)
 
 # Initial conditions
-altitude = 400e3  # 400 km altitude
-r0 = R_earth + altitude
-v_orbit = np.sqrt(G * M_earth / r0)
-v_escape = np.sqrt(2 * G * M_earth / r0)
+altitude = 400e3            # 400 km above Earth
+r0 = np.array([R_earth + altitude, 0])    # Start on x-axis
+v0 = np.array([0, 7500], dtype=float)    # Tangential velocity (m/s), changed to float
+# initialize to float array
 
-# Time span
-time_span = [0, 10000]
-time_points = np.linspace(time_span[0], time_span[1], 1000)
+# Time setup
+dt = 1.0                    # seconds, changed to float
+t_max = 6000                # total simulation time in seconds
+steps = int(t_max / dt)
 
-# Example 1: Circular orbit
-initial_state_circular = [r0, 0, 0, v_orbit]
-solution_circular = solve_ivp(payload_trajectory, time_span, initial_state_circular, t_eval=time_points)
+# Initialize position, velocity
+r = r0.copy()
+v = v0.copy()
 
-# Example 2: Elliptical orbit (sub-orbital reentry)
-initial_state_elliptical = [r0, 0.5 * v_orbit, 0, 0.5 * v_orbit]
-solution_elliptical = solve_ivp(payload_trajectory, time_span, initial_state_elliptical, t_eval=time_points)
+# Storage for path
+trajectory = [r.copy()]
 
-# Example 3: Escape trajectory (hyperbolic)
-initial_state_escape = [r0, 0, 0, 1.2 * v_escape]
-solution_escape = solve_ivp(payload_trajectory, time_span, initial_state_escape, t_eval=time_points)
+# Euler integration
+for _ in range(steps):
+    r_mag = np.linalg.norm(r)
+    a = -G * M * r / r_mag**3
+    v += a * dt
+    r += v * dt
+    trajectory.append(r.copy())
 
-# Plotting trajectories
-plt.figure(figsize=(12, 8))
-plt.plot(solution_circular.y[0], solution_circular.y[2], label='Circular Orbit')
-plt.plot(solution_elliptical.y[0], solution_elliptical.y[2], label='Elliptical Reentry')
-plt.plot(solution_escape.y[0], solution_escape.y[2], label='Escape Trajectory')
-plt.scatter(0, 0, color='red', label='Earth')
-plt.xlabel('X (m)')
-plt.ylabel('Z (m)')
-plt.title('Payload Trajectories Near Earth')
-plt.legend()
+trajectory = np.array(trajectory)
+
+# Plot
+plt.figure(figsize=(7, 7))
+plt.plot(trajectory[:, 0], trajectory[:, 1], label='Payload Path')
+plt.gca().add_patch(plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth'))
+plt.xlabel('x (m)')
+plt.ylabel('y (m)')
+plt.title('Payload Trajectory (Numerical Simulation)')
+plt.axis('equal')
 plt.grid(True)
-plt.show()
-
-# Plotting velocity vs. time
-plt.figure(figsize=(12, 8))
-plt.plot(time_points, np.sqrt(solution_circular.y[1]**2 + solution_circular.y[3]**2), label='Circular Orbit Velocity')
-plt.plot(time_points, np.sqrt(solution_elliptical.y[1]**2 + solution_elliptical.y[3]**2), label='Elliptical Reentry Velocity')
-plt.plot(time_points, np.sqrt(solution_escape.y[1]**2 + solution_escape.y[3]**2), label='Escape Trajectory Velocity')
-plt.xlabel('Time (s)')
-plt.ylabel('Velocity (m/s)')
-plt.title('Payload Velocity vs. Time')
 plt.legend()
-plt.grid(True)
-plt.show()
-
-# Plotting altitude vs. time
-alt_circular = np.sqrt(solution_circular.y[0]**2 + solution_circular.y[2]**2) - R_earth
-alt_elliptical = np.sqrt(solution_elliptical.y[0]**2 + solution_elliptical.y[2]**2) - R_earth
-alt_escape = np.sqrt(solution_escape.y[0]**2 + solution_escape.y[2]**2) - R_earth
-
-plt.figure(figsize=(12, 8))
-plt.plot(time_points, alt_circular / 1000, label='Circular Orbit Altitude')
-plt.plot(time_points, alt_elliptical / 1000, label='Elliptical Reentry Altitude')
-plt.plot(time_points, alt_escape / 1000, label='Escape Trajectory Altitude')
-plt.xlabel('Time (s)')
-plt.ylabel('Altitude (km)')
-plt.title('Payload Altitude vs. Time')
-plt.legend()
-plt.grid(True)
 plt.show()
 ```
-![alt text](image-6.png)
 
-![alt text](image-7.png)
 
-![alt text](image-8.png)
+![alt text](image-15.png)
+
+
+
+## Explanation: Payload Trajectory Simulation
+
+This Python script simulates and visualizes the trajectory of a payload released near Earth, using numerical integration to solve Newton’s equations of motion under gravitational force. The simulation determines the payload’s path based on its initial conditions.
+
+### Parameters
+- $G = 6.67430 \times 10^{-11} \, \text{m}^3/\text{kg}/\text{s}^2$: Gravitational constant.
+- $M = 5.972 \times 10^{24} \, \text{kg}$: Mass of Earth.
+- $R_{\text{Earth}} = 6.371 \times 10^6 \, \text{m}$: Radius of Earth.
+- $\text{altitude} = 400 \times 10^3 \, \text{m}$: Initial altitude above Earth’s surface (400 km).
+- $r_0 = [R_{\text{Earth}} + \text{altitude}, 0] = [6.771 \times 10^6, 0] \, \text{m}$: Initial position (on x-axis).
+- $v_0 = [0, 7500] \, \text{m/s}$: Initial velocity (tangential, along y-axis).
+- $dt = 1.0 \, \text{s}$: Time step for simulation.
+- $t_{\text{max}} = 6000 \, \text{s}$: Total simulation time.
+- $\text{steps} = 6000$: Number of time steps.
+
+### Simulation Method
+The script uses Euler’s method to numerically solve the equations of motion under gravitational force:
+
+$$ F = -\frac{G M m}{r^3} r \quad \Rightarrow \quad a = -\frac{G M}{r^3} r $$
+
+$$ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = a $$
+
+- **Acceleration**: Computes $a = -\frac{G M}{r^3} r$, where $r$ is the position vector and $r = \|r\|$.
+- **Update**: Updates velocity ($v \gets v + a \cdot dt$) and position ($r \gets r + v \cdot dt$).
+- Tracks the trajectory over 6000 steps (6000 seconds, or 100 minutes).
+
+### Physical Calculations
+- **Initial Setup**: The payload starts at an altitude of 400 km (low Earth orbit range), with a tangential velocity of 7500 m/s, which is close to the orbital velocity for this altitude. The orbital velocity for a circular orbit at radius $r$ is:
+
+  $$ v_{\text{orbital}} = \sqrt{\frac{G M}{r}} $$
+
+  Substituting $r = 6.771 \times 10^6 \, \text{m}$:
+
+  $$ v_{\text{orbital}} \approx \sqrt{\frac{(6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.771 \times 10^6}} \approx 7670 \, \text{m/s} $$
+
+  Since $v_0 = 7500 \, \text{m/s}$ is slightly less than $v_{\text{orbital}}$, the orbit is likely elliptical with a perigee near the starting altitude.
+
+- **Escape Velocity**: The escape velocity at this radius is:
+
+  $$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \approx \sqrt{2} \cdot v_{\text{orbital}} \approx 10850 \, \text{m/s} $$
+
+  Since $v_0 < v_{\text{escape}}$, the payload remains bound to Earth (no escape).
+
+- **Total Mechanical Energy**:
+
+  $$ E = \frac{1}{2} m v^2 - \frac{G M m}{r} $$
+
+  With $v_0 = 7500 \, \text{m/s}$ and $r = 6.771 \times 10^6 \, \text{m}$, $E < 0$, confirming a bound (elliptical) orbit.
+
+### Plot
+- **Trajectory**:
+  - Displays the payload’s path in the x-y plane, showing a nearly circular orbit around Earth.
+  - The trajectory curves around the origin, consistent with $v_0$ being close to the circular orbital velocity.
+- **Earth**: Represented as a blue circle with radius $R_{\text{Earth}} = 6.371 \times 10^6 \, \text{m}$, centered at the origin.
+- **Axes and Labels**: x and y axes in meters, with a title "Payload Trajectory (Numerical Simulation)" and a legend identifying the payload path and Earth.
+- **Equal Axes**: Ensures the orbit appears circular (as expected for a near-circular orbit).
+- **Grid**: Added for better visualization of distances.
+
+
+
+
+
+
+
+
+
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11
+M = 5.972e24
+R_earth = 6.371e6
+
+def simulate_angle_effects(speed=7500, alt_km=300):
+    angles = [0, 15, 30, 45, 60, 75]
+    r0_mag = R_earth + alt_km * 1e3
+    dt = 1
+    steps = 5000
+    
+    plt.figure(figsize=(8, 8))
+    
+    for angle_deg in angles:
+        angle_rad = np.radians(angle_deg)
+        vx = speed * np.cos(angle_rad)
+        vy = speed * np.sin(angle_rad)
+        
+        r = np.array([r0_mag, 0.0])
+        v = np.array([0.0, vy]) + np.array([vx, 0.0])
+        
+        path = []
+        for _ in range(steps):
+            r_mag = np.linalg.norm(r)
+            if r_mag < R_earth:
+                break
+            a = -G * M * r / r_mag**3
+            v += a * dt
+            r += v * dt
+            path.append(r.copy())
+        
+        path = np.array(path)
+        plt.plot(path[:, 0], path[:, 1], label=f"{angle_deg}°")
+
+    # Earth
+    earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3)
+    plt.gca().add_patch(earth)
+    
+    plt.title("Trajectories at Different Launch Angles")
+    plt.xlabel("x (m)")
+    plt.ylabel("y (m)")
+    plt.axis('equal')
+    plt.grid(True)
+    plt.legend(title="Launch Angle")
+    plt.show()
+
+simulate_angle_effects()
+```
+
+
+![alt text](image-16.png)
+
+
+
+
+## Explanation: Payload Trajectory Simulation at Different Launch Angles
+
+This Python script simulates and visualizes the trajectories of a payload released near Earth at various launch angles, using numerical integration to solve Newton’s equations of motion under gravitational force. The simulation explores how the launch angle affects the payload’s path.
+
+
+
+### Simulation Method
+The script uses Euler’s method to numerically solve the equations of motion under gravitational force for each launch angle:
+
+$$ F = -\frac{G M m}{r^3} r \quad \Rightarrow \quad a = -\frac{G M}{r^3} r $$
+
+$$ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = a $$
+
+- **Initial Velocity**: For each angle $\theta$ (in radians), the initial velocity components are:
+  - $v_x = \text{speed} \cdot \cos(\theta)$ (radial component),
+  - $v_y = \text{speed} \cdot \sin(\theta)$ (tangential component).
+  - At $\theta = 0^\circ$, $v = [0, 7500]$ (purely tangential); at $\theta = 90^\circ$, $v = [7500, 0]$ (purely radial).
+- **Acceleration**: Computes $a = -\frac{G M}{r^3} r$, where $r$ is the position vector and $r = \|r\|$.
+- **Update**: Updates velocity ($v \gets v + a \cdot dt$) and position ($r \gets r + v \cdot dt$).
+- **Stopping Condition**: Stops if the payload hits Earth ($r < R_{\text{Earth}}$).
+- Simulates each trajectory for up to 5000 steps.
+
+### Physical Analysis
+- **Orbital Velocity**: The velocity for a circular orbit at radius $r = 6.671 \times 10^6 \, \text{m}$ is:
+
+  $$ v_{\text{orbital}} = \sqrt{\frac{G M}{r}} \approx \sqrt{\frac{(6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.671 \times 10^6}} \approx 7728 \, \text{m/s} $$
+
+- **Escape Velocity**: The escape velocity at this radius is:
+
+  $$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \approx \sqrt{2} \cdot v_{\text{orbital}} \approx 10930 \, \text{m/s} $$
+
+- **Effect of Launch Angle**:
+  - The initial speed is $7500 \, \text{m/s}$, which is less than $v_{\text{orbital}}$ (7728 m/s), suggesting elliptical orbits or reentry unless the angle provides sufficient tangential velocity.
+  - At $\theta = 0^\circ$, the velocity is purely tangential ($v = [0, 7500]$), close to orbital velocity, leading to a near-circular or slightly elliptical orbit.
+  - As $\theta$ increases, the tangential component decreases ($v_y = 7500 \cdot \sin(\theta)$), and the radial component increases ($v_x = 7500 \cdot \cos(\theta)$), reducing the angular momentum and causing the perigee to drop.
+  - For higher angles (e.g., 60°, 75°), the payload lacks sufficient tangential velocity to maintain orbit, leading to reentry (perigee below Earth’s surface).
+
+- **Total Mechanical Energy**:
+  - Energy $E = \frac{1}{2} m v^2 - \frac{G M m}{r}$ is negative for $v = 7500 \, \text{m/s} < v_{\text{escape}}$, indicating bound trajectories (elliptical or reentry).
+  - Angular momentum varies with $\theta$, affecting eccentricity and perigee.
+
+### Plot
+- **Trajectories**:
+  - Displays the payload’s path for each launch angle in the x-y plane.
+  - At $\theta = 0^\circ$, the trajectory is a near-circular orbit (blue line), as the tangential velocity is close to $v_{\text{orbital}}$.
+  - As $\theta$ increases (15° to 75°), the orbits become more elliptical with lower perigees, eventually intersecting Earth’s surface (reentry) for larger angles (e.g., 60°, 75°).
+- **Earth**: Represented as a blue circle with radius $R_{\text{Earth}} = 6.371 \times 10^6 \, \text{m}$, centered at the origin.
+- **Axes and Labels**: x and y axes in meters, with a title "Trajectories at Different Launch Angles" and a legend identifying each angle.
+- **Equal Axes**: Ensures orbits appear with correct geometry (e.g., circular for $\theta = 0^\circ$).
+- **Grid**: Added for better visualization of distances.
+
+
+
+
+
+```python
+def energy_plot(speed=7600, alt_km=400, angle_deg=0):
+    r0 = R_earth + alt_km * 1e3
+    angle = np.radians(angle_deg)
+    v = np.array([speed * np.cos(angle), speed * np.sin(angle)])
+    r = np.array([r0, 0.0])
+    
+    dt = 1
+    steps = 8000
+    energy = []
+
+    for _ in range(steps):
+        r_mag = np.linalg.norm(r)
+        if r_mag < R_earth:
+            break
+        kinetic = 0.5 * np.linalg.norm(v)**2
+        potential = -G * M / r_mag
+        total = kinetic + potential
+        energy.append(total)
+        
+        a = -G * M * r / r_mag**3
+        v += a * dt
+        r += v * dt
+
+    plt.figure(figsize=(7, 4))
+    plt.plot(energy)
+    plt.title("Total Mechanical Energy Over Time")
+    plt.xlabel("Time step")
+    plt.ylabel("Energy (J/kg)")
+    plt.grid(True)
+    plt.axhline(0, color='red', linestyle='--', label="Escape Threshold")
+    plt.legend()
+    plt.show()
+
+energy_plot()
+```
+
+![alt text](image-17.png)
+
+
+
+## Explanation: Total Mechanical Energy Simulation
+
+This Python script simulates and visualizes the total mechanical energy of a payload released near Earth over time, using numerical integration to solve Newton’s equations of motion under gravitational force. The simulation helps determine whether the payload remains bound to Earth or can escape.
+
+
+### Simulation Method
+The script uses Euler’s method to numerically solve the equations of motion under gravitational force and computes the total mechanical energy at each step:
+
+$$ F = -\frac{G M m}{r^3} r \quad \Rightarrow \quad a = -\frac{G M}{r^3} r $$
+
+$$ \frac{dr}{dt} = v, \quad \frac{dv}{dt} = a $$
+
+- **Acceleration**: Computes $a = -\frac{G M}{r^3} r$, where $r$ is the position vector and $r = \|r\|$.
+- **Update**: Updates velocity ($v \gets v + a \cdot dt$) and position ($r \gets r + v \cdot dt$).
+- **Energy Calculation**:
+  - Kinetic energy per unit mass: $K = \frac{1}{2} \|v\|^2$,
+  - Potential energy per unit mass: $U = -\frac{G M}{r}$,
+  - Total mechanical energy per unit mass: $E = K + U$.
+- **Stopping Condition**: Stops if the payload hits Earth ($r < R_{\text{Earth}}$).
+- Tracks energy over 8000 steps.
+
+### Physical Analysis
+- **Initial Energy**:
+  - Kinetic energy: $K = \frac{1}{2} (7600)^2 = 2.888 \times 10^7 \, \text{J/kg}$,
+  - Potential energy: $U = -\frac{G M}{r} = -\frac{(6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.771 \times 10^6} \approx -5.885 \times 10^7 \, \text{J/kg}$,
+  - Total energy: $E = K + U \approx 2.888 \times 10^7 - 5.885 \times 10^7 = -2.997 \times 10^7 \, \text{J/kg}$.
+
+- **Escape Threshold**: 
+  - Escape occurs when $E \geq 0$. The plot shows $E \approx -3 \times 10^7 \, \text{J/kg}$, which is negative, indicating a bound orbit (elliptical or circular).
+  - The escape velocity at $r = 6.771 \times 10^6 \, \text{m}$ is:
+
+    $$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} \approx \sqrt{\frac{2 (6.67430 \times 10^{-11}) (5.972 \times 10^{24})}{6.771 \times 10^6}} \approx 10850 \, \text{m/s} $$
+
+  - Since $v = 7600 \, \text{m/s} < v_{\text{escape}}$, the payload remains bound, consistent with $E < 0$.
+
+- **Orbital Velocity**:
+  - Circular orbital velocity at this radius: $v_{\text{orbital}} = \sqrt{\frac{G M}{r}} \approx 7670 \, \text{m/s}$.
+  - With $v = 7600 \, \text{m/s}$, the orbit is slightly elliptical (close to circular), as $v$ is just below $v_{\text{orbital}}$.
+
+- **Energy Conservation**:
+  - The plot shows energy is roughly constant at $\approx -3 \times 10^7 \, \text{J/kg}$, as expected in a conservative system (no drag or other forces).
+  - Slight variations may be due to numerical errors from Euler’s method.
+
+### Plot
+- **Energy Over Time**:
+  - Displays the total mechanical energy per unit mass ($E$) over 8000 time steps.
+  - The energy remains constant at approximately $-3 \times 10^7 \, \text{J/kg}$, confirming conservation and a bound orbit.
+- **Escape Threshold**:
+  - A red dashed line at $E = 0$ marks the escape threshold. Since $E < 0$, the payload does not escape Earth’s gravity.
+- **Axes and Labels**:
+  - x-axis: Time step (each step = 1 second, so 8000 steps = 8000 seconds ≈ 133 minutes).
+  - y-axis: Energy in $\text{J/kg}$.
+  - Title: "Total Mechanical Energy Over Time".
+- **Grid and Legend**: Includes a grid for readability and a legend identifying the escape threshold line.
+
+

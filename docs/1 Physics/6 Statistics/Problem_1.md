@@ -165,7 +165,7 @@ This Python script generates and visualizes histograms of three population distr
 - **Binomial Distribution (n=10, p=0.5)**: Discrete values from 0 to 10, symmetric due to $p=0.5$.
 
 ### Simulation Method
-- Uses `np.random.uniform`, `np.random.exponential`, and `np.random.binomial` to generate populations.
+- Uses np.random.uniform, np.random.exponential, and np.random.binomial to generate populations.
 - Plots histograms with kernel density estimation (KDE) for each distribution.
 
 ### Plot

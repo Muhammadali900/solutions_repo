@@ -26,9 +26,13 @@ Simulate large population datasets from different probability distributions to s
 ## Objective
 
 Explore how:
+
 - The shape of the population distribution (e.g., symmetric vs. skewed),
+
 - The population variance,
+
 - The sample size $n$,
+
 
 affect how quickly the sampling distribution of the mean converges to a normal distribution.
 

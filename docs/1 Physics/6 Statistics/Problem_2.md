@@ -204,12 +204,14 @@ plt.show()
 
 
 ![alt text](image-9.png)
+#
 
 
 
 
-
- ## 3. Analysis of Convergence in Monte Carlo Estimation of 𝜋
+ 
+ 
+## 3. Analysis of Convergence in Monte Carlo Estimation of 𝜋
 
 
 

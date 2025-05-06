@@ -1,112 +1,141 @@
-# Measuring Gravitational Acceleration with a Pendulum
+# Problem: Measuring Earth's Gravitational Acceleration Using a Pendulum
 
-## Objective
+## 1. Theoretical Foundation
 
-To experimentally determine the gravitational acceleration $g$ using a simple pendulum and analyze the uncertainties in the process.
+The period of a simple pendulum undergoing small oscillations is given by:
 
-## Materials
+$$ T = 2\pi \sqrt{\frac{L}{g}} $$
 
-- String: $L = 1.000 \, \text{m}$.
-- Stopwatch (± 0.2 s uncertainty).
-- Ruler with 1 cm resolution → $\Delta L = 0.005 \, \text{m}$.
-- Small mass (e.g., keychain).
-- Stable support.
+Where:
 
-## Procedure Summary
+- $T$: Period of one oscillation
+- $L$: Length of the pendulum
+- $g$: Acceleration due to gravity
 
-- Displace pendulum < 15°.
-- Measure time for 10 oscillations.
-- Repeat 10 times.
-- Compute average, standard deviation, and uncertainties.
+Solving for $g$:
 
-## Collected Data
+$$ g = \frac{4 \pi^2 L}{T^2} $$
 
-| Trial | $T_{10}$ (s) |
-|-------|--------------|
-| 1     | 20.18        |
-| 2     | 20.12        |
-| 3     | 20.24        |
-| 4     | 20.10        |
-| 5     | 20.19        |
-| 6     | 20.13        |
-| 7     | 20.21        |
-| 8     | 20.11        |
-| 9     | 20.15        |
-| 10    | 20.16        |
+This formula allows us to estimate $g$ by measuring the length of the pendulum and the period of oscillation.
 
-## Calculations
+## 2. Simulation
 
-1. **Mean and Standard Deviation**
-   
-    
-    $\overline{T}_{10} = \frac{1}{10} \sum T_{10} = 20.159 \, \text{s}$.
-   
-    
-    $\sigma_T = \sqrt{\frac{1}{n-1} \sum (T_i - \overline{T}_{10})^2} \approx 0.045 \, \text{s}$.
-   
-    
-    $\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} = \frac{0.045}{\sqrt{10}} \approx 0.014 \, \text{s}$.
+We simulate 100 measurements of the period of a pendulum of known length, adding noise to mimic real measurement uncertainty.
 
-2. **Period of One Oscillation**
-   
-   
-    $T = \frac{\overline{T}_{10}}{10} = 2.0159 \, \text{s}$.
-   
-   
-    $\Delta T = \frac{\Delta T_{10}}{10} = 0.0014 \, \text{s}$.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
 
-3. **Compute Gravitational Acceleration**
-   
-   
-    $g = \frac{4 \pi^2 L}{T^2} = \frac{4 \cdot \pi^2 \cdot 1.000}{(2.0159)^2} \approx 9.70 \, \text{m/s}^2$.
+# True constants
+L = 1.00          # meters
+g_true = 9.81     # m/s²
 
-4. **Uncertainty in $g$**
-   
-   
-    $\Delta g = g \cdot \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \cdot \frac{\Delta T}{T}\right)^2}$.
-   
-   
-    $= 9.70 \cdot \sqrt{\left(\frac{0.005}{1.000}\right)^2 + \left(2 \cdot \frac{0.0014}{2.0159}\right)^2} \approx 9.70 \cdot 0.0054 = 0.052 \, \text{m/s}^2$.
+# Theoretical period
+T_theoretical = 2 * np.pi * np.sqrt(L / g_true)
+
+# Simulated measurements
+num_trials = 100
+np.random.seed(42)
+measured_Ts = T_theoretical + np.random.normal(0, 0.02, num_trials)  # ±0.02s noise
+
+# Estimate g from each period
+g_estimates = 4 * np.pi**2 * L / measured_Ts**2
+
+# Summary
+g_mean = np.mean(g_estimates)
+g_std = np.std(g_estimates)
+print(f"Estimated g: {g_mean:.2f} m/s² ± {g_std:.2f} m/s²")
+```
+
+Estimated g: 9.80 m/s² ± 0.19 m/s²
+#
+
+
+
+## 3. Visualization
+### A. Histogram of Measured Periods
+
+```python
+plt.figure(figsize=(8, 4))
+plt.hist(measured_Ts, bins=15, color='skyblue', edgecolor='black')
+plt.title("Histogram of Measured Periods")
+plt.xlabel("Period (s)")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()
+```
+
+![alt text](image.png)
+#
+
+
+### B. Histogram of Estimated $g$
+
+```python
+plt.figure(figsize=(8, 4))
+plt.hist(g_estimates, bins=15, color='salmon', edgecolor='black')
+plt.title("Histogram of Estimated g Values")
+plt.xlabel("g (m/s²)")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()
+```
+
+![alt text](image-1.png)
+#
+
+
+### C. Period vs. Length (Verification)
+
+
+```python
+lengths = np.linspace(0.5, 2.0, 20)
+periods = 2 * np.pi * np.sqrt(lengths / g_true)
+
+plt.figure(figsize=(8, 6))
+plt.plot(lengths, periods, 'o-', label='Theoretical Period')
+plt.title("Pendulum Period vs. Length")
+plt.xlabel("Length (m)")
+plt.ylabel("Period (s)")
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+![alt text](image-2.png)
+#
+
+
+
+
+## 4. Analysis and Discussion
+
+### Accuracy & Convergence
+
+With 100 trials, the mean estimated $g \approx 9.80 \, \text{m/s}^2$, which is extremely close to the accepted value.
+
+The standard deviation of 0.19 shows the effect of random noise, but the average is stable.
+
+### Measurement Noise
+
+Errors in period measurements (e.g., due to human timing) are magnified in the equation for $g$, since it involves $T^2$.
+
+This shows why repeated trials and averaging are important.
+
+### Assumptions
+
+- Small angle approximation (< 15°) is assumed.
+- Effects like air resistance and pivot friction are neglected.
+- Uniform string length and a point mass are assumed.
+
+### Practical Significance
+
+This experiment is a low-cost and effective method for estimating $g$.
+
+It’s widely used in education and fundamental physics labs.
+
+Reinforces concepts of uncertainty, precision, and error analysis.
 
 ## Final Result
 
-- $g = 9.70 \pm 0.05 \, \text{m/s}^2$.
-
-## Analysis
-
-- **Comparison with Standard**:
-     - Standard $g = 9.81 \, \text{m/s}^2$.
-
-     - Our result is slightly lower but within ~1.1%.
-
-     - Falls within uncertainty range, so it’s acceptable.
-
-
-
-
-
-- **Sources of Uncertainty**:
-
-  | Source              | Contribution                  |
-  |---------------------|--------------------------------|
-  | Ruler (length)      | ±0.5 cm → $\Delta L = 0.005 \, \text{m}$ |
-  | Timing variability  | ±0.2 s for human reaction     |
-  | Oscillation angle   | < 15° assumed; larger angles introduce systematic error |
-  | Air resistance, friction | Neglected in ideal model |
-
-
-
-- **Assumptions**:
-  - Small-angle approximation ($\theta < 15^\circ$).
-  - Rigid, massless string.
-  - Point mass bob.
-  - No air drag or pivot friction.
-
-## Conclusion
-
-The measured gravitational acceleration is:
-
-- $g = 9.70 \pm 0.05 \, \text{m/s}^2$.
-
-This agrees with the accepted value of $9.81 \, \text{m/s}^2$ within uncertainty, demonstrating that a simple pendulum is a reliable tool for measuring $g$ with careful execution and uncertainty analysis.
-
+$g = 9.80 \pm 0.19 \, \text{m/s}^2$
